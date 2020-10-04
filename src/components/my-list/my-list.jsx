@@ -24,7 +24,7 @@ const MyList = () => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <div ClassName="catalog__movies-list">
+        <div className="catalog__movies-list">
           <article className="small-movie-card catalog__movies-card">
             <div className="small-movie-card__image">
               <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175"/>
