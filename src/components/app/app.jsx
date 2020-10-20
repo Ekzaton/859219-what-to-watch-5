@@ -6,7 +6,7 @@ import {moviesValidator} from "../../validators";
 
 import Main from "../main/main";
 import Movie from "../movie/movie";
-import MoviesList from "../movies-list/movies-list";
+import MyList from "../my-list/my-list";
 import Player from "../player/player";
 import Review from "../review/review";
 import SignIn from "../sign-in/sign-in";
@@ -24,7 +24,7 @@ const App = (props) => {
           <SignIn/>
         </Route>
         <Route path="/movies-list" exact>
-          <MoviesList/>
+          <MyList/>
         </Route>
         <Route path="/movies/:id" exact>
           <Movie/>
