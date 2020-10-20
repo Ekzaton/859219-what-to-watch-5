@@ -6,9 +6,6 @@ import movies from "./mocks/movies";
 import reviews from "./mocks/reviews";
 
 ReactDOM.render(
-    <App
-      movies={movies}
-      reviews={reviews}
-    />,
+    <App movies={movies} reviews={reviews}/>,
     document.querySelector(`#root`)
 );

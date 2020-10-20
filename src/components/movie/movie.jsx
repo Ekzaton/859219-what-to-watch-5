@@ -1,6 +1,6 @@
 import React from "react";
 
-const MoviePage = () => {
+const Movie = () => {
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -155,4 +155,4 @@ const MoviePage = () => {
   );
 };
 
-export default MoviePage;
+export default Movie;

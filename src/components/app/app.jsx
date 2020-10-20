@@ -2,30 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
+import {moviesValidator} from "../../validators";
+
 import Main from "../main/main";
-import MoviePage from "../movie-page/movie-page";
-import MyList from "../my-list/my-list";
+import Movie from "../movie/movie";
+import MoviesList from "../movies-list/movies-list";
 import Player from "../player/player";
 import Review from "../review/review";
 import SignIn from "../sign-in/sign-in";
 
 const App = (props) => {
-  const {title, genre, year} = props;
+  const {movies} = props;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <Main title={title} genre={genre} year={year}/>
+          <Main movies={movies}/>
         </Route>
         <Route path="/sign-in" exact>
           <SignIn/>
         </Route>
-        <Route path="/my-list" exact>
-          <MyList/>
+        <Route path="/movies-list" exact>
+          <MoviesList/>
         </Route>
         <Route path="/movies/:id" exact>
-          <MoviePage/>
+          <Movie/>
         </Route>
         <Route path="/movies/:id/review" exact>
           <Review/>
@@ -39,9 +41,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  title: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired
+  movies: PropTypes.arrayOf(moviesValidator),
 };
 
 export default App;

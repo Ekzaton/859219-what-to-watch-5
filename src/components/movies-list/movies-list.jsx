@@ -1,6 +1,6 @@
 import React from "react";
 
-const MyList = () => {
+const MoviesList = () => {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -125,4 +125,4 @@ const MyList = () => {
   );
 };
 
-export default MyList;
+export default MoviesList;
