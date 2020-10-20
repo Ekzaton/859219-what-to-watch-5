@@ -3,8 +3,12 @@ import ReactDOM from "react-dom";
 import App from "./components/app/app";
 
 import movies from "./mocks/movies";
+import reviews from "./mocks/reviews";
 
 ReactDOM.render(
-    <App title={movies[0].title} genre={movies[0].genre} year={movies[0].year}/>,
+    <App
+      movies={movies}
+      reviews={reviews}
+    />,
     document.querySelector(`#root`)
 );
