@@ -15,7 +15,7 @@ const MoviesList = (props) => {
           <MovieCard
             key={`movie-${i}`}
             title={movie.title}
-            posterImage={movie.posterImage}
+            cardImage={movie.cardImage}
           />
         )
       }
