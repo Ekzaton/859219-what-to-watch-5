@@ -24,7 +24,7 @@ const App = (props) => {
           <SignIn/>
         </Route>
         <Route path="/my-list" exact>
-          <MyList/>
+          <MyList movies={movies}/>
         </Route>
         <Route path="/movies/:id" exact>
           <Movie movie={movies[0]} movies={movies}/>
