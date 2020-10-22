@@ -12,7 +12,7 @@ const Main = (props) => {
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={movie.bgImage} alt={movies[0].title}/>
+          <img src={movie.cardImage} alt={movie.title}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>

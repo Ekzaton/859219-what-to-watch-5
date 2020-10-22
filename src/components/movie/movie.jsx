@@ -13,7 +13,7 @@ const Movie = (props) => {
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src="/img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+            <img src={movie.cardImage} alt={movie.title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>

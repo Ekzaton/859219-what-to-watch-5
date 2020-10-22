@@ -11,7 +11,6 @@ export const moviesValidator = PropTypes.shape({
   director: PropTypes.string.isRequired,
   starring: PropTypes.string.isRequired,
   runTime: PropTypes.string.isRequired,
-  bgImage: PropTypes.string.isRequired,
   posterImage: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   video: PropTypes.string.isRequired,
