@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import {moviesValidator} from "../../validators";
+import {moviesValidator, reviewsValidator} from "../../validators";
 
 import Main from "../main/main";
 import Movie from "../movie/movie";
@@ -12,7 +12,7 @@ import Review from "../review/review";
 import SignIn from "../sign-in/sign-in";
 
 const App = (props) => {
-  const {movies} = props;
+  const {movies, reviews} = props;
 
   return (
     <BrowserRouter>
@@ -27,7 +27,7 @@ const App = (props) => {
           <MyList movies={movies}/>
         </Route>
         <Route path="/movies/:id" exact>
-          <Movie movie={movies[1]} movies={movies}/>
+          <Movie movie={movies[1]} movies={movies} reviews={reviews}/>
         </Route>
         <Route path="/movies/:id/review" exact>
           <Review movie={movies[1]}/>
@@ -42,6 +42,7 @@ const App = (props) => {
 
 App.propTypes = {
   movies: PropTypes.arrayOf(moviesValidator),
+  reviews: PropTypes.arrayOf(reviewsValidator),
 };
 
 export default App;
