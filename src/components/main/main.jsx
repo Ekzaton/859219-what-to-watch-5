@@ -6,13 +6,13 @@ import {moviesValidator} from "../../validators";
 import MoviesList from "../movies-list/movies-list";
 
 const Main = (props) => {
-  const {movies} = props;
+  const {movie, movies} = props;
 
   return (
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={movies[0].bgImage} alt={movies[0].title}/>
+          <img src={movie.bgImage} alt={movies[0].title}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -36,14 +36,14 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={movies[0].posterImage} alt={`${movies[0].title} poster`} width="218" height="327"/>
+              <img src={movie.posterImage} alt={`${movie.title} poster`} width="218" height="327"/>
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{movies[0].title}</h2>
+              <h2 className="movie-card__title">{movie.title}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{movies[0].genre}</span>
-                <span className="movie-card__year">{movies[0].year}</span>
+                <span className="movie-card__genre">{movie.genre}</span>
+                <span className="movie-card__year">{movie.year}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -128,6 +128,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
+  movie: moviesValidator,
   movies: PropTypes.arrayOf(moviesValidator),
 };
 
