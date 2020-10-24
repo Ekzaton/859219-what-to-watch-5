@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import {getRandomIndex} from "../../utils";
 import {moviesValidator, reviewsValidator} from "../../validators";
 
 import Main from "../main/main";
@@ -14,12 +13,13 @@ import SignIn from "../sign-in/sign-in";
 
 const App = (props) => {
   const {movies, reviews} = props;
+  const movie = movies[0];
 
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <Main movie={getRandomIndex(movies)} movies={movies}/>
+          <Main movie={movie} movies={movies}/>
         </Route>
         <Route path="/sign-in" exact>
           <SignIn/>
@@ -28,10 +28,10 @@ const App = (props) => {
           <MyList movies={movies}/>
         </Route>
         <Route path="/movies/:id" exact>
-          <Movie movie={getRandomIndex(movies)} movies={movies} reviews={reviews}/>
+          <Movie movie={movie} movies={movies} reviews={reviews}/>
         </Route>
         <Route path="/movies/:id/review" exact>
-          <Review movie={getRandomIndex(movies)}/>
+          <Review movie={movie}/>
         </Route>
         <Route path="/player/:id" exact>
           <Player/>
