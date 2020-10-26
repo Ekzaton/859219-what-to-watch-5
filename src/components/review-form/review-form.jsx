@@ -16,8 +16,6 @@ class ReviewForm extends React.PureComponent {
 
   handleSubmit(evt) {
     evt.preventDefault();
-
-    console.log(this.state);
   }
 
   handleRatingChange(evt) {
