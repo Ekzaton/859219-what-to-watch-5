@@ -16,8 +16,6 @@ class ReviewForm extends React.PureComponent {
 
   onSubmit(evt) {
     evt.preventDefault();
-
-    this.setState({ratingValue: ``, textValue: ``});
   }
 
   onRatingChange(evt) {
@@ -39,7 +37,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="1"
-              checked={this.state.ratingValue === `1`}
               onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-1">Rating 1</label>
@@ -50,7 +47,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="2"
-              checked={this.state.ratingValue === `2`}
               onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-2">Rating 2</label>
@@ -61,7 +57,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="3"
-              checked={this.state.ratingValue === `3`}
               onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-3">Rating 3</label>
@@ -72,7 +67,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="4"
-              checked={this.state.ratingValue === `4`}
               onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-4">Rating 4</label>
@@ -83,7 +77,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="5"
-              checked={this.state.ratingValue === `5`}
               onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-5">Rating 5</label>
@@ -96,7 +89,6 @@ class ReviewForm extends React.PureComponent {
             name="review-text"
             id="review-text"
             placeholder="Review text"
-            value={this.state.textValue}
             onChange={this.onTextChange}
           ></textarea>
           <div className="add-review__submit">
