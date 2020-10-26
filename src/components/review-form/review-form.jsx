@@ -30,14 +30,13 @@ class ReviewForm extends React.PureComponent {
     return (
       <form action="#" className="add-review__form" onSubmit={this.onSubmit}>
         <div className="rating">
-          <div className="rating__stars">
+          <div className="rating__stars" onChange={this.onRatingChange}>
             <input
               className="rating__input"
               id="star-1"
               type="radio"
               name="rating"
               value="1"
-              onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-1">Rating 1</label>
 
@@ -47,7 +46,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="2"
-              onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-2">Rating 2</label>
 
@@ -57,7 +55,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="3"
-              onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-3">Rating 3</label>
 
@@ -67,7 +64,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="4"
-              onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-4">Rating 4</label>
 
@@ -77,7 +73,6 @@ class ReviewForm extends React.PureComponent {
               type="radio"
               name="rating"
               value="5"
-              onChange={this.onRatingChange}
             />
             <label className="rating__label" htmlFor="star-5">Rating 5</label>
           </div>
