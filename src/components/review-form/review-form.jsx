@@ -9,28 +9,30 @@ class ReviewForm extends React.PureComponent {
       textValue: ``,
     };
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onRatingChange = this.onRatingChange.bind(this);
-    this.onTextChange = this.onTextChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
   }
 
-  onSubmit(evt) {
+  handleSubmit(evt) {
     evt.preventDefault();
+
+    console.log(this.state);
   }
 
-  onRatingChange(evt) {
+  handleRatingChange(evt) {
     this.setState({ratingValue: evt.target.value});
   }
 
-  onTextChange(evt) {
+  handleTextChange(evt) {
     this.setState({textValue: evt.target.value});
   }
 
   render() {
     return (
-      <form action="#" className="add-review__form" onSubmit={this.onSubmit}>
+      <form action="#" className="add-review__form" onSubmit={this.handleSubmit}>
         <div className="rating">
-          <div className="rating__stars" onChange={this.onRatingChange}>
+          <div className="rating__stars" onChange={this.handleRatingChange}>
             <input
               className="rating__input"
               id="star-1"
@@ -84,7 +86,7 @@ class ReviewForm extends React.PureComponent {
             name="review-text"
             id="review-text"
             placeholder="Review text"
-            onChange={this.onTextChange}
+            onChange={this.handleTextChange}
           ></textarea>
           <div className="add-review__submit">
             <button className="add-review__btn" type="submit">Post</button>
