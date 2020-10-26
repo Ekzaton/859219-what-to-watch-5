@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
-import {moviesValidator} from "../../validators";
+import {movieType} from "../../types";
 
 import MoviesList from "../movies-list/movies-list";
 
@@ -53,7 +53,7 @@ const MyList = (props) => {
 };
 
 MyList.propTypes = {
-  movies: PropTypes.arrayOf(moviesValidator),
+  movies: PropTypes.arrayOf(movieType),
 };
 
 export default MyList;

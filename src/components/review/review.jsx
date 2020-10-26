@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-import {moviesValidator} from "../../validators";
+import {movieType} from "../../types";
 
 import ReviewForm from "../review-form/review-form";
 
@@ -60,7 +60,7 @@ const Review = (props) => {
 };
 
 Review.propTypes = {
-  movie: moviesValidator,
+  movie: movieType,
 };
 
 export default Review;

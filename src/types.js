@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export const moviesValidator = PropTypes.shape({
+export const movieType = PropTypes.shape({
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
@@ -16,7 +16,7 @@ export const moviesValidator = PropTypes.shape({
   video: PropTypes.string.isRequired,
 });
 
-export const reviewsValidator = PropTypes.shape({
+export const reviewType = PropTypes.shape({
   movie: PropTypes.string.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,

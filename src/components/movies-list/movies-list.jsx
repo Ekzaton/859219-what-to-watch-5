@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {moviesValidator} from "../../validators";
+import {movieType} from "../../types";
 
 import MovieCard from "../movie-card/movie-card";
 
@@ -24,7 +24,7 @@ const MoviesList = (props) => {
 };
 
 MoviesList.propTypes = {
-  movies: PropTypes.arrayOf(moviesValidator),
+  movies: PropTypes.arrayOf(movieType),
 };
 
 export default MoviesList;

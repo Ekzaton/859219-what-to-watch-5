@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import {moviesValidator, reviewsValidator} from "../../validators";
+import {movieType, reviewType} from "../../types";
 
 import Main from "../main/main";
 import Movie from "../movie/movie";
@@ -42,8 +42,8 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  movies: PropTypes.arrayOf(moviesValidator),
-  reviews: PropTypes.arrayOf(reviewsValidator),
+  movies: PropTypes.arrayOf(movieType),
+  reviews: PropTypes.arrayOf(reviewType),
 };
 
 export default App;
