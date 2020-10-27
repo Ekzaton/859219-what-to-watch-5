@@ -2,33 +2,36 @@ import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
+import {movieType, reviewType} from "../../types";
+
 import Main from "../main/main";
-import MoviePage from "../movie-page/movie-page";
+import Movie from "../movie/movie";
 import MyList from "../my-list/my-list";
 import Player from "../player/player";
 import Review from "../review/review";
 import SignIn from "../sign-in/sign-in";
 
 const App = (props) => {
-  const {title, genre, year} = props;
+  const {movies, reviews} = props;
+  const movie = movies[0];
 
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <Main title={title} genre={genre} year={year}/>
+          <Main movie={movie} movies={movies}/>
         </Route>
         <Route path="/sign-in" exact>
           <SignIn/>
         </Route>
         <Route path="/my-list" exact>
-          <MyList/>
+          <MyList movies={movies}/>
         </Route>
         <Route path="/movies/:id" exact>
-          <MoviePage/>
+          <Movie movie={movie} movies={movies} reviews={reviews}/>
         </Route>
         <Route path="/movies/:id/review" exact>
-          <Review/>
+          <Review movie={movie}/>
         </Route>
         <Route path="/player/:id" exact>
           <Player/>
@@ -39,9 +42,8 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  title: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired
+  movies: PropTypes.arrayOf(movieType),
+  reviews: PropTypes.arrayOf(reviewType),
 };
 
 export default App;
