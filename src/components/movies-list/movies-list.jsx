@@ -10,7 +10,7 @@ class MoviesList extends React.PureComponent {
     super(props);
 
     this.state = {
-      activeMovieId: null,
+      activeMovieId: -1,
     };
 
     this.handleMovieActivation = this.handleMovieActivation.bind(this);
@@ -22,7 +22,7 @@ class MoviesList extends React.PureComponent {
   }
 
   handleMovieDeactivation() {
-    this.setState({activeMovieId: null});
+    this.setState({activeMovieId: -1});
   }
 
   render() {
@@ -36,6 +36,7 @@ class MoviesList extends React.PureComponent {
             movie={movie}
             onMovieEnter={this.handleMovieActivation}
             onMovieLeave={this.handleMovieDeactivation}
+            showPreview={this.state.activeMovieId === movie.id}
           />
         )}
       </div>

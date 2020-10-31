@@ -9,8 +9,8 @@ const Preview = (props) => {
     <video
       src={movie.video}
       poster={movie.cardImage}
-      width="336"
-      height="210"
+      width="280"
+      height="175"
       muted
       autoPlay
     />

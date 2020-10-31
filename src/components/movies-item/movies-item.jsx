@@ -4,8 +4,10 @@ import {Link} from "react-router-dom";
 
 import {movieType} from "../../types";
 
+import Preview from "../preview/preview";
+
 const MoviesItem = (props) => {
-  const {movie, onMovieEnter, onMovieLeave} = props;
+  const {movie, onMovieEnter, onMovieLeave, showPreview} = props;
 
   return (
     <article
@@ -14,9 +16,13 @@ const MoviesItem = (props) => {
       onMouseLeave={() => onMovieLeave()}
     >
       <Link to={`/movies/${movie.id}`} className="small-movie-card__image">
-        <div className="small-movie-card__image">
-          <img src={movie.cardImage} alt={movie.title} width="280" height="175"/>
-        </div>
+        {showPreview
+          ? <Preview movie={movie}/>
+          : <div className="small-movie-card__image">
+            <img src={movie.cardImage} alt={movie.title} width="280" height="175"/>
+          </div>
+        }
+
       </Link>
       <h3 className="small-movie-card__title">
         <Link to={`/movies/${movie.id}`} className="small-movie-card__link">
@@ -31,6 +37,7 @@ MoviesItem.propTypes = {
   movie: movieType,
   onMovieEnter: PropTypes.func.isRequired,
   onMovieLeave: PropTypes.func.isRequired,
+  showPreview: PropTypes.bool.isRequired,
 };
 
 export default MoviesItem;
