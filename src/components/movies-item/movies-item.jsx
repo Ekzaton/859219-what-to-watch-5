@@ -22,7 +22,6 @@ const MoviesItem = (props) => {
             <img src={movie.cardImage} alt={movie.title} width="280" height="175"/>
           </div>
         }
-
       </Link>
       <h3 className="small-movie-card__title">
         <Link to={`/movies/${movie.id}`} className="small-movie-card__link">
