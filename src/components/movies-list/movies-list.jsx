@@ -3,25 +3,45 @@ import PropTypes from "prop-types";
 
 import {movieType} from "../../types";
 
-import MovieCard from "../movie-card/movie-card";
+import MoviesItem from "../movies-item/movies-item";
 
-const MoviesList = (props) => {
-  const {movies} = props;
+class MoviesList extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="catalog__movies-list">
-      {
-        movies.map((movie, i) =>
-          <MovieCard
-            key={`movie-${i}`}
-            title={movie.title}
-            cardImage={movie.cardImage}
+    this.state = {
+      activeMovieId: null,
+    };
+
+    this.handleMovieActivation = this.handleMovieActivation.bind(this);
+    this.handleMovieDeactivation = this.handleMovieDeactivation.bind(this);
+  }
+
+  handleMovieActivation(id) {
+    this.setState({activeMovieId: id});
+  }
+
+  handleMovieDeactivation() {
+    this.setState({activeMovieId: null});
+  }
+
+  render() {
+    const {movies} = this.props;
+
+    return (
+      <div className="catalog__movies-list">
+        {movies.map((movie) =>
+          <MoviesItem
+            key = {movie.id}
+            movie={movie}
+            onMovieEnter={this.handleMovieActivation}
+            onMovieLeave={this.handleMovieDeactivation}
           />
-        )
-      }
-    </div>
-  );
-};
+        )}
+      </div>
+    );
+  }
+}
 
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(movieType),
