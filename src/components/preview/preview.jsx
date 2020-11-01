@@ -1,24 +1,44 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {movieType} from "../../types";
 
-const Preview = (props) => {
+class Preview extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  const {movie} = props;
-  return (
-    <video
-      src={movie.video}
-      poster={movie.cardImage}
-      width="280"
-      height="175"
-      muted
-      autoPlay
-    />
-  );
-};
+    this._videoRef = React.createRef();
+  }
+
+  componentDidUpdate() {
+    const video = this._videoRef.current;
+
+    if (this.props.isPlaying) {
+      video.play();
+    } else {
+      video.load();
+    }
+  }
+
+  render() {
+    const movie = this.props.movie;
+
+    return (
+      <video
+        ref={this._videoRef}
+        src={movie.video}
+        poster={movie.cardImage}
+        width="280"
+        height="175"
+        muted
+      />
+    );
+  }
+}
 
 Preview.propTypes = {
   movie: movieType,
+  isPlaying: PropTypes.bool.isRequired,
 };
 
 export default Preview;

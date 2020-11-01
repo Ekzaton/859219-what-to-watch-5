@@ -36,7 +36,7 @@ class MoviesList extends React.PureComponent {
             movie={movie}
             onMovieEnter={this.handleMovieActivation}
             onMovieLeave={this.handleMovieDeactivation}
-            showPreview={this.state.activeMovieId === movie.id}
+            isPlaying={this.state.activeMovieId === movie.id}
           />
         )}
       </div>
