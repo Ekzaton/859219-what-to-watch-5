@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import {movieType} from "../../types";
 
+const PLAYING_TIMEOUT = 100;
+
 class Preview extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -13,9 +15,14 @@ class Preview extends React.PureComponent {
   componentDidUpdate() {
     const video = this._videoRef.current;
 
-    if (this.props.isPlaying) {
-      video.play();
-    } else {
+
+    setTimeout(() => {
+      if (this.props.isPlaying) {
+        video.play();
+      }
+    }, PLAYING_TIMEOUT);
+
+    if (!this.props.isPlaying) {
       video.load();
     }
   }
