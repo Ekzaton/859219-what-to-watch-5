@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {movieType} from "../../types";
 
-const PLAYING_TIMEOUT = 100;
+const PLAYING_TIMEOUT = 150;
 
 class Preview extends React.PureComponent {
   constructor(props) {
