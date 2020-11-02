@@ -15,7 +15,6 @@ class Preview extends React.PureComponent {
   componentDidUpdate() {
     const video = this._videoRef.current;
 
-
     setTimeout(() => {
       if (this.props.isPlaying) {
         video.play();
