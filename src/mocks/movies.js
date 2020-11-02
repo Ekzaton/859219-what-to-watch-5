@@ -1,5 +1,6 @@
 export default [
   {
+    id: 1,
     title: `The Grand Budapest Hotel`,
     genre: `Drama`,
     year: 2014,
@@ -14,6 +15,7 @@ export default [
     cardImage: `/img/bg-the-grand-budapest-hotel.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: 2,
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
     genre: `Fantasy`,
     year: 2018,
@@ -28,6 +30,7 @@ export default [
     cardImage: `/img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: 3,
     title: `Bohemian Rhapsody`,
     genre: `Biopic`,
     year: 2018,
@@ -42,6 +45,7 @@ export default [
     cardImage: `/img/bohemian-rhapsody.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: 4,
     title: `Macbeth`,
     genre: `Historical`,
     year: 2015,
@@ -56,6 +60,7 @@ export default [
     cardImage: `/img/macbeth.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: 5,
     title: `Aviator`,
     genre: `Biopic`,
     year: 2004,
@@ -70,6 +75,7 @@ export default [
     cardImage: `/img/aviator.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: 6,
     title: `We Need to Talk About Kevin`,
     genre: `Thriller`,
     year: 2011,
@@ -84,6 +90,7 @@ export default [
     cardImage: `/img/we-need-to-talk-about-kevin.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: 7,
     title: `What We Do in the Shadows`,
     genre: `Horror Comedy`,
     year: 2014,
@@ -98,6 +105,7 @@ export default [
     cardImage: `/img/what-we-do-in-the-shadows.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: 8,
     title: `The Revenant`,
     genre: `Drama`,
     year: 2015,
