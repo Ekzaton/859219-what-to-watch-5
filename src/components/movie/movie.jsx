@@ -10,6 +10,9 @@ import Tabs from "../tabs/tabs";
 const Movie = (props) => {
   const {movie, movies, reviews} = props;
 
+  let similarMovies = [];
+  movies.filter((it) => (it.genre === movie.genre && it.id !== movie.id) ? similarMovies.push(it) : ``);
+
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -85,7 +88,7 @@ const Movie = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <MoviesList movies={movies.slice(0, 4)}/>
+          <MoviesList movies={similarMovies.slice(0, 4)}/>
         </section>
 
         <footer className="page-footer">
