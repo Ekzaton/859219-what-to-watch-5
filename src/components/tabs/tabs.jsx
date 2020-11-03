@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {Tab} from "../../const";
-import {movieType} from "../../types";
+import {movieType, reviewType} from "../../types";
 import {capitalize} from "../../utils";
 
 import MovieDetails from "../movie-details/movie-details";
@@ -13,27 +14,27 @@ class Tabs extends React.PureComponent {
     super(props);
 
     this.state = {
-      selectedTab: Tab.OVERVIEW,
+      activeTab: Tab.OVERVIEW,
     };
 
-    this.selectTab = this.selectTab.bind(this);
+    this.activateTab = this.activateTab.bind(this);
     this.handleTabClick = this.handleTabClick.bind(this);
   }
 
   handleTabClick(tab) {
-    this.setState({selectedTab: tab});
+    this.setState({activeTab: tab});
   }
 
-  selectTab() {
+  activateTab() {
     const movie = this.props.movie;
 
-    switch (this.state.selectedTab) {
+    switch (this.state.activeTab) {
       case Tab.OVERVIEW:
         return <MovieOverview movie={movie}/>;
       case Tab.DETAILS:
         return <MovieDetails movie={movie}/>;
       case Tab.REVIEWS:
-        return <MovieReviews movie={movie}/>;
+        return <MovieReviews movie={movie} reviews={this.props.reviews}/>;
     }
 
     return null;
@@ -41,6 +42,7 @@ class Tabs extends React.PureComponent {
 
   render() {
     const tabs = Object.values(Tab);
+    const activeClass = `movie-nav__item--active`;
 
     return (
       <div className="movie-card__desc">
@@ -49,8 +51,7 @@ class Tabs extends React.PureComponent {
             {tabs.map((tab) =>
               <li
                 key={tab}
-                className={`movie-nav__item
-                  ${this.state.selectedTab === tab ? `movie-nav__item--active` : ``}`}
+                className={`movie-nav__item ${this.state.activeTab === tab ? activeClass : ``}`}
               >
                 <a href="#"
                   className="movie-nav__link"
@@ -66,7 +67,7 @@ class Tabs extends React.PureComponent {
             )}
           </ul>
         </nav>
-        {this.selectTab()}
+        {this.activateTab()}
       </div>
     );
   }
@@ -74,6 +75,7 @@ class Tabs extends React.PureComponent {
 
 Tabs.propTypes = {
   movie: movieType,
+  reviews: PropTypes.arrayOf(reviewType),
 };
 
 export default Tabs;

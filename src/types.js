@@ -18,7 +18,7 @@ export const movieType = PropTypes.shape({
 });
 
 export const reviewType = PropTypes.shape({
-  movie: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
