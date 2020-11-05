@@ -2,12 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
-import {movieType} from "../../types";
+import {movieType, reviewType} from "../../types";
 
 import MoviesList from "../movies-list/movies-list";
+import Tabs from "../tabs/tabs";
 
 const Movie = (props) => {
-  const {movie, movies} = props;
+  const {movie, movies, reviews} = props;
+  const similarMovies = movies.filter((it) => it.genre === movie.genre && it.id !== movie.id);
 
   return (
     <React.Fragment>
@@ -67,38 +69,15 @@ const Movie = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={movie.posterImage} alt={`${movie.title} poster`} width="218" height="327"/>
+              <img
+                src={movie.posterImage}
+                alt={`${movie.title} poster`}
+                width="218"
+                height="327"
+              />
             </div>
 
-            <div className="movie-card__desc">
-              <nav className="movie-nav movie-card__nav">
-                <ul className="movie-nav__list">
-                  <li className="movie-nav__item movie-nav__item--active">
-                    <a href="#" className="movie-nav__link">Overview</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Details</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <div className="movie-rating">
-                <div className="movie-rating__score">{movie.ratingScore}</div>
-                <p className="movie-rating__meta">
-                  <span className="movie-rating__level">{movie.ratingLevel}</span>
-                  <span className="movie-rating__count">{movie.ratingCount}</span>
-                </p>
-              </div>
-
-              <div className="movie-card__text">
-                <p>{movie.text}</p>
-                <p className="movie-card__director"><strong>Director: {movie.director}</strong></p>
-                <p className="movie-card__starring"><strong>Starring: {movie.starring}</strong></p>
-              </div>
-            </div>
+            <Tabs movie={movie} reviews={reviews}/>
           </div>
         </div>
       </section>
@@ -107,7 +86,7 @@ const Movie = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <MoviesList movies={movies.slice(0, 4)}/>
+          <MoviesList movies={similarMovies.slice(0, 4)}/>
         </section>
 
         <footer className="page-footer">
@@ -131,6 +110,7 @@ const Movie = (props) => {
 Movie.propTypes = {
   movie: movieType,
   movies: PropTypes.arrayOf(movieType),
+  reviews: PropTypes.arrayOf(reviewType),
 };
 
 export default Movie;

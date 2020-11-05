@@ -1,7 +1,7 @@
 export default [
   {
-    movie: `The Grand Budapest Hotel`,
-    reviews: [
+    id: 1,
+    content: [
       {
         text: `Deeply entertained, remarkable filmography and truly funny story with an incredible cast.`,
         rating: 9.0,
@@ -20,8 +20,8 @@ export default [
       }
     ]
   }, {
-    movie: `Fantastic Beasts: The Crimes of Grindelwald`,
-    reviews: [
+    id: 2,
+    content: [
       {
         text: `The Harry Potter movies and its world have so much potential for prequels and sequels . This movie had taken that potential and burned it all down. More thinking about tue fans and less of whatever this movie was Mr Yates.`,
         rating: 1.0,
@@ -35,8 +35,8 @@ export default [
       }
     ]
   }, {
-    movie: `Bohemian Rhapsody`,
-    reviews: [
+    id: 3,
+    content: [
       {
         text: `Queen biopic nails the music part. The concert, rehearsal, and recording session scenes look and sound great. The rest falls flat. Rami Malek is very good as Freddie Mercury.`,
         rating: 6.5,
@@ -52,11 +52,11 @@ export default [
         rating: 10.0,
         author: `Cristbal R`,
         date: `August 29, 2020`,
-      }
+      },
     ]
   }, {
-    movie: `Macbeth`,
-    reviews: [
+    id: 4,
+    content: [
       {
         text: `Black people in Macbeth? Artistic take on a well-known play? Nothing could convince me that makes any sense whatsoever. Litentia poetica does not apply here, not because there can't be a different artistic take on a play, but because we all know too well the reason for introducing black actors. Not acceptable!`,
         rating: 2.5,
@@ -70,8 +70,8 @@ export default [
       }
     ]
   }, {
-    movie: `Aviator`,
-    reviews: [
+    id: 5,
+    content: [
       {
         text: `A fantastic and very accurate biopic leading by terrific performances and with the nicest Martin Scorsese's touch.`,
         rating: 9.0,
@@ -90,8 +90,8 @@ export default [
       }
     ]
   }, {
-    movie: `We Need to Talk About Kevin`,
-    reviews: [
+    id: 6,
+    content: [
       {
         text: `This movie messed me up a lot`,
         rating: 6.0,
@@ -110,8 +110,8 @@ export default [
       }
     ]
   }, {
-    movie: `What We Do in the Shadows`,
-    reviews: [
+    id: 7,
+    content: [
       {
         text: `This movie is HILARIOUS. Taika Waititi is pure genius`,
         rating: 10.0,
@@ -125,8 +125,8 @@ export default [
       }
     ]
   }, {
-    movie: `The Revenant`,
-    reviews: [
+    id: 8,
+    content: [
       {
         text: `A guy walking and grunting through the snow for two hours.`,
         rating: 4.0,
