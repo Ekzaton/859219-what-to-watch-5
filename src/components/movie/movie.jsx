@@ -9,9 +9,7 @@ import Tabs from "../tabs/tabs";
 
 const Movie = (props) => {
   const {movie, movies, reviews} = props;
-
-  let similarMovies = [];
-  movies.filter((it) => (it.genre === movie.genre && it.id !== movie.id) ? similarMovies.push(it) : ``);
+  const similarMovies = movies.filter((it) => it.genre === movie.genre && it.id !== movie.id);
 
   return (
     <React.Fragment>
