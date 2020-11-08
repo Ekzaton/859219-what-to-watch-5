@@ -1,7 +1,7 @@
 import {ActionType} from "./action";
 import {extend} from "../utils";
 
-import movies from "./mocks/movies";
+import movies from "../mocks/movies";
 
 const initialState = {
   activeGenre: `All genres`,
