@@ -1,7 +1,7 @@
-export const getGenres = (moviesList) => {
-  return Array.from(new Set(moviesList.map((movie) => movie.genre)));
+export const getGenres = (movies) => {
+  return Array.from(new Set(movies.map((movie) => movie.genre)));
 };
 
-export const getMoviesByGenre = (moviesList, activeGenre) => {
-  return moviesList.filter((movie) => movie.genre === activeGenre);
+export const getMoviesByGenre = (movies, genre) => {
+  return movies.filter((movie) => movie.genre === genre);
 };
