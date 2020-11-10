@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {connect} from "react-redux";
 
 import {movieType} from "../../types";
 
@@ -45,15 +44,8 @@ class MoviesList extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    movies: state.moviesList,
-  };
-};
-
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(movieType),
 };
 
-export {MoviesList};
-export default connect(mapStateToProps)(MoviesList);
+export default MoviesList;

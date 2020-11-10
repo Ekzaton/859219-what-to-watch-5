@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 
 import {movieType} from "../../types";
 
@@ -97,9 +98,16 @@ const Main = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    movies: state.moviesList,
+  };
+};
+
 Main.propTypes = {
   movie: movieType,
   movies: PropTypes.arrayOf(movieType),
 };
 
-export default Main;
+export {Main};
+export default connect(mapStateToProps)(Main);
