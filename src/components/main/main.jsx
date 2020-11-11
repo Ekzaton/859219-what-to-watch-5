@@ -2,13 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
+import {ActionCreator} from "../../store/action";
+
 import {movieType} from "../../types";
 
 import GenresList from "../genres-list/genres-list";
 import MoviesList from "../movies-list/movies-list";
 
 const Main = (props) => {
-  const {movie, movies} = props;
+  const {movie, movies, moviesByGenre, activeGenre, onGenreClick} = props;
 
   return (
     <React.Fragment>
@@ -71,9 +73,13 @@ const Main = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList movies={movies}/>
+          <GenresList
+            movies={movies}
+            activeGenre={activeGenre}
+            onGenreClick={onGenreClick}
+          />
 
-          <MoviesList movies={movies}/>
+          <MoviesList movies={moviesByGenre}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -100,14 +106,24 @@ const Main = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.moviesList,
+    activeGenre: state.activeGenre,
+    moviesByGenre: state.moviesByGenre,
   };
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  onGenreClick(activeGenre) {
+    dispatch(ActionCreator.changeMoviesGenre(activeGenre));
+  }
+});
 
 Main.propTypes = {
   movie: movieType,
   movies: PropTypes.arrayOf(movieType),
+  moviesByGenre: PropTypes.arrayOf(movieType),
+  activeGenre: PropTypes.string.isRequired,
+  onGenreClick: PropTypes.func.isRequired,
 };
 
 export {Main};
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
