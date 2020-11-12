@@ -6,12 +6,12 @@ import {extend} from "../utils";
 
 import movies from "../mocks/movies";
 
-const SHOWN_MOVIES = 6;
+const SHOWN_MOVIES_COUNT = 8;
 
 const initialState = {
   activeGenre: ALL_GENRES,
   moviesByGenre: movies,
-  shownMovies: SHOWN_MOVIES,
+  shownMovies: SHOWN_MOVIES_COUNT,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -26,9 +26,9 @@ export const reducer = (state = initialState, action) => {
         moviesByGenre: filteredMovies,
       });
     case ActionType.SHOW_MORE_MOVIES:
-      if (state.shownMovies < state.moviesByGenre.length - SHOWN_MOVIES) {
+      if (state.shownMovies < state.moviesByGenre.length - SHOWN_MOVIES_COUNT) {
         return extend(state, {
-          shownMovies: action.payload + SHOWN_MOVIES,
+          shownMovies: action.payload + SHOWN_MOVIES_COUNT,
         });
       } else {
         return extend(state, {

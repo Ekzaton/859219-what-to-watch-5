@@ -10,7 +10,7 @@ import GenresList from "../genres-list/genres-list";
 import MoviesList from "../movies-list/movies-list";
 
 const Main = (props) => {
-  const {movie, movies, moviesByGenre, activeGenre, onGenreClick} = props;
+  const {movie, movies, moviesByGenre, shownMovies, activeGenre, onGenreClick} = props;
 
   return (
     <React.Fragment>
@@ -79,7 +79,10 @@ const Main = (props) => {
             onGenreClick={onGenreClick}
           />
 
-          <MoviesList movies={moviesByGenre}/>
+          <MoviesList
+            movies={moviesByGenre}
+            shownMovies={shownMovies}
+          />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -108,6 +111,7 @@ const mapStateToProps = (state) => {
   return {
     activeGenre: state.activeGenre,
     moviesByGenre: state.moviesByGenre,
+    shownMovies: state.shownMovies,
   };
 };
 
@@ -121,6 +125,7 @@ Main.propTypes = {
   movie: movieType,
   movies: PropTypes.arrayOf(movieType),
   moviesByGenre: PropTypes.arrayOf(movieType),
+  shownMovies: PropTypes.number.isRequired,
   activeGenre: PropTypes.string.isRequired,
   onGenreClick: PropTypes.func.isRequired,
 };
