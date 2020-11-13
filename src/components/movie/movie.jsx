@@ -7,6 +7,8 @@ import {movieType, reviewType} from "../../types";
 import MoviesList from "../movies-list/movies-list";
 import Tabs from "../tabs/tabs";
 
+const SIMILAR_MOVIES_COUNT = 4;
+
 const Movie = (props) => {
   const {movie, movies, reviews} = props;
   const similarMovies = movies.filter((it) => it.genre === movie.genre && it.id !== movie.id);
@@ -86,7 +88,10 @@ const Movie = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <MoviesList movies={similarMovies.slice(0, 4)}/>
+          <MoviesList
+            movies={similarMovies}
+            shownMovies={SIMILAR_MOVIES_COUNT}
+          />
         </section>
 
         <footer className="page-footer">

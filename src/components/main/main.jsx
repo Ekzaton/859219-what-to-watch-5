@@ -8,9 +8,18 @@ import {movieType} from "../../types";
 
 import GenresList from "../genres-list/genres-list";
 import MoviesList from "../movies-list/movies-list";
+import ShowMore from "../show-more/show-more";
 
 const Main = (props) => {
-  const {movie, movies, moviesByGenre, activeGenre, onGenreClick} = props;
+  const {
+    movie,
+    movies,
+    moviesByGenre,
+    shownMovies,
+    activeGenre,
+    onGenreClick,
+    onShowMoreClick
+  } = props;
 
   return (
     <React.Fragment>
@@ -79,11 +88,17 @@ const Main = (props) => {
             onGenreClick={onGenreClick}
           />
 
-          <MoviesList movies={moviesByGenre}/>
+          <MoviesList
+            movies={moviesByGenre}
+            shownMovies={shownMovies}
+          />
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          {shownMovies < moviesByGenre.length &&
+            <ShowMore
+              shownMovies={shownMovies}
+              onShowMoreClick={onShowMoreClick}
+            />
+          }
         </section>
 
         <footer className="page-footer">
@@ -108,12 +123,16 @@ const mapStateToProps = (state) => {
   return {
     activeGenre: state.activeGenre,
     moviesByGenre: state.moviesByGenre,
+    shownMovies: state.shownMovies,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
     dispatch(ActionCreator.changeMoviesGenre(activeGenre));
+  },
+  onShowMoreClick(shownMovies) {
+    dispatch(ActionCreator.showMoreMovies(shownMovies));
   }
 });
 
@@ -121,8 +140,10 @@ Main.propTypes = {
   movie: movieType,
   movies: PropTypes.arrayOf(movieType),
   moviesByGenre: PropTypes.arrayOf(movieType),
+  shownMovies: PropTypes.number.isRequired,
   activeGenre: PropTypes.string.isRequired,
   onGenreClick: PropTypes.func.isRequired,
+  onShowMoreClick: PropTypes.func.isRequired,
 };
 
 export {Main};

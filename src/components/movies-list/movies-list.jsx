@@ -26,13 +26,13 @@ class MoviesList extends React.PureComponent {
   }
 
   render() {
-    const {movies} = this.props;
+    const {movies, shownMovies} = this.props;
 
     return (
       <div className="catalog__movies-list">
-        {movies.map((movie) =>
+        {movies.map((movie, i) => i < shownMovies &&
           <MoviesItem
-            key = {movie.id}
+            key={`movie-${i}`}
             movie={movie}
             onMovieEnter={this.handleMovieActivation}
             onMovieLeave={this.handleMovieDeactivation}
@@ -46,6 +46,7 @@ class MoviesList extends React.PureComponent {
 
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(movieType),
+  shownMovies: PropTypes.number.isRequired,
 };
 
 export default MoviesList;
