@@ -1,7 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-
-import {movieType} from "../../types";
 
 const withMoviesList = (Component) => {
   class WithMoviesList extends React.PureComponent {
@@ -25,12 +22,9 @@ const withMoviesList = (Component) => {
     }
 
     render() {
-      const {movies, shownMovies} = this.props;
-
       return (
         <Component
-          movies={movies}
-          shownMovies={shownMovies}
+          {...this.props}
           onMovieEnter={this.handleMovieActivation}
           onMovieLeave={this.handleMovieDeactivation}
           activeMovieId={this.state.activeMovieId}
@@ -38,11 +32,6 @@ const withMoviesList = (Component) => {
       );
     }
   }
-
-  WithMoviesList.propTypes = {
-    movies: PropTypes.arrayOf(movieType),
-    shownMovies: PropTypes.number.isRequired,
-  };
 
   return WithMoviesList;
 };
