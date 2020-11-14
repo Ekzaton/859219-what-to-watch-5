@@ -6,9 +6,13 @@ import {ActionCreator} from "../../store/action";
 
 import {movieType} from "../../types";
 
+import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
+
 import GenresList from "../genres-list/genres-list";
 import MoviesList from "../movies-list/movies-list";
 import ShowMore from "../show-more/show-more";
+
+const MoviesListWrapped = withMoviesList(MoviesList);
 
 const Main = (props) => {
   const {
@@ -88,7 +92,7 @@ const Main = (props) => {
             onGenreClick={onGenreClick}
           />
 
-          <MoviesList
+          <MoviesListWrapped
             movies={moviesByGenre}
             shownMovies={shownMovies}
           />

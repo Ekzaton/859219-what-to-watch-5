@@ -4,8 +4,12 @@ import {Link} from "react-router-dom";
 
 import {movieType, reviewType} from "../../types";
 
+import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
+
 import MoviesList from "../movies-list/movies-list";
 import Tabs from "../tabs/tabs";
+
+const MoviesListWrapped = withMoviesList(MoviesList);
 
 const SIMILAR_MOVIES_COUNT = 4;
 
@@ -88,7 +92,7 @@ const Movie = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <MoviesList
+          <MoviesListWrapped
             movies={similarMovies}
             shownMovies={SIMILAR_MOVIES_COUNT}
           />
