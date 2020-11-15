@@ -9,7 +9,7 @@ export const movieType = PropTypes.shape({
   ratingCount: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
-  starring: PropTypes.string.isRequired,
+  starring: PropTypes.array.isRequired,
   runTime: PropTypes.string.isRequired,
   posterImage: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
