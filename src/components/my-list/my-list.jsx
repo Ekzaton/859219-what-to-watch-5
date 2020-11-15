@@ -4,10 +4,15 @@ import {Link} from "react-router-dom";
 
 import {movieType} from "../../types";
 
+import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
+
 import MoviesList from "../movies-list/movies-list";
+
+const MoviesListWrapped = withMoviesList(MoviesList);
 
 const MyList = (props) => {
   const {movies} = props;
+  const favoriteMovies = movies.filter((it) => it.isFavorite === true);
 
   return (
     <div className="user-page">
@@ -32,7 +37,10 @@ const MyList = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <MoviesList movies={movies}/>
+        <MoviesListWrapped
+          movies={favoriteMovies}
+          shownMovies={favoriteMovies.length}
+        />
       </section>
 
       <footer className="page-footer">

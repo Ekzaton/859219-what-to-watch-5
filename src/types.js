@@ -15,6 +15,7 @@ export const movieType = PropTypes.shape({
   posterImage: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   video: PropTypes.string.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
 });
 
 export const reviewType = PropTypes.shape({

@@ -14,6 +14,7 @@ export default [
     posterImage: `/img/the-grand-budapest-hotel-poster.jpg`,
     cardImage: `/img/bg-the-grand-budapest-hotel.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    isFavorite: true,
   }, {
     id: 2,
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
@@ -29,6 +30,7 @@ export default [
     posterImage: `/img/the-grand-budapest-hotel-poster.jpg`,
     cardImage: `/img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    isFavorite: false,
   }, {
     id: 3,
     title: `Bohemian Rhapsody`,
@@ -44,6 +46,7 @@ export default [
     posterImage: `/img/the-grand-budapest-hotel-poster.jpg`,
     cardImage: `/img/bohemian-rhapsody.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    isFavorite: false,
   }, {
     id: 4,
     title: `Macbeth`,
@@ -59,6 +62,7 @@ export default [
     posterImage: `/img/the-grand-budapest-hotel-poster.jpg`,
     cardImage: `/img/macbeth.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    isFavorite: true,
   }, {
     id: 5,
     title: `Aviator`,
@@ -74,6 +78,7 @@ export default [
     posterImage: `/img/the-grand-budapest-hotel-poster.jpg`,
     cardImage: `/img/aviator.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    isFavorite: false,
   }, {
     id: 6,
     title: `We Need to Talk About Kevin`,
@@ -89,6 +94,7 @@ export default [
     posterImage: `/img/the-grand-budapest-hotel-poster.jpg`,
     cardImage: `/img/we-need-to-talk-about-kevin.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    isFavorite: false,
   }, {
     id: 7,
     title: `What We Do in the Shadows`,
@@ -104,6 +110,7 @@ export default [
     posterImage: `/img/the-grand-budapest-hotel-poster.jpg`,
     cardImage: `/img/what-we-do-in-the-shadows.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    isFavorite: true,
   }, {
     id: 8,
     title: `The Revenant`,
@@ -119,5 +126,6 @@ export default [
     posterImage: `/img/the-grand-budapest-hotel-poster.jpg`,
     cardImage: `/img/revenant.jpg`,
     video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    isFavorite: true,
   },
 ];
