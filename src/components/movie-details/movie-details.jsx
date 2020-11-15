@@ -23,7 +23,7 @@ const MovieDetails = (props) => {
           <span className="movie-card__details-value">
             {movie.starring.map((star, i) => {
               if (i < movie.starring.length - 1) {
-                return <React.Fragment key={`star-${i}`}>{star}<br/></React.Fragment>;
+                return <React.Fragment key={`star-${i}`}>{star}, <br/></React.Fragment>;
               } else {
                 return star;
               }
