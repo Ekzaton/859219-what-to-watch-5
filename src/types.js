@@ -6,7 +6,6 @@ export const movieType = PropTypes.shape({
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   ratingScore: PropTypes.number.isRequired,
-  ratingLevel: PropTypes.string.isRequired,
   ratingCount: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
