@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+
+import {ActionCreator} from "../../store/action";
 
 import {ALL_GENRES} from "../../const";
 import {getGenres} from "../../movies-filter";
@@ -37,10 +40,23 @@ const GenresList = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    activeGenre: state.activeGenre,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onGenreClick(activeGenre) {
+    dispatch(ActionCreator.changeMoviesGenre(activeGenre));
+  }
+});
+
 GenresList.propTypes = {
   movies: PropTypes.arrayOf(movieType),
   activeGenre: PropTypes.string.isRequired,
   onGenreClick: PropTypes.func.isRequired,
 };
 
-export default GenresList;
+export {GenresList};
+export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

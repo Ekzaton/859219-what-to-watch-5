@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+
+import {ActionCreator} from "../../store/action";
 
 const ShowMore = (props) => {
   const {shownMovies, onShowMoreClick} = props;
@@ -19,9 +22,16 @@ const ShowMore = (props) => {
   );
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  onShowMoreClick(shownMovies) {
+    dispatch(ActionCreator.showMoreMovies(shownMovies));
+  }
+});
+
 ShowMore.propTypes = {
   shownMovies: PropTypes.number.isRequired,
   onShowMoreClick: PropTypes.func.isRequired,
 };
 
-export default ShowMore;
+export {ShowMore};
+export default connect(null, mapDispatchToProps)(ShowMore);
