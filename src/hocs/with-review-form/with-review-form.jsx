@@ -6,7 +6,7 @@ const withReviewForm = (Component) => {
       super();
 
       this.state = {
-        ratingValue: ``,
+        ratingValue: 1,
         textValue: ``,
       };
 
@@ -20,7 +20,7 @@ const withReviewForm = (Component) => {
     }
 
     handleRatingChange(evt) {
-      this.setState({ratingValue: evt.target.value});
+      this.setState({ratingValue: Number(evt.target.value)});
     }
 
     handleTextChange(evt) {
@@ -30,6 +30,8 @@ const withReviewForm = (Component) => {
     render() {
       return (
         <Component
+          ratingValue={this.state.ratingValue}
+          textValue={this.state.textValue}
           onSubmit={this.handleSubmit}
           onRatingChange={this.handleRatingChange}
           onTextChange={this.handleTextChange}
