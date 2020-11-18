@@ -4,12 +4,16 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import {movieType, reviewType} from "../../types";
 
+import withPlayer from "../../hocs/with-player/with-player";
+
 import Main from "../main/main";
 import Movie from "../movie/movie";
 import MyList from "../my-list/my-list";
 import Player from "../player/player";
 import Review from "../review/review";
 import SignIn from "../sign-in/sign-in";
+
+const PlayerWrapped = withPlayer(Player);
 
 const App = (props) => {
   const {movies, reviews} = props;
@@ -34,7 +38,7 @@ const App = (props) => {
           <Review movie={movie}/>
         </Route>
         <Route path="/player/:id" exact>
-          <Player/>
+          <PlayerWrapped movie={movie}/>
         </Route>
       </Switch>
     </BrowserRouter>

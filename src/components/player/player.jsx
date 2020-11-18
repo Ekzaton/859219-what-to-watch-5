@@ -1,31 +1,84 @@
 import React from "react";
+import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
+import moment from "moment";
 
-const Player = () => {
+import {movieType} from "../../types";
+
+const Player = (props) => {
+  const {
+    movie,
+    progressRef,
+    videoRef,
+    isPlaying,
+    progressBar,
+    timeRemaining,
+    handleFullScreenButton,
+    handlePlayButton,
+    handleMouseDown
+  } = props;
+
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="/img/player-poster.jpg"></video>
+      <video
+        className="player__video"
+        ref={videoRef}
+        src={movie.video}
+        poster={movie.cardImage}
+      />
 
-      <button type="button" className="player__exit">Exit</button>
+      {(isPlaying) ||
+        <Link to={`/movies/:id`}>
+          <button type="button" className="player__exit">Exit</button>
+        </Link>
+      }
 
       <div className="player__controls">
         <div className="player__controls-row">
           <div className="player__time">
-            <progress className="player__progress" value="30" max="100"></progress>
-            <div className="player__toggler" style={{left: `30%`}}>Toggler</div>
+            <progress
+              className="player__progress"
+              ref={progressRef}
+              value={progressBar}
+              max="100"
+            />
+            {isPlaying &&
+              <div
+                className="player__toggler"
+                style={{left: progressBar + `%`}}
+                onMouseDown={handleMouseDown}
+              >
+                Toggler
+              </div>
+            }
           </div>
-          <div className="player__time-value">1:30:29</div>
+          <div className="player__time-value">
+            {moment.utc(timeRemaining * 1000).format(`HH:mm:ss`)}
+          </div>
         </div>
 
         <div className="player__controls-row">
-          <button type="button" className="player__play">
+          <button
+            type="button"
+            className="player__play"
+            onClick={handlePlayButton}
+          >
             <svg viewBox="0 0 19 19" width="19" height="19">
-              <use xlinkHref="#play-s"></use>
+              {isPlaying
+                ? <use xlinkHref="#pause"></use>
+                : <use xlinkHref="#play-s"></use>
+              }
             </svg>
             <span>Play</span>
           </button>
-          <div className="player__name">Transpotting</div>
 
-          <button type="button" className="player__full-screen">
+          <div className="player__name">{movie.title}</div>
+
+          <button
+            type="button"
+            className="player__full-screen"
+            onClick={handleFullScreenButton}
+          >
             <svg viewBox="0 0 27 27" width="27" height="27">
               <use xlinkHref="#full-screen"></use>
             </svg>
@@ -35,6 +88,18 @@ const Player = () => {
       </div>
     </div>
   );
+};
+
+Player.propTypes = {
+  movie: movieType,
+  progressRef: PropTypes.shape({current: PropTypes.instanceOf(Element)}).isRequired,
+  videoRef: PropTypes.shape({current: PropTypes.instanceOf(Element)}).isRequired,
+  isPlaying: PropTypes.bool.isRequired,
+  progressBar: PropTypes.number.isRequired,
+  timeRemaining: PropTypes.number.isRequired,
+  handleFullScreenButton: PropTypes.func.isRequired,
+  handlePlayButton: PropTypes.func.isRequired,
+  handleMouseDown: PropTypes.func.isRequired,
 };
 
 export default Player;
