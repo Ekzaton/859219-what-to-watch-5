@@ -9,12 +9,26 @@ const MovieDetails = (props) => {
     <div className="movie-card__text movie-card__row">
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
-          <strong className="movie-card__details-name">Director</strong>
-          <span className="movie-card__details-value">{movie.director}</span>
+          <strong className="movie-card__details-name">
+            Director
+          </strong>
+          <span className="movie-card__details-value">
+            {movie.director}
+          </span>
         </p>
         <p className="movie-card__details-item">
-          <strong className="movie-card__details-name">Starring</strong>
-          <span className="movie-card__details-value">{movie.starring}</span>
+          <strong className="movie-card__details-name">
+            Starring
+          </strong>
+          <span className="movie-card__details-value">
+            {movie.starring.map((star, i) => {
+              if (i < movie.starring.length - 1) {
+                return <React.Fragment key={`star-${i}`}>{star}, <br/></React.Fragment>;
+              } else {
+                return star;
+              }
+            })}
+          </span>
         </p>
       </div>
 

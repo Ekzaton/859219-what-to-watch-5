@@ -2,24 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import {ActionCreator} from "../../store/action";
-
 import {movieType} from "../../types";
+
+import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
 
 import GenresList from "../genres-list/genres-list";
 import MoviesList from "../movies-list/movies-list";
 import ShowMore from "../show-more/show-more";
 
+const MoviesListWrapped = withMoviesList(MoviesList);
+
 const Main = (props) => {
-  const {
-    movie,
-    movies,
-    moviesByGenre,
-    shownMovies,
-    activeGenre,
-    onGenreClick,
-    onShowMoreClick
-  } = props;
+  const {movie, movies, moviesByGenre, shownMovies} = props;
 
   return (
     <React.Fragment>
@@ -84,11 +78,9 @@ const Main = (props) => {
 
           <GenresList
             movies={movies}
-            activeGenre={activeGenre}
-            onGenreClick={onGenreClick}
           />
 
-          <MoviesList
+          <MoviesListWrapped
             movies={moviesByGenre}
             shownMovies={shownMovies}
           />
@@ -96,7 +88,6 @@ const Main = (props) => {
           {shownMovies < moviesByGenre.length &&
             <ShowMore
               shownMovies={shownMovies}
-              onShowMoreClick={onShowMoreClick}
             />
           }
         </section>
@@ -121,30 +112,17 @@ const Main = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    activeGenre: state.activeGenre,
     moviesByGenre: state.moviesByGenre,
     shownMovies: state.shownMovies,
   };
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  onGenreClick(activeGenre) {
-    dispatch(ActionCreator.changeMoviesGenre(activeGenre));
-  },
-  onShowMoreClick(shownMovies) {
-    dispatch(ActionCreator.showMoreMovies(shownMovies));
-  }
-});
 
 Main.propTypes = {
   movie: movieType,
   movies: PropTypes.arrayOf(movieType),
   moviesByGenre: PropTypes.arrayOf(movieType),
   shownMovies: PropTypes.number.isRequired,
-  activeGenre: PropTypes.string.isRequired,
-  onGenreClick: PropTypes.func.isRequired,
-  onShowMoreClick: PropTypes.func.isRequired,
 };
 
 export {Main};
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, null)(Main);

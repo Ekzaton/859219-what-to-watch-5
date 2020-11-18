@@ -6,15 +6,15 @@ export const movieType = PropTypes.shape({
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   ratingScore: PropTypes.number.isRequired,
-  ratingLevel: PropTypes.string.isRequired,
   ratingCount: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
-  starring: PropTypes.string.isRequired,
+  starring: PropTypes.array.isRequired,
   runTime: PropTypes.string.isRequired,
   posterImage: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   video: PropTypes.string.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
 });
 
 export const reviewType = PropTypes.shape({
