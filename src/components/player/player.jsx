@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import moment from "moment";
 
 import {movieType} from "../../types";
 
 const Player = (props) => {
   const {
-    movie,
+    movies,
+    currentMovieId,
     progressRef,
     videoRef,
     isPlaying,
@@ -17,6 +19,7 @@ const Player = (props) => {
     handlePlayButton,
     handleMouseDown
   } = props;
+  const movie = movies.find((it) => it.id === currentMovieId);
 
   return (
     <div className="player">
@@ -28,7 +31,7 @@ const Player = (props) => {
       />
 
       {(isPlaying) ||
-        <Link to={`/movies/:id`}>
+        <Link to={`/films/${movie.id}`}>
           <button type="button" className="player__exit">Exit</button>
         </Link>
       }
@@ -90,8 +93,13 @@ const Player = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  movies: state.movies,
+});
+
 Player.propTypes = {
-  movie: movieType,
+  movies: PropTypes.arrayOf(movieType),
+  currentMovieId: PropTypes.number.isRequired,
   progressRef: PropTypes.shape({current: PropTypes.instanceOf(Element)}).isRequired,
   videoRef: PropTypes.shape({current: PropTypes.instanceOf(Element)}).isRequired,
   isPlaying: PropTypes.bool.isRequired,
@@ -102,4 +110,5 @@ Player.propTypes = {
   handleMouseDown: PropTypes.func.isRequired,
 };
 
-export default Player;
+export {Player};
+export default connect(mapStateToProps, null)(Player);
