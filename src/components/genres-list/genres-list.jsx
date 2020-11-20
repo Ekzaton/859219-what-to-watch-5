@@ -14,7 +14,7 @@ const GenresList = (props) => {
 
   return (
     <ul className="catalog__genres-list">
-      {genres.sort((a, b) => a > b ? 1 : -1).map((genre, i) => (
+      {genres.map((genre, i) => (
         <li
           key={`genre-${i}`}
           className={`catalog__genres-item
