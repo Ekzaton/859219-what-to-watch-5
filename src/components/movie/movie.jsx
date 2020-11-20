@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
-import {movieType, reviewType} from "../../types";
+import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
 import withTabs from "../../hocs/with-tabs/with-tabs";
@@ -17,7 +17,7 @@ const TabsWrapped = withTabs(Tabs);
 const SIMILAR_MOVIES_COUNT = 4;
 
 const Movie = (props) => {
-  const {movies, reviews, currentMovieId, onMoviesItemClick} = props;
+  const {movies, currentMovieId, onMoviesItemClick} = props;
   const movie = movies.find((it) => it.id === currentMovieId);
   const similarMovies = movies.filter((it) => it.genre === movie.genre && it.id !== movie.id);
 
@@ -101,7 +101,6 @@ const Movie = (props) => {
 
             <TabsWrapped
               movie={movie}
-              reviews={reviews}
             />
           </div>
         </div>
@@ -142,7 +141,6 @@ const mapStateToProps = (state) => ({
 
 Movie.propTypes = {
   movies: PropTypes.arrayOf(movieType),
-  reviews: PropTypes.arrayOf(reviewType),
   currentMovieId: PropTypes.number.isRequired,
   onMoviesItemClick: PropTypes.func.isRequired,
 };

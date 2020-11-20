@@ -1,8 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-
-import {reviewType} from "../../types";
 
 import withPlayer from "../../hocs/with-player/with-player";
 
@@ -15,9 +12,7 @@ import SignIn from "../sign-in/sign-in";
 
 const PlayerWrapped = withPlayer(Player);
 
-const App = (props) => {
-  const {reviews} = props;
-
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -50,7 +45,6 @@ const App = (props) => {
           path="/films/:id"
           render={({history, match}) => (
             <Movie
-              reviews={reviews}
               currentMovieId={Number(match.params.id)}
               onMoviesItemClick={(id) => history.push(`/films/${id}`)}
             />
@@ -80,8 +74,6 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  reviews: PropTypes.arrayOf(reviewType),
-};
+App.propTypes = {};
 
 export default App;

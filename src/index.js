@@ -11,8 +11,6 @@ import {reducer} from "./store/reducer";
 
 import App from "./components/app/app";
 
-import reviews from "./mocks/reviews";
-
 const api = createAPI();
 
 const store = createStore(
@@ -27,7 +25,7 @@ Promise.all([
 .then(() => {
   ReactDOM.render(
       <Provider store={store}>
-        <App reviews={reviews}/>
+        <App/>
       </Provider>,
       document.querySelector(`#root`)
   );
