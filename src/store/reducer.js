@@ -45,7 +45,7 @@ export const reducer = (state = initialState, action) => {
       return extend(state, {
         promo: action.payload,
       });
-    case ActionType.GET_MOVIE_REVIWES:
+    case ActionType.GET_MOVIE_REVIEWS:
       return extend(state, {
         reviews: action.payload,
       });
