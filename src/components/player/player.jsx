@@ -93,8 +93,8 @@ const Player = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  movies: state.movies,
+const mapStateToProps = ({MOVIES}) => ({
+  movies: MOVIES.movies,
 });
 
 Player.propTypes = {

@@ -135,8 +135,8 @@ const Movie = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  movies: state.movies,
+const mapStateToProps = ({MOVIES}) => ({
+  movies: MOVIES.movies,
 });
 
 Movie.propTypes = {

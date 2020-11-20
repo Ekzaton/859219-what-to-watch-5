@@ -122,11 +122,11 @@ const Main = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({MOVIES}) => {
   return {
-    moviesByGenre: state.moviesByGenre,
-    promo: state.promo,
-    shownMovies: state.shownMovies,
+    moviesByGenre: MOVIES.moviesByGenre,
+    promo: MOVIES.promo,
+    shownMovies: MOVIES.shownMovies,
   };
 };
 
