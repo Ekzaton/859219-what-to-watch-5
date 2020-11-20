@@ -13,6 +13,6 @@ export const fetchPromoMovie = () => (dispatch, _getState, api) => (
 );
 
 export const fetchMovieReviews = (id) => (dispatch, _getState, api) => (
-  api.get(`/comments${id}`)
+  api.get(`/comments/${id}`)
     .then(({data}) => dispatch(ActionCreator.getMovieReviews(data)))
 );
