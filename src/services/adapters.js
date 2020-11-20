@@ -21,3 +21,15 @@ export const movieAdapter = (movie) => {
       }
   );
 };
+
+export const reviewAdapter = (review) => {
+  return Object.assign(
+      {}, {
+        id: review.id,
+        author: review.user.name,
+        rating: review.rating,
+        text: review.comment,
+        date: review.date
+      }
+  );
+};
