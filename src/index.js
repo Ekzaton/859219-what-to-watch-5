@@ -6,7 +6,7 @@ import thunk from "redux-thunk";
 
 import {createAPI} from "./services/api";
 
-import {fetchMoviesList} from "./store/api-action";
+import {fetchMoviesList, fetchPromoMovie} from "./store/api-action";
 import {reducer} from "./store/reducer";
 
 import App from "./components/app/app";
@@ -20,11 +20,15 @@ const store = createStore(
     applyMiddleware(thunk.withExtraArgument(api))
 );
 
-store.dispatch(fetchMoviesList());
-
-ReactDOM.render(
-    <Provider store={store}>
-      <App reviews={reviews}/>
-    </Provider>,
-    document.querySelector(`#root`)
-);
+Promise.all([
+  store.dispatch(fetchMoviesList()),
+  store.dispatch(fetchPromoMovie()),
+])
+.then(() => {
+  ReactDOM.render(
+      <Provider store={store}>
+        <App reviews={reviews}/>
+      </Provider>,
+      document.querySelector(`#root`)
+  );
+});
