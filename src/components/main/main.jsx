@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
+import {getMoviesByGenre, showMoreMovies} from "../../store/selectors/movies/movies";
+
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
@@ -124,9 +126,9 @@ const Main = (props) => {
 
 const mapStateToProps = ({MOVIES}) => {
   return {
-    moviesByGenre: MOVIES.moviesByGenre,
+    moviesByGenre: getMoviesByGenre({MOVIES}),
     promo: MOVIES.promo,
-    shownMovies: MOVIES.shownMovies,
+    shownMovies: showMoreMovies({MOVIES}),
   };
 };
 

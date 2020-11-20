@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import {changeMoviesGenre} from "../../store/action";
+import {getMoviesByGenre} from "../../store/action";
 
 import {ALL_GENRES} from "../../const";
 
@@ -46,7 +46,7 @@ const mapStateToProps = ({MOVIES}) => {
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
-    dispatch(changeMoviesGenre(activeGenre));
+    dispatch(getMoviesByGenre(activeGenre));
   }
 });
 
