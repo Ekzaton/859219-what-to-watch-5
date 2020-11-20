@@ -37,6 +37,10 @@ export const reducer = (state = initialState, action) => {
           shownMovies: state.moviesByGenre.length,
         });
       }
+    case ActionType.GET_MOVIES:
+      return extend(state, {
+        movies: action.payload,
+      });
   }
 
   return state;
