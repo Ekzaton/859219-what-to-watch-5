@@ -11,6 +11,7 @@ const initialState = {
   movies: [],
   moviesByGenre: [],
   promo: {},
+  reviews: [],
   shownMovies: SHOWN_MOVIES_COUNT,
 };
 
@@ -43,6 +44,10 @@ export const reducer = (state = initialState, action) => {
     case ActionType.GET_PROMO_MOVIE:
       return extend(state, {
         promo: action.payload,
+      });
+    case ActionType.GET_MOVIE_REVIWES:
+      return extend(state, {
+        reviews: action.payload,
       });
   }
 

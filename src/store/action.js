@@ -3,6 +3,7 @@ export const ActionType = {
   SHOW_MORE_MOVIES: `SHOW_MORE_MOVIES`,
   GET_ALL_MOVIES: `GET_ALL_MOVIES`,
   GET_PROMO_MOVIE: `GET_PROMO_MOVIE`,
+  GET_MOVIE_REVIWES: `GET_MOVIE_REVIWES`,
 };
 
 export const ActionCreator = {
@@ -21,5 +22,9 @@ export const ActionCreator = {
   getPromoMovie: (movie) => ({
     type: ActionType.GET_PROMO_MOVIE,
     payload: movie,
+  }),
+  getMovieReviews: (reviews) => ({
+    type: ActionType.GET_MOVIE_REVIWES,
+    payload: reviews,
   }),
 };
