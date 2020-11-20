@@ -1,6 +1,8 @@
+import {movieAdapter} from "../services/adapters";
+
 import {ActionCreator} from "./action";
 
 export const fetchMoviesList = () => (dispatch, _getState, api) => (
   api.get(`/films`)
-    .then(({data}) => dispatch(ActionCreator.getMovies(data)))
+    .then(({data}) => dispatch(ActionCreator.getMovies(data.map(movieAdapter))))
 );
