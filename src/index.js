@@ -7,7 +7,6 @@ import {reducer} from "./store/reducer";
 
 import App from "./components/app/app";
 
-import movies from "./mocks/movies";
 import reviews from "./mocks/reviews";
 
 const store = createStore(
@@ -19,7 +18,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-      <App movies={movies} reviews={reviews}/>
+      <App reviews={reviews}/>
     </Provider>,
     document.querySelector(`#root`)
 );
