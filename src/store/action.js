@@ -1,7 +1,8 @@
 export const ActionType = {
   CHANGE_MOVIES_GENRE: `CHANGE_MOVIES_GENRE`,
   SHOW_MORE_MOVIES: `SHOW_MORE_MOVIES`,
-  GET_MOVIES: `GET_MOVIES`,
+  GET_ALL_MOVIES: `GET_ALL_MOVIES`,
+  GET_PROMO_MOVIE: `GET_PROMO_MOVIE`,
 };
 
 export const ActionCreator = {
@@ -13,8 +14,12 @@ export const ActionCreator = {
     type: ActionType.SHOW_MORE_MOVIES,
     payload: shownMovies,
   }),
-  getMovies: (movies) => ({
-    type: ActionType.GET_MOVIES,
+  getAllMovies: (movies) => ({
+    type: ActionType.GET_ALL_MOVIES,
     payload: movies,
-  })
+  }),
+  getPromoMovie: (movie) => ({
+    type: ActionType.GET_PROMO_MOVIE,
+    payload: movie,
+  }),
 };

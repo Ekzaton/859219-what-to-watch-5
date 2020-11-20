@@ -35,11 +35,14 @@ export const reducer = (state = initialState, action) => {
           shownMovies: state.moviesByGenre.length,
         });
       }
-    case ActionType.GET_MOVIES:
+    case ActionType.GET_ALL_MOVIES:
       return extend(state, {
         movies: action.payload,
         moviesByGenre: action.payload,
-        promo: action.payload[0],
+      });
+    case ActionType.GET_PROMO_MOVIE:
+      return extend(state, {
+        promo: action.payload,
       });
   }
 
