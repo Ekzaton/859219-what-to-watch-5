@@ -4,15 +4,13 @@ import {ALL_GENRES} from "../const";
 import {getMoviesByGenre} from "../movies-filter";
 import {extend} from "../utils";
 
-import movies from "../mocks/movies";
-
 const SHOWN_MOVIES_COUNT = 8;
 
 const initialState = {
   activeGenre: ALL_GENRES,
-  movies,
-  moviesByGenre: movies,
-  promo: movies[0],
+  movies: [],
+  moviesByGenre: [],
+  promo: {},
   shownMovies: SHOWN_MOVIES_COUNT,
 };
 
@@ -21,8 +19,8 @@ export const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_MOVIES_GENRE:
       const isDeafaultGenre = (initialState.activeGenre === action.payload);
       const filteredMovies = isDeafaultGenre
-        ? movies
-        : getMoviesByGenre(movies, action.payload);
+        ? state.movies
+        : getMoviesByGenre(state.movies, action.payload);
       return extend(state, {
         activeGenre: action.payload,
         moviesByGenre: filteredMovies,
@@ -40,6 +38,8 @@ export const reducer = (state = initialState, action) => {
     case ActionType.GET_MOVIES:
       return extend(state, {
         movies: action.payload,
+        moviesByGenre: action.payload,
+        promo: action.payload[0],
       });
   }
 
