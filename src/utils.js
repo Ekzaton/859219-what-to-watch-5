@@ -11,3 +11,9 @@ export const formatMovieDuration = (duration) => {
   const minutes = Math.floor((duration % 60));
   return hours === 0 ? `${minutes}m` : `${hours}h ${minutes}m`;
 };
+
+export const formatReviewDate = (date) => {
+  return new Date(date).toLocaleString(
+      `en-US`, {month: `long`, day: `numeric`, year: `numeric`}
+  );
+};
