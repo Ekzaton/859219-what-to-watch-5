@@ -10,7 +10,9 @@ const SHOWN_MOVIES_COUNT = 8;
 
 const initialState = {
   activeGenre: ALL_GENRES,
+  movies,
   moviesByGenre: movies,
+  promo: movies[0],
   shownMovies: SHOWN_MOVIES_COUNT,
 };
 
