@@ -1,4 +1,4 @@
-import {movieAdapter} from "../services/adapters";
+import {movieAdapter, reviewAdapter} from "../services/adapters";
 
 import {ActionCreator} from "./action";
 
@@ -14,5 +14,5 @@ export const fetchPromoMovie = () => (dispatch, _getState, api) => (
 
 export const fetchMovieReviews = (id) => (dispatch, _getState, api) => (
   api.get(`/comments/${id}`)
-    .then(({data}) => dispatch(ActionCreator.getMovieReviews(data)))
+    .then(({data}) => dispatch(ActionCreator.getMovieReviews(data.map(reviewAdapter))))
 );
