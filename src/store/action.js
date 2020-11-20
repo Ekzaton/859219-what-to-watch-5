@@ -6,25 +6,27 @@ export const ActionType = {
   GET_MOVIE_REVIEWS: `GET_MOVIE_REVIEWS`,
 };
 
-export const ActionCreator = {
-  changeMoviesGenre: (activeGenre) => ({
-    type: ActionType.CHANGE_MOVIES_GENRE,
-    payload: activeGenre,
-  }),
-  showMoreMovies: (shownMovies) => ({
-    type: ActionType.SHOW_MORE_MOVIES,
-    payload: shownMovies,
-  }),
-  getAllMovies: (movies) => ({
-    type: ActionType.GET_ALL_MOVIES,
-    payload: movies,
-  }),
-  getPromoMovie: (movie) => ({
-    type: ActionType.GET_PROMO_MOVIE,
-    payload: movie,
-  }),
-  getMovieReviews: (reviews) => ({
-    type: ActionType.GET_MOVIE_REVIEWS,
-    payload: reviews,
-  }),
-};
+export const changeMoviesGenre = (activeGenre) => ({
+  type: ActionType.CHANGE_MOVIES_GENRE,
+  payload: activeGenre,
+});
+
+export const showMoreMovies = (shownMovies) => ({
+  type: ActionType.SHOW_MORE_MOVIES,
+  payload: shownMovies,
+});
+
+export const getAllMovies = (movies) => ({
+  type: ActionType.GET_ALL_MOVIES,
+  payload: movies,
+});
+
+export const getPromoMovie = (movie) => ({
+  type: ActionType.GET_PROMO_MOVIE,
+  payload: movie,
+});
+
+export const getMovieReviews = (reviews) => ({
+  type: ActionType.GET_MOVIE_REVIEWS,
+  payload: reviews,
+});
