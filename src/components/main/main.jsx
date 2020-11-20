@@ -20,7 +20,7 @@ const Main = (props) => {
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={promo.cardImage} alt={promo.title}/>
+          <img src={promo.bgImage} alt={promo.title}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -44,7 +44,12 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={promo.posterImage} alt={`${promo.title} poster`} width="218" height="327"/>
+              <img
+                src={promo.posterImage}
+                alt={`${promo.title} poster`}
+                width="218"
+                height="327"
+              />
             </div>
 
             <div className="movie-card__desc">
@@ -55,13 +60,20 @@ const Main = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to={`/player/${promo.id}`} className="btn btn--play movie-card__button">
+                <Link
+                  to={`/player/${promo.id}`}
+                  className="btn btn--play movie-card__button"
+                >
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </Link>
-                <Link to="/my-list" className="btn btn--list movie-card__button" type="button">
+                <Link
+                  to="/my-list"
+                  className="btn btn--list movie-card__button"
+                  type="button"
+                >
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
                   </svg>

@@ -16,11 +16,11 @@ const MoviesItem = (props) => {
       onMouseEnter={() => onMovieEnter(movie.id)}
       onMouseLeave={() => onMovieLeave()}
     >
-      <Link to={`/movies/${movie.id}`} className="small-movie-card__image">
+      <Link to={`/films/${movie.id}`} className="small-movie-card__image">
         <Preview movie={movie} isPlaying={isPlaying}/>
       </Link>
       <h3 className="small-movie-card__title">
-        <Link to={`/movies/${movie.id}`} className="small-movie-card__link">
+        <Link to={`/films/${movie.id}`} className="small-movie-card__link">
           {movie.title}
         </Link>
       </h3>

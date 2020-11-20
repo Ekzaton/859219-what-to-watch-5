@@ -19,7 +19,7 @@ const Review = (props) => {
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
         <div className="movie-card__bg">
-          <img src={movie.cardImage} alt={movie.title}/>
+          <img src={movie.bgImage} alt={movie.title}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>

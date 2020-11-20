@@ -23,10 +23,13 @@ const Movie = (props) => {
 
   return (
     <React.Fragment>
-      <section className="movie-card movie-card--full">
+      <section
+        className="movie-card movie-card--full"
+        style={{backgroundColor: movie.bgColor}}
+      >
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={movie.cardImage} alt={movie.title}/>
+            <img src={movie.bgImage} alt={movie.title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
