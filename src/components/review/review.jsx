@@ -1,5 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
 import {movieType} from "../../types";
 
@@ -10,7 +12,8 @@ import ReviewForm from "../review-form/review-form";
 const ReviewFormWrapped = withReviewForm(ReviewForm);
 
 const Review = (props) => {
-  const {movie} = props;
+  const {movies, currentMovieId} = props;
+  const movie = movies.find((it) => it.id === currentMovieId);
 
   return (
     <section className="movie-card movie-card--full">
@@ -33,7 +36,7 @@ const Review = (props) => {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <Link to="/movies/:id" className="breadcrumbs__link">
+                <Link to={`/films/${movie.id}`} className="breadcrumbs__link">
                   {movie.title}
                 </Link>
               </li>
@@ -63,8 +66,14 @@ const Review = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  movies: state.movies,
+});
+
 Review.propTypes = {
-  movie: movieType,
+  movies: PropTypes.arrayOf(movieType),
+  currentMovieId: PropTypes.number.isRequired,
 };
 
-export default Review;
+export {Review};
+export default connect(mapStateToProps, null)(Review);
