@@ -37,10 +37,10 @@ const GenresList = (props) => {
   );
 };
 
-const mapStateToProps = ({MOVIES}) => {
+const mapStateToProps = ({APP_DATA, APP_STATE}) => {
   return {
-    activeGenre: MOVIES.activeGenre,
-    movies: MOVIES.movies,
+    activeGenre: APP_STATE.activeGenre,
+    movies: APP_DATA.movies,
   };
 };
 

@@ -60,8 +60,8 @@ const MovieReviews = (props) => {
   );
 };
 
-const mapStateToProps = ({REVIEWS}) => ({
-  reviews: REVIEWS.reviews,
+const mapStateToProps = ({APP_DATA}) => ({
+  reviews: APP_DATA.reviews,
 });
 
 MovieReviews.propTypes = {

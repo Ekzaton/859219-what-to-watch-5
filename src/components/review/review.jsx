@@ -66,8 +66,8 @@ const Review = (props) => {
   );
 };
 
-const mapStateToProps = ({MOVIES}) => ({
-  movies: MOVIES.movies,
+const mapStateToProps = ({APP_DATA}) => ({
+  movies: APP_DATA.movies,
 });
 
 Review.propTypes = {
