@@ -1,4 +1,4 @@
-import {ActionType} from "../../action";
+import {ActionType} from "../../actions";
 
 import {ALL_GENRES} from "../../../const";
 import {extend} from "../../../utils";

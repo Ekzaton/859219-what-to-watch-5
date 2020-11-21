@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import {showMoreMovies} from "../../store/action";
+import {showMoreMovies} from "../../store/actions";
 
 const ShowMore = (props) => {
   const {shownMovies, onShowMoreClick} = props;
