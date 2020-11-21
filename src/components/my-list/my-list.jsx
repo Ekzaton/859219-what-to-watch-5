@@ -12,7 +12,7 @@ import MoviesList from "../movies-list/movies-list";
 const MoviesListWrapped = withMoviesList(MoviesList);
 
 const MyList = (props) => {
-  const {movies, onMoviesItemClick} = props;
+  const {movies} = props;
   const favoriteMovies = movies.filter((it) => it.isFavorite === true);
 
   return (
@@ -40,7 +40,6 @@ const MyList = (props) => {
 
         <MoviesListWrapped
           movies={favoriteMovies}
-          onMoviesItemClick={onMoviesItemClick}
           shownMovies={favoriteMovies.length}
         />
       </section>
@@ -68,7 +67,6 @@ const mapStateToProps = ({MOVIES}) => ({
 
 MyList.propTypes = {
   movies: PropTypes.arrayOf(movieType),
-  onMoviesItemClick: PropTypes.func.isRequired,
 };
 
 export {MyList};

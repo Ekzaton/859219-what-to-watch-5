@@ -16,7 +16,7 @@ import ShowMore from "../show-more/show-more";
 const MoviesListWrapped = withMoviesList(MoviesList);
 
 const Main = (props) => {
-  const {moviesByGenre, promo, shownMovies, onMoviesItemClick} = props;
+  const {moviesByGenre, promo, shownMovies} = props;
 
   return (
     <React.Fragment>
@@ -96,7 +96,6 @@ const Main = (props) => {
           <MoviesListWrapped
             movies={moviesByGenre}
             shownMovies={shownMovies}
-            onMoviesItemClick={onMoviesItemClick}
           />
 
           {shownMovies < moviesByGenre.length &&
@@ -136,7 +135,6 @@ Main.propTypes = {
   moviesByGenre: PropTypes.arrayOf(movieType),
   promo: movieType,
   shownMovies: PropTypes.number.isRequired,
-  onMoviesItemClick: PropTypes.func.isRequired
 };
 
 export {Main};

@@ -16,57 +16,29 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={({history}) => (
-            <Main
-              onMoviesItemClick={(id) => history.push(`/films/${id}`)}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/sign-in"
-        >
+        <Route exact path="/">
+          <Main/>
+        </Route>
+        <Route exact path="/sign-in">
           <SignIn/>
         </Route>
-        <Route
-          exact
-          path="/my-list"
-          render={({history}) => (
-            <MyList
-              onMoviesItemClick={(id) => history.push(`/films/${id}`)}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/films/:id"
-          render={({history, match}) => (
-            <Movie
-              currentMovieId={Number(match.params.id)}
-              onMoviesItemClick={(id) => history.push(`/films/${id}`)}
-            />
+        <Route exact path="/my-list">
+          <MyList/>
+        </Route>
+        <Route exact path="/films/:id"
+          render={({match}) => (
+            <Movie currentMovieId={Number(match.params.id)}/>
           )}
         >
         </Route>
-        <Route
-          exact
-          path="/films/:id/review"
+        <Route exact path="/films/:id/review"
           render={({match}) => (
-            <Review
-              currentMovieId={Number(match.params.id)}
-            />
+            <Review currentMovieId={Number(match.params.id)}/>
           )}
         />
-        <Route
-          exact
-          path="/player/:id"
+        <Route exact path="/player/:id"
           render={({match}) => (
-            <PlayerWrapped
-              currentMovieId={Number(match.params.id)}
-            />
+            <PlayerWrapped currentMovieId={Number(match.params.id)}/>
           )}
         />
       </Switch>

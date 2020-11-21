@@ -7,12 +7,11 @@ import {movieType} from "../../types";
 import Preview from "../preview/preview";
 
 const MoviesItem = (props) => {
-  const {movie, onMoviesItemClick, onMovieEnter, onMovieLeave, isPlaying} = props;
+  const {movie, onMovieEnter, onMovieLeave, isPlaying} = props;
 
   return (
     <article
       className="small-movie-card catalog__movies-card"
-      onClick={() => onMoviesItemClick(movie.id)}
       onMouseEnter={() => onMovieEnter(movie.id)}
       onMouseLeave={() => onMovieLeave()}
     >
@@ -30,7 +29,6 @@ const MoviesItem = (props) => {
 
 MoviesItem.propTypes = {
   movie: movieType,
-  onMoviesItemClick: PropTypes.func.isRequired,
   onMovieEnter: PropTypes.func.isRequired,
   onMovieLeave: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool.isRequired,
