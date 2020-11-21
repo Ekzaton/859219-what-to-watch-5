@@ -6,12 +6,17 @@ import thunk from "redux-thunk";
 
 import {createAPI} from "./services/api";
 
-import {fetchAllMovies, fetchPromoMovie} from "./store/api-actions";
 import rootReducer from "./store/reducers/root-reducer";
+import {requiredAuthorization} from "./store/actions";
+import {fetchAllMovies, fetchPromoMovie} from "./store/api-actions";
+
+import {AuthorizationStatus} from "./const";
 
 import App from "./components/app/app";
 
-const api = createAPI();
+const api = createAPI(
+    () => store.dispatch(requiredAuthorization(AuthorizationStatus.NO_AUTH))
+);
 
 const store = createStore(
     rootReducer,
