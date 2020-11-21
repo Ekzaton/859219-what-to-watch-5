@@ -1,14 +1,14 @@
 import {combineReducers} from "redux";
 
-import {movies} from "./movies/movies";
-import {reviews} from "./reviews/reviews";
+import {appData} from "./app-data/app-data";
+import {appState} from "./app-state/app-state";
 
 export const NameSpace = {
-  MOVIES: `MOVIES`,
-  REVIEWS: `REVIEWS`,
+  APP_DATA: `APP_DATA`,
+  APP_STATE: `APP_STATE`,
 };
 
 export default combineReducers({
-  [NameSpace.MOVIES]: movies,
-  [NameSpace.REVIEWS]: reviews,
+  [NameSpace.APP_DATA]: appData,
+  [NameSpace.APP_STATE]: appState,
 });

@@ -1,12 +1,12 @@
 import {createSelector} from 'reselect';
 
-import {ALL_GENRES} from "../../../const";
+import {ALL_GENRES} from "../../const";
 
 const SHOWN_MOVIES_COUNT = 8;
 
-const getActiveGenre = ({MOVIES}) => MOVIES.activeGenre;
-const getMovies = ({MOVIES}) => MOVIES.movies;
-const getShownMovies = ({MOVIES}) => MOVIES.shownMovies;
+const getActiveGenre = ({APP_STATE}) => APP_STATE.activeGenre;
+const getMovies = ({APP_DATA}) => APP_DATA.movies;
+const getShownMovies = ({APP_STATE}) => APP_STATE.shownMovies;
 
 export const getMoviesByGenre = createSelector(
     getActiveGenre,
