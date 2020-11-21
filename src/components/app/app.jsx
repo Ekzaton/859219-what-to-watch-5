@@ -29,8 +29,7 @@ const App = () => {
           render={({match}) => (
             <Movie currentMovieId={Number(match.params.id)}/>
           )}
-        >
-        </Route>
+        />
         <Route exact path="/films/:id/review"
           render={({match}) => (
             <Review currentMovieId={Number(match.params.id)}/>
