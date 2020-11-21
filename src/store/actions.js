@@ -32,7 +32,7 @@ export const getMovieReviews = (reviews) => ({
   payload: reviews,
 });
 
-export const requireAuthorization = (status) => ({
+export const requiredAuthorization = (status) => ({
   type: ActionType.REQUIRED_AUTHORIZATION,
   payload: status,
 });

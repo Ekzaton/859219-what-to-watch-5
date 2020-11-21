@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import {fetchMovieReviews} from "../../store/api-action";
+import {fetchMovieReviews} from "../../store/api-actions";
 
 import {movieType, reviewType} from "../../types";
 import {formatReviewDate} from "../../utils";

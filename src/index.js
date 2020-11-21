@@ -6,7 +6,7 @@ import thunk from "redux-thunk";
 
 import {createAPI} from "./services/api";
 
-import {fetchMoviesList, fetchPromoMovie} from "./store/api-action";
+import {fetchAllMovies, fetchPromoMovie} from "./store/api-actions";
 import rootReducer from "./store/reducers/root-reducer";
 
 import App from "./components/app/app";
@@ -19,7 +19,7 @@ const store = createStore(
 );
 
 Promise.all([
-  store.dispatch(fetchMoviesList()),
+  store.dispatch(fetchAllMovies()),
   store.dispatch(fetchPromoMovie()),
 ])
 .then(() => {

@@ -2,7 +2,7 @@ import {movieAdapter, reviewAdapter} from "../services/adapters";
 
 import {getAllMovies, getPromoMovie, getMovieReviews} from "./actions";
 
-export const fetchMoviesList = () => (dispatch, _getState, api) => (
+export const fetchAllMovies = () => (dispatch, _getState, api) => (
   api.get(`/films`)
     .then(({data}) => dispatch(getAllMovies(data.map(movieAdapter))))
 );
