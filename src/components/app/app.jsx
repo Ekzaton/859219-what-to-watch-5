@@ -1,8 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-
-import {movieType, reviewType} from "../../types";
 
 import withPlayer from "../../hocs/with-player/with-player";
 
@@ -15,39 +12,68 @@ import SignIn from "../sign-in/sign-in";
 
 const PlayerWrapped = withPlayer(Player);
 
-const App = (props) => {
-  const {movies, reviews} = props;
-  const movie = movies[0];
-
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact>
-          <Main movie={movie} movies={movies}/>
-        </Route>
-        <Route path="/sign-in" exact>
+        <Route
+          exact
+          path="/"
+          render={({history}) => (
+            <Main
+              onMoviesItemClick={(id) => history.push(`/films/${id}`)}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/sign-in"
+        >
           <SignIn/>
         </Route>
-        <Route path="/my-list" exact>
-          <MyList movies={movies}/>
+        <Route
+          exact
+          path="/my-list"
+          render={({history}) => (
+            <MyList
+              onMoviesItemClick={(id) => history.push(`/films/${id}`)}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/films/:id"
+          render={({history, match}) => (
+            <Movie
+              currentMovieId={Number(match.params.id)}
+              onMoviesItemClick={(id) => history.push(`/films/${id}`)}
+            />
+          )}
+        >
         </Route>
-        <Route path="/movies/:id" exact>
-          <Movie movie={movie} movies={movies} reviews={reviews}/>
-        </Route>
-        <Route path="/movies/:id/review" exact>
-          <Review movie={movie}/>
-        </Route>
-        <Route path="/player/:id" exact>
-          <PlayerWrapped movie={movie}/>
-        </Route>
+        <Route
+          exact
+          path="/films/:id/review"
+          render={({match}) => (
+            <Review
+              currentMovieId={Number(match.params.id)}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/player/:id"
+          render={({match}) => (
+            <PlayerWrapped
+              currentMovieId={Number(match.params.id)}
+            />
+          )}
+        />
       </Switch>
     </BrowserRouter>
   );
 };
 
-App.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
-  reviews: PropTypes.arrayOf(reviewType),
-};
+App.propTypes = {};
 
 export default App;

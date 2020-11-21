@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
 import {movieType} from "../../types";
 
@@ -11,7 +12,7 @@ import MoviesList from "../movies-list/movies-list";
 const MoviesListWrapped = withMoviesList(MoviesList);
 
 const MyList = (props) => {
-  const {movies} = props;
+  const {movies, onMoviesItemClick} = props;
   const favoriteMovies = movies.filter((it) => it.isFavorite === true);
 
   return (
@@ -39,6 +40,7 @@ const MyList = (props) => {
 
         <MoviesListWrapped
           movies={favoriteMovies}
+          onMoviesItemClick={onMoviesItemClick}
           shownMovies={favoriteMovies.length}
         />
       </section>
@@ -60,8 +62,14 @@ const MyList = (props) => {
   );
 };
 
+const mapStateToProps = ({MOVIES}) => ({
+  movies: MOVIES.movies,
+});
+
 MyList.propTypes = {
   movies: PropTypes.arrayOf(movieType),
+  onMoviesItemClick: PropTypes.func.isRequired,
 };
 
-export default MyList;
+export {MyList};
+export default connect(mapStateToProps, null)(MyList);

@@ -2,21 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import {ActionCreator} from "../../store/action";
+import {getMoviesByGenre} from "../../store/action";
 
 import {ALL_GENRES} from "../../const";
-import {getGenres} from "../../movies-filter";
 
 import {movieType} from "../../types";
 
 const GenresList = (props) => {
-  const {movies, activeGenre, onGenreClick} = props;
-  const genres = getGenres(movies);
-  genres.push(ALL_GENRES);
+  const {activeGenre, movies, onGenreClick} = props;
+  const genres = [ALL_GENRES, ...new Set(movies.map((movie) => movie.genre))];
 
   return (
     <ul className="catalog__genres-list">
-      {genres.sort((a, b) => a > b ? 1 : -1).map((genre, i) => (
+      {genres.map((genre, i) => (
         <li
           key={`genre-${i}`}
           className={`catalog__genres-item
@@ -27,7 +25,6 @@ const GenresList = (props) => {
             className="catalog__genres-link"
             onClick={(evt) => {
               evt.preventDefault();
-              evt.stopPropagation();
 
               onGenreClick(genre);
             }}
@@ -40,21 +37,22 @@ const GenresList = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({MOVIES}) => {
   return {
-    activeGenre: state.activeGenre,
+    activeGenre: MOVIES.activeGenre,
+    movies: MOVIES.movies,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
-    dispatch(ActionCreator.changeMoviesGenre(activeGenre));
+    dispatch(getMoviesByGenre(activeGenre));
   }
 });
 
 GenresList.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
   activeGenre: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf(movieType),
   onGenreClick: PropTypes.func.isRequired,
 };
 

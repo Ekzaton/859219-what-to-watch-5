@@ -1,25 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
+import thunk from "redux-thunk";
 
-import {reducer} from "./store/reducer";
+import {createAPI} from "./services/api";
+
+import {fetchMoviesList, fetchPromoMovie} from "./store/api-action";
+import rootReducer from "./store/reducers/root-reducer";
 
 import App from "./components/app/app";
 
-import movies from "./mocks/movies";
-import reviews from "./mocks/reviews";
+const api = createAPI();
 
 const store = createStore(
-    reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__
-      ? window.__REDUX_DEVTOOLS_EXTENSION__()
-      : (f) => f
+    rootReducer,
+    applyMiddleware(thunk.withExtraArgument(api))
 );
 
-ReactDOM.render(
-    <Provider store={store}>
-      <App movies={movies} reviews={reviews}/>
-    </Provider>,
-    document.querySelector(`#root`)
-);
+Promise.all([
+  store.dispatch(fetchMoviesList()),
+  store.dispatch(fetchPromoMovie()),
+])
+.then(() => {
+  ReactDOM.render(
+      <Provider store={store}>
+        <App/>
+      </Provider>,
+      document.querySelector(`#root`)
+  );
+});

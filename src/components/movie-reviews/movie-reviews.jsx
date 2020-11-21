@@ -1,16 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+
+import {fetchMovieReviews} from "../../store/api-action";
 
 import {movieType, reviewType} from "../../types";
-
+import {formatReviewDate} from "../../utils";
 
 const MovieReviews = (props) => {
-  const {movie, reviews} = props;
-  const content = reviews.find((it) => it.id === movie.id).content;
+  const {movie, reviews, getMovieReviews} = props;
+
+  React.useEffect(() => {
+    getMovieReviews(movie.id);
+  }, [movie.id]);
 
   let leftColumn = [];
   let rightColumn = [];
-  content.forEach((it, i) => (i % 2 === 0) ? leftColumn.push(it) : rightColumn.push(it));
+  reviews.forEach((it, i) => (i % 2 === 0) ? leftColumn.push(it) : rightColumn.push(it));
 
   return (
     <div className="movie-card__reviews movie-card__row">
@@ -22,7 +28,9 @@ const MovieReviews = (props) => {
 
               <footer className="review__details">
                 <cite className="review__author">{review.author}</cite>
-                <time className="review__date" dateTime="2016-12-24">{review.date}</time>
+                <time className="review__date" dateTime="2016-12-24">
+                  {formatReviewDate(review.date)}
+                </time>
               </footer>
             </blockquote>
 
@@ -38,7 +46,9 @@ const MovieReviews = (props) => {
 
               <footer className="review__details">
                 <cite className="review__author">{review.author}</cite>
-                <time className="review__date" dateTime="2016-12-24">{review.date}</time>
+                <time className="review__date" dateTime="2016-12-24">
+                  {formatReviewDate(review.date)}
+                </time>
               </footer>
             </blockquote>
 
@@ -50,9 +60,21 @@ const MovieReviews = (props) => {
   );
 };
 
+const mapStateToProps = ({REVIEWS}) => ({
+  reviews: REVIEWS.reviews,
+});
+
 MovieReviews.propTypes = {
   movie: movieType,
   reviews: PropTypes.arrayOf(reviewType),
+  getMovieReviews: PropTypes.func.isRequired,
 };
 
-export default MovieReviews;
+const mapDispatchToProps = (dispatch) => ({
+  getMovieReviews(id) {
+    dispatch(fetchMovieReviews(id));
+  }
+});
+
+export {MovieReviews};
+export default connect(mapStateToProps, mapDispatchToProps)(MovieReviews);

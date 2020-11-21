@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
+import {getMoviesByGenre, showMoreMovies} from "../../store/selectors/movies/movies";
+
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
@@ -14,13 +16,13 @@ import ShowMore from "../show-more/show-more";
 const MoviesListWrapped = withMoviesList(MoviesList);
 
 const Main = (props) => {
-  const {movie, movies, moviesByGenre, shownMovies} = props;
+  const {moviesByGenre, promo, shownMovies, onMoviesItemClick} = props;
 
   return (
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={movie.cardImage} alt={movie.title}/>
+          <img src={promo.bgImage} alt={promo.title}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -44,29 +46,41 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={movie.posterImage} alt={`${movie.title} poster`} width="218" height="327"/>
+              <img
+                src={promo.posterImage}
+                alt={`${promo.title} poster`}
+                width="218"
+                height="327"
+              />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{movie.title}</h2>
+              <h2 className="movie-card__title">{promo.title}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{movie.genre}</span>
-                <span className="movie-card__year">{movie.year}</span>
+                <span className="movie-card__genre">{promo.genre}</span>
+                <span className="movie-card__year">{promo.year}</span>
               </p>
 
               <div className="movie-card__buttons">
-                <Link to="/player/:id" className="btn btn--play movie-card__button">
+                <Link
+                  to={`/player/${promo.id}`}
+                  className="btn btn--play movie-card__button"
+                >
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </Link>
-                <button className="btn btn--list movie-card__button" type="button">
+                <Link
+                  to="/my-list"
+                  className="btn btn--list movie-card__button"
+                  type="button"
+                >
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
                   </svg>
                   <span>My list</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -77,13 +91,12 @@ const Main = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList
-            movies={movies}
-          />
+          <GenresList/>
 
           <MoviesListWrapped
             movies={moviesByGenre}
             shownMovies={shownMovies}
+            onMoviesItemClick={onMoviesItemClick}
           />
 
           {shownMovies < moviesByGenre.length &&
@@ -111,18 +124,19 @@ const Main = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({MOVIES}) => {
   return {
-    moviesByGenre: state.moviesByGenre,
-    shownMovies: state.shownMovies,
+    moviesByGenre: getMoviesByGenre({MOVIES}),
+    promo: MOVIES.promo,
+    shownMovies: showMoreMovies({MOVIES}),
   };
 };
 
 Main.propTypes = {
-  movie: movieType,
-  movies: PropTypes.arrayOf(movieType),
   moviesByGenre: PropTypes.arrayOf(movieType),
+  promo: movieType,
   shownMovies: PropTypes.number.isRequired,
+  onMoviesItemClick: PropTypes.func.isRequired
 };
 
 export {Main};

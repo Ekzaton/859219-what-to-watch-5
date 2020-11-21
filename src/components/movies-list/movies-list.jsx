@@ -6,7 +6,7 @@ import {movieType} from "../../types";
 import MoviesItem from "../movies-item/movies-item";
 
 const MoviesList = (props) => {
-  const {movies, shownMovies, onMovieEnter, onMovieLeave, activeMovieId} = props;
+  const {movies, shownMovies, onMoviesItemClick, onMovieEnter, onMovieLeave, activeMovieId} = props;
 
   return (
     <div className="catalog__movies-list">
@@ -14,6 +14,7 @@ const MoviesList = (props) => {
         <MoviesItem
           key={`movie-${i}`}
           movie={movie}
+          onMoviesItemClick={onMoviesItemClick}
           onMovieEnter={onMovieEnter}
           onMovieLeave={onMovieLeave}
           isPlaying={activeMovieId === movie.id}
@@ -26,6 +27,7 @@ const MoviesList = (props) => {
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(movieType),
   shownMovies: PropTypes.number.isRequired,
+  onMoviesItemClick: PropTypes.func.isRequired,
   onMovieEnter: PropTypes.func.isRequired,
   onMovieLeave: PropTypes.func.isRequired,
   activeMovieId: PropTypes.number.isRequired,

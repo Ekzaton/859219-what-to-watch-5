@@ -1,6 +1,7 @@
 import React from "react";
 
 import {movieType} from "../../types";
+import {formatMovieDuration} from "../../utils";
 
 const MovieDetails = (props) => {
   const {movie} = props;
@@ -35,15 +36,21 @@ const MovieDetails = (props) => {
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Run Time</strong>
-          <span className="movie-card__details-value">{movie.runTime}</span>
+          <span className="movie-card__details-value">
+            {formatMovieDuration(movie.runTime)}
+          </span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>
-          <span className="movie-card__details-value">{movie.genre}</span>
+          <span className="movie-card__details-value">
+            {movie.genre}
+          </span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Released</strong>
-          <span className="movie-card__details-value">{movie.year}</span>
+          <span className="movie-card__details-value">
+            {movie.year}
+          </span>
         </p>
       </div>
     </div>

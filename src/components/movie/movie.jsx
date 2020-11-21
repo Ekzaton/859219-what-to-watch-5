@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
-import {movieType, reviewType} from "../../types";
+import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
 import withTabs from "../../hocs/with-tabs/with-tabs";
@@ -16,15 +17,19 @@ const TabsWrapped = withTabs(Tabs);
 const SIMILAR_MOVIES_COUNT = 4;
 
 const Movie = (props) => {
-  const {movie, movies, reviews} = props;
+  const {movies, currentMovieId, onMoviesItemClick} = props;
+  const movie = movies.find((it) => it.id === currentMovieId);
   const similarMovies = movies.filter((it) => it.genre === movie.genre && it.id !== movie.id);
 
   return (
     <React.Fragment>
-      <section className="movie-card movie-card--full">
+      <section
+        className="movie-card movie-card--full"
+        style={{backgroundColor: movie.bgColor}}
+      >
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={movie.cardImage} alt={movie.title}/>
+            <img src={movie.bgImage} alt={movie.title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -54,19 +59,28 @@ const Movie = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to="/player/:id" className="btn btn--play movie-card__button">
+                <Link
+                  to={`/player/${movie.id}`}
+                  className="btn btn--play movie-card__button"
+                >
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </Link>
-                <button className="btn btn--list movie-card__button" type="button">
+                <Link
+                  to="/my-list"
+                  className="btn btn--list movie-card__button"
+                >
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
                   </svg>
                   <span>My list</span>
-                </button>
-                <Link to="/movies/:id/review" className="btn movie-card__button">
+                </Link>
+                <Link
+                  to={`/films/${movie.id}/review`}
+                  className="btn movie-card__button"
+                >
                   Add review
                 </Link>
               </div>
@@ -85,7 +99,9 @@ const Movie = (props) => {
               />
             </div>
 
-            <TabsWrapped movie={movie} reviews={reviews}/>
+            <TabsWrapped
+              movie={movie}
+            />
           </div>
         </div>
       </section>
@@ -96,6 +112,7 @@ const Movie = (props) => {
 
           <MoviesListWrapped
             movies={similarMovies}
+            onMoviesItemClick={onMoviesItemClick}
             shownMovies={SIMILAR_MOVIES_COUNT}
           />
         </section>
@@ -118,10 +135,15 @@ const Movie = (props) => {
   );
 };
 
+const mapStateToProps = ({MOVIES}) => ({
+  movies: MOVIES.movies,
+});
+
 Movie.propTypes = {
-  movie: movieType,
   movies: PropTypes.arrayOf(movieType),
-  reviews: PropTypes.arrayOf(reviewType),
+  currentMovieId: PropTypes.number.isRequired,
+  onMoviesItemClick: PropTypes.func.isRequired,
 };
 
-export default Movie;
+export {Movie};
+export default connect(mapStateToProps, null)(Movie);

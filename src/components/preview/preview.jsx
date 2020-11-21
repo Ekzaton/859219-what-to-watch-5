@@ -32,7 +32,7 @@ class Preview extends React.PureComponent {
     return (
       <video
         ref={this._videoRef}
-        src={movie.video}
+        src={movie.preview}
         poster={movie.cardImage}
         width="280"
         height="175"
