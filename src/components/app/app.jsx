@@ -1,5 +1,7 @@
 import React from "react";
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {Router as BrowserRouter, Switch, Route} from "react-router-dom";
+
+import history from "../../history";
 
 import withPlayer from "../../hocs/with-player/with-player";
 
@@ -15,7 +17,7 @@ const PlayerWrapped = withPlayer(Player);
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <Switch>
         <Route exact path="/"
           render={() => (
