@@ -4,7 +4,8 @@ import {extend} from "../../../utils";
 
 const initialState = {
   movies: [],
-  promo: {},
+  favoriteMovies: [],
+  promoMovie: {},
   reviews: [],
 };
 
@@ -14,9 +15,13 @@ export const appData = (state = initialState, action) => {
       return extend(state, {
         movies: action.payload,
       });
+    case ActionType.GET_FAVORITE_MOVIES:
+      return extend(state, {
+        favoriteMovies: action.payload,
+      });
     case ActionType.GET_PROMO_MOVIE:
       return extend(state, {
-        promo: action.payload,
+        promoMovie: action.payload,
       });
     case ActionType.GET_MOVIE_REVIEWS:
       return extend(state, {
