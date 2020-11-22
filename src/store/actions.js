@@ -5,6 +5,7 @@ export const ActionType = {
   GET_PROMO_MOVIE: `GET_PROMO_MOVIE`,
   GET_MOVIE_REVIEWS: `GET_MOVIE_REVIEWS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
 };
 
 export const getMoviesByGenre = (activeGenre) => ({
@@ -35,4 +36,9 @@ export const getMovieReviews = (reviews) => ({
 export const requiredAuthorization = (status) => ({
   type: ActionType.REQUIRED_AUTHORIZATION,
   payload: status,
+});
+
+export const redirectToRoute = (url) => ({
+  type: ActionType.REDIRECT_TO_ROUTE,
+  payload: url,
 });
