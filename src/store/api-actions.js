@@ -2,6 +2,7 @@ import {movieAdapter, reviewAdapter} from "../services/adapters";
 
 import {
   getAllMovies,
+  getFavoriteMovies,
   getPromoMovie,
   getMovieReviews,
   requireAuthorization,
@@ -13,6 +14,11 @@ import {AuthorizationStatus} from "../const";
 export const fetchAllMovies = () => (dispatch, _getState, api) => (
   api.get(`/films`)
     .then(({data}) => dispatch(getAllMovies(data.map(movieAdapter))))
+);
+
+export const fetchFavoriteMovies = () => (dispatch, _getState, api) => (
+  api.get(`/favorite`)
+    .then(({data}) => dispatch(getFavoriteMovies(data.map(movieAdapter))))
 );
 
 export const fetchPromoMovie = () => (dispatch, _getState, api) => (
