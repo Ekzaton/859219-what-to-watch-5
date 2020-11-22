@@ -4,7 +4,8 @@ import {
   getAllMovies,
   getPromoMovie,
   getMovieReviews,
-  requiredAuthorization
+  requireAuthorization,
+  redirectToRoute
 } from "./actions";
 
 import {AuthorizationStatus} from "../const";
@@ -26,8 +27,12 @@ export const fetchMovieReviews = (id) => (dispatch, _getState, api) => (
 
 export const checkAuthorization = () => (dispatch, _getState, api) => (
   api.get(`/login`)
-    .then(() => dispatch(requiredAuthorization(AuthorizationStatus.AUTH)))
-    .catch((err) => {
-      throw err;
-    })
+    .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
+    .catch(() => dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH)))
+);
+
+export const login = ({login: email, password}) => (dispatch, _getState, api) => (
+  api.post(`/login`, {email, password})
+    .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
+    .then(() => dispatch(redirectToRoute(`/`)))
 );

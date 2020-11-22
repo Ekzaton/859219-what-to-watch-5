@@ -4,7 +4,7 @@ export const ActionType = {
   GET_ALL_MOVIES: `GET_ALL_MOVIES`,
   GET_PROMO_MOVIE: `GET_PROMO_MOVIE`,
   GET_MOVIE_REVIEWS: `GET_MOVIE_REVIEWS`,
-  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
 };
 
@@ -33,8 +33,8 @@ export const getMovieReviews = (reviews) => ({
   payload: reviews,
 });
 
-export const requiredAuthorization = (status) => ({
-  type: ActionType.REQUIRED_AUTHORIZATION,
+export const requireAuthorization = (status) => ({
+  type: ActionType.REQUIRE_AUTHORIZATION,
   payload: status,
 });
 

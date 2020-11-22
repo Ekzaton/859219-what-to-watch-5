@@ -8,7 +8,7 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import {createAPI} from "./services/api";
 
 import rootReducer from "./store/reducers/root-reducer";
-import {requiredAuthorization} from "./store/actions";
+import {requireAuthorization} from "./store/actions";
 import {fetchAllMovies, fetchPromoMovie} from "./store/api-actions";
 
 import {AuthorizationStatus} from "./const";
@@ -16,7 +16,7 @@ import {AuthorizationStatus} from "./const";
 import App from "./components/app/app";
 
 const api = createAPI(
-    () => store.dispatch(requiredAuthorization(AuthorizationStatus.NO_AUTH))
+    () => store.dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH))
 );
 
 const store = createStore(
