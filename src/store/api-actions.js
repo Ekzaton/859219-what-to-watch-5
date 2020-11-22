@@ -31,7 +31,7 @@ export const checkAuthorization = () => (dispatch, _getState, api) => (
     .catch(() => dispatch(requireAuthorization(AuthorizationStatus.NO_AUTH)))
 );
 
-export const login = ({login: email, password}) => (dispatch, _getState, api) => (
+export const login = ({email, password}) => (dispatch, _getState, api) => (
   api.post(`/login`, {email, password})
     .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
     .then(() => dispatch(redirectToRoute(`/`)))
