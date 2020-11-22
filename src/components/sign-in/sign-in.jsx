@@ -1,5 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+
+import {login} from "../../store/api-actions";
 
 class SignIn extends React.PureComponent {
   constructor(props) {
@@ -13,6 +17,11 @@ class SignIn extends React.PureComponent {
 
   handleSubmit(evt) {
     evt.preventDefault();
+
+    this.props.onSubmit({
+      email: this.emailRef.current.value,
+      password: this.passwordRef.current.value,
+    });
   }
 
   render() {
@@ -31,7 +40,7 @@ class SignIn extends React.PureComponent {
         </header>
 
         <div className="sign-in user-page__content">
-          <form action="#" className="sign-in__form">
+          <form action="#" className="sign-in__form" onSubmit={this.handleSubmit}>
             <div className="sign-in__fields">
               <div className="sign-in__field">
                 <input
@@ -90,4 +99,15 @@ class SignIn extends React.PureComponent {
   }
 }
 
-export default SignIn;
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit(authData) {
+    dispatch(login(authData));
+  }
+});
+
+SignIn.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export {SignIn};
+export default connect(null, mapDispatchToProps)(SignIn);
