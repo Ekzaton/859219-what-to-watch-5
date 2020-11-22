@@ -64,17 +64,17 @@ const mapStateToProps = ({APP_DATA}) => ({
   reviews: APP_DATA.reviews,
 });
 
-MovieReviews.propTypes = {
-  movie: movieType,
-  reviews: PropTypes.arrayOf(reviewType),
-  getMovieReviews: PropTypes.func.isRequired,
-};
-
 const mapDispatchToProps = (dispatch) => ({
   getMovieReviews(id) {
     dispatch(fetchMovieReviews(id));
   }
 });
+
+MovieReviews.propTypes = {
+  movie: movieType,
+  reviews: PropTypes.arrayOf(reviewType),
+  getMovieReviews: PropTypes.func.isRequired,
+};
 
 export {MovieReviews};
 export default connect(mapStateToProps, mapDispatchToProps)(MovieReviews);
