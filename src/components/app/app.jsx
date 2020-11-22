@@ -7,6 +7,7 @@ import Main from "../main/main";
 import Movie from "../movie/movie";
 import MyList from "../my-list/my-list";
 import Player from "../player/player";
+import PrivateRoute from "../private-route/private-route";
 import Review from "../review/review";
 import SignIn from "../sign-in/sign-in";
 
@@ -16,21 +17,27 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <Main/>
-        </Route>
-        <Route exact path="/sign-in">
-          <SignIn/>
-        </Route>
-        <Route exact path="/my-list">
-          <MyList/>
-        </Route>
+        <Route exact path="/"
+          render={() => (
+            <Main/>
+          )}
+        />
+        <Route exact path="/sign-in"
+          render={() => (
+            <SignIn/>
+          )}
+        />
+        <PrivateRoute exact path="/my-list"
+          render={() => (
+            <MyList/>
+          )}
+        />
         <Route exact path="/films/:id"
           render={({match}) => (
             <Movie currentMovieId={Number(match.params.id)}/>
           )}
         />
-        <Route exact path="/films/:id/review"
+        <PrivateRoute exact path="/films/:id/review"
           render={({match}) => (
             <Review currentMovieId={Number(match.params.id)}/>
           )}
