@@ -4,6 +4,7 @@ import {
   getAllMovies,
   getFavoriteMovies,
   getPromoMovie,
+  getMovie,
   getMovieReviews,
   requireAuthorization,
   redirectToRoute
@@ -24,6 +25,11 @@ export const fetchFavoriteMovies = () => (dispatch, _getState, api) => (
 export const fetchPromoMovie = () => (dispatch, _getState, api) => (
   api.get(`/films/promo`)
     .then(({data}) => dispatch(getPromoMovie(movieAdapter(data))))
+);
+
+export const fetchMovie = (id) => (dispatch, _getState, api) => (
+  api.get(`/films/${id}`)
+    .then(({data}) => dispatch(getMovie(movieAdapter(data))))
 );
 
 export const fetchMovieReviews = (id) => (dispatch, _getState, api) => (
