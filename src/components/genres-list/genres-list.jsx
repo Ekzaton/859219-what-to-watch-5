@@ -7,14 +7,14 @@ import {getMoviesByGenre} from "../../store/actions";
 
 const GenresList = (props) => {
   const {genres, activeGenre, onGenreClick} = props;
-  const activeClcass = `catalog__genres-item--active`;
+  const activeClass = `catalog__genres-item--active`;
 
   return (
     <ul className="catalog__genres-list">
       {genres.map((genre, i) => (
         <li
           key={`genre-${i}`}
-          className={`catalog__genres-item ${genre === activeGenre ? activeClcass : ``}`}
+          className={`catalog__genres-item ${genre === activeGenre ? activeClass : ``}`}
         >
           <a
             href="#"
