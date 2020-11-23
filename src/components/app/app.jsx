@@ -19,36 +19,12 @@ const App = () => {
   return (
     <BrowserRouter history={history}>
       <Switch>
-        <Route exact path="/"
-          render={() => (
-            <Main/>
-          )}
-        />
-        <Route exact path="/sign-in"
-          render={() => (
-            <SignIn/>
-          )}
-        />
-        <PrivateRoute exact path="/my-list"
-          render={() => (
-            <MyList/>
-          )}
-        />
-        <Route exact path="/films/:id"
-          render={({match}) => (
-            <Movie currentMovieId={Number(match.params.id)}/>
-          )}
-        />
-        <PrivateRoute exact path="/films/:id/review"
-          render={({match}) => (
-            <Review currentMovieId={Number(match.params.id)}/>
-          )}
-        />
-        <Route exact path="/player/:id"
-          render={({match}) => (
-            <PlayerWrapped currentMovieId={Number(match.params.id)}/>
-          )}
-        />
+        <Route exact path="/" component={Main}/>
+        <Route exact path="/sign-in" component={SignIn}/>
+        <PrivateRoute exact path="/my-list" render={() => (<MyList/>)}/>
+        <Route exact path="/films/:id" component={Movie}/>
+        <PrivateRoute exact path="/films/:id/review" render={() => (<Review/>)}/>
+        <Route exact path="/player/:id" component={PlayerWrapped}/>
       </Switch>
     </BrowserRouter>
   );
