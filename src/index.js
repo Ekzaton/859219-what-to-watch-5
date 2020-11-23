@@ -10,7 +10,7 @@ import {createAPI} from "./services/api";
 import {redirect} from "./store/middlewares/redirect";
 import rootReducer from "./store/reducers/root-reducer";
 import {requireAuthorization} from "./store/actions";
-import {fetchAllMovies, fetchPromoMovie} from "./store/api-actions";
+import {fetchAllMovies, fetchPromoMovie, checkAuthorization} from "./store/api-actions";
 
 import {AuthorizationStatus} from "./const";
 
