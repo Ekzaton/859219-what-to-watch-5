@@ -31,6 +31,7 @@ const store = createStore(
 Promise.all([
   store.dispatch(fetchAllMovies()),
   store.dispatch(fetchPromoMovie()),
+  store.dispatch(checkAuthorization())
 ])
 .then(() => {
   ReactDOM.render(
