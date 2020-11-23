@@ -5,8 +5,10 @@ import {ALL_GENRES} from "../../const";
 const SHOWN_MOVIES_COUNT = 8;
 
 const getActiveGenre = ({APP_STATE}) => APP_STATE.activeGenre;
+const getActiveMovie = ({APP_DATA}) => APP_DATA.activeMovie;
 const getMovies = ({APP_DATA}) => APP_DATA.movies;
 const getShownMovies = ({APP_STATE}) => APP_STATE.shownMovies;
+
 
 export const getMoviesByGenre = createSelector(
     getActiveGenre,
@@ -21,13 +23,23 @@ export const getMoviesByGenre = createSelector(
 );
 
 export const showMoreMovies = createSelector(
-    getShownMovies,
     getMoviesByGenre,
-    (shownMovies, moviesByGenre) => {
+    getShownMovies,
+    (moviesByGenre, shownMovies) => {
       if (shownMovies < moviesByGenre.length - SHOWN_MOVIES_COUNT) {
         return shownMovies + SHOWN_MOVIES_COUNT;
       } else {
         return moviesByGenre.length;
       }
+    }
+);
+
+export const getSimilarMovies = createSelector(
+    getMovies,
+    getActiveMovie,
+    (movies, activeMovie) => {
+      return movies.filter((it) =>
+        it.genre === activeMovie.genre && it.id !== activeMovie.id
+      );
     }
 );
