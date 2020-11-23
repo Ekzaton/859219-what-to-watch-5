@@ -2,8 +2,11 @@ export const ActionType = {
   GET_MOVIES_BY_GENRE: `GET_MOVIES_BY_GENRE`,
   SHOW_MORE_MOVIES: `SHOW_MORE_MOVIES`,
   GET_ALL_MOVIES: `GET_ALL_MOVIES`,
+  GET_FAVORITE_MOVIES: `GET_FAVORITE_MOVIES`,
   GET_PROMO_MOVIE: `GET_PROMO_MOVIE`,
   GET_MOVIE_REVIEWS: `GET_MOVIE_REVIEWS`,
+  REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
 };
 
 export const getMoviesByGenre = (activeGenre) => ({
@@ -21,12 +24,27 @@ export const getAllMovies = (movies) => ({
   payload: movies,
 });
 
-export const getPromoMovie = (promo) => ({
+export const getFavoriteMovies = (favoriteMovies) => ({
+  type: ActionType.GET_FAVORITE_MOVIES,
+  payload: favoriteMovies,
+});
+
+export const getPromoMovie = (promoMovie) => ({
   type: ActionType.GET_PROMO_MOVIE,
-  payload: promo,
+  payload: promoMovie,
 });
 
 export const getMovieReviews = (reviews) => ({
   type: ActionType.GET_MOVIE_REVIEWS,
   payload: reviews,
+});
+
+export const requireAuthorization = (status) => ({
+  type: ActionType.REQUIRE_AUTHORIZATION,
+  payload: status,
+});
+
+export const redirectToRoute = (url) => ({
+  type: ActionType.REDIRECT_TO_ROUTE,
+  payload: url,
 });

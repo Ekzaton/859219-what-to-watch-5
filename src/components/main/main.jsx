@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
-import {getMoviesByGenre, showMoreMovies} from "../../store/selectors/movies/movies";
+import {getMoviesByGenre, showMoreMovies} from "../../store/reducers/selectors";
 
 import {movieType} from "../../types";
 
@@ -16,13 +16,13 @@ import ShowMore from "../show-more/show-more";
 const MoviesListWrapped = withMoviesList(MoviesList);
 
 const Main = (props) => {
-  const {moviesByGenre, promo, shownMovies, onMoviesItemClick} = props;
+  const {moviesByGenre, promoMovie, shownMovies} = props;
 
   return (
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={promo.bgImage} alt={promo.title}/>
+          <img src={promoMovie.bgImage} alt={promoMovie.title}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -47,23 +47,23 @@ const Main = (props) => {
           <div className="movie-card__info">
             <div className="movie-card__poster">
               <img
-                src={promo.posterImage}
-                alt={`${promo.title} poster`}
+                src={promoMovie.posterImage}
+                alt={`${promoMovie.title} poster`}
                 width="218"
                 height="327"
               />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{promo.title}</h2>
+              <h2 className="movie-card__title">{promoMovie.title}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{promo.genre}</span>
-                <span className="movie-card__year">{promo.year}</span>
+                <span className="movie-card__genre">{promoMovie.genre}</span>
+                <span className="movie-card__year">{promoMovie.year}</span>
               </p>
 
               <div className="movie-card__buttons">
                 <Link
-                  to={`/player/${promo.id}`}
+                  to={`/player/${promoMovie.id}`}
                   className="btn btn--play movie-card__button"
                 >
                   <svg viewBox="0 0 19 19" width="19" height="19">
@@ -96,7 +96,6 @@ const Main = (props) => {
           <MoviesListWrapped
             movies={moviesByGenre}
             shownMovies={shownMovies}
-            onMoviesItemClick={onMoviesItemClick}
           />
 
           {shownMovies < moviesByGenre.length &&
@@ -124,19 +123,18 @@ const Main = (props) => {
   );
 };
 
-const mapStateToProps = ({MOVIES}) => {
+const mapStateToProps = ({APP_DATA, APP_STATE}) => {
   return {
-    moviesByGenre: getMoviesByGenre({MOVIES}),
-    promo: MOVIES.promo,
-    shownMovies: showMoreMovies({MOVIES}),
+    moviesByGenre: getMoviesByGenre({APP_DATA, APP_STATE}),
+    promoMovie: APP_DATA.promoMovie,
+    shownMovies: showMoreMovies({APP_DATA, APP_STATE}),
   };
 };
 
 Main.propTypes = {
   moviesByGenre: PropTypes.arrayOf(movieType),
-  promo: movieType,
+  promoMovie: movieType,
   shownMovies: PropTypes.number.isRequired,
-  onMoviesItemClick: PropTypes.func.isRequired
 };
 
 export {Main};

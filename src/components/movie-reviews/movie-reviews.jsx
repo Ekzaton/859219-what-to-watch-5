@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import {fetchMovieReviews} from "../../store/api-action";
+import {fetchMovieReviews} from "../../store/api-actions";
 
 import {movieType, reviewType} from "../../types";
 import {formatReviewDate} from "../../utils";
@@ -60,8 +60,14 @@ const MovieReviews = (props) => {
   );
 };
 
-const mapStateToProps = ({REVIEWS}) => ({
-  reviews: REVIEWS.reviews,
+const mapStateToProps = ({APP_DATA}) => ({
+  reviews: APP_DATA.reviews,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getMovieReviews(id) {
+    dispatch(fetchMovieReviews(id));
+  }
 });
 
 MovieReviews.propTypes = {
@@ -69,12 +75,6 @@ MovieReviews.propTypes = {
   reviews: PropTypes.arrayOf(reviewType),
   getMovieReviews: PropTypes.func.isRequired,
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  getMovieReviews(id) {
-    dispatch(fetchMovieReviews(id));
-  }
-});
 
 export {MovieReviews};
 export default connect(mapStateToProps, mapDispatchToProps)(MovieReviews);

@@ -17,7 +17,7 @@ const TabsWrapped = withTabs(Tabs);
 const SIMILAR_MOVIES_COUNT = 4;
 
 const Movie = (props) => {
-  const {movies, currentMovieId, onMoviesItemClick} = props;
+  const {movies, currentMovieId} = props;
   const movie = movies.find((it) => it.id === currentMovieId);
   const similarMovies = movies.filter((it) => it.genre === movie.genre && it.id !== movie.id);
 
@@ -112,7 +112,6 @@ const Movie = (props) => {
 
           <MoviesListWrapped
             movies={similarMovies}
-            onMoviesItemClick={onMoviesItemClick}
             shownMovies={SIMILAR_MOVIES_COUNT}
           />
         </section>
@@ -135,14 +134,13 @@ const Movie = (props) => {
   );
 };
 
-const mapStateToProps = ({MOVIES}) => ({
-  movies: MOVIES.movies,
+const mapStateToProps = ({APP_DATA}) => ({
+  movies: APP_DATA.movies,
 });
 
 Movie.propTypes = {
   movies: PropTypes.arrayOf(movieType),
   currentMovieId: PropTypes.number.isRequired,
-  onMoviesItemClick: PropTypes.func.isRequired,
 };
 
 export {Movie};

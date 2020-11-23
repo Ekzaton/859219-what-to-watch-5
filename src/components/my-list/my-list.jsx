@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
+import {fetchFavoriteMovies} from "../../store/api-actions";
+
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
@@ -12,8 +14,11 @@ import MoviesList from "../movies-list/movies-list";
 const MoviesListWrapped = withMoviesList(MoviesList);
 
 const MyList = (props) => {
-  const {movies, onMoviesItemClick} = props;
-  const favoriteMovies = movies.filter((it) => it.isFavorite === true);
+  const {favoriteMovies, getFavoriteMovies} = props;
+
+  React.useEffect(() => {
+    getFavoriteMovies();
+  }, []);
 
   return (
     <div className="user-page">
@@ -40,7 +45,6 @@ const MyList = (props) => {
 
         <MoviesListWrapped
           movies={favoriteMovies}
-          onMoviesItemClick={onMoviesItemClick}
           shownMovies={favoriteMovies.length}
         />
       </section>
@@ -62,14 +66,20 @@ const MyList = (props) => {
   );
 };
 
-const mapStateToProps = ({MOVIES}) => ({
-  movies: MOVIES.movies,
+const mapStateToProps = ({APP_DATA}) => ({
+  favoriteMovies: APP_DATA.favoriteMovies,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getFavoriteMovies() {
+    dispatch(fetchFavoriteMovies());
+  }
 });
 
 MyList.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
-  onMoviesItemClick: PropTypes.func.isRequired,
+  favoriteMovies: PropTypes.arrayOf(movieType),
+  getFavoriteMovies: PropTypes.func.isRequired,
 };
 
 export {MyList};
-export default connect(mapStateToProps, null)(MyList);
+export default connect(mapStateToProps, mapDispatchToProps)(MyList);

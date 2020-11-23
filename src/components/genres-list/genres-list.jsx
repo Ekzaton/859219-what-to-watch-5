@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import {getMoviesByGenre} from "../../store/action";
+import {getMoviesByGenre} from "../../store/actions";
 
 import {ALL_GENRES} from "../../const";
 
@@ -37,10 +37,10 @@ const GenresList = (props) => {
   );
 };
 
-const mapStateToProps = ({MOVIES}) => {
+const mapStateToProps = ({APP_DATA, APP_STATE}) => {
   return {
-    activeGenre: MOVIES.activeGenre,
-    movies: MOVIES.movies,
+    activeGenre: APP_STATE.activeGenre,
+    movies: APP_DATA.movies,
   };
 };
 
