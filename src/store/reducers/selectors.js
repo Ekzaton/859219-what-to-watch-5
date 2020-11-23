@@ -9,6 +9,12 @@ const getActiveMovie = ({APP_DATA}) => APP_DATA.activeMovie;
 const getMovies = ({APP_DATA}) => APP_DATA.movies;
 const getShownMovies = ({APP_STATE}) => APP_STATE.shownMovies;
 
+export const getGenres = createSelector(
+    getMovies,
+    (movies) => {
+      return [ALL_GENRES, ...new Set(movies.map((it) => it.genre))];
+    }
+);
 
 export const getMoviesByGenre = createSelector(
     getActiveGenre,
