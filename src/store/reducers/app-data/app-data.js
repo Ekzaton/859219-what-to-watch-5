@@ -6,7 +6,8 @@ const initialState = {
   movies: [],
   favoriteMovies: [],
   promoMovie: {},
-  reviews: [],
+  activeMovie: {},
+  movieReviews: [],
 };
 
 export const appData = (state = initialState, action) => {
@@ -22,10 +23,15 @@ export const appData = (state = initialState, action) => {
     case ActionType.GET_PROMO_MOVIE:
       return extend(state, {
         promoMovie: action.payload,
+        activeMovie: action.payload,
+      });
+    case ActionType.GET_MOVIE:
+      return extend(state, {
+        activeMovie: action.payload,
       });
     case ActionType.GET_MOVIE_REVIEWS:
       return extend(state, {
-        reviews: action.payload,
+        movieReviews: action.payload,
       });
   }
 
