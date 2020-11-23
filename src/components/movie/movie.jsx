@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {connect} from "react-redux";
 
+import {getSimilarMovies} from "../../store/reducers/selectors";
 import {fetchMovie} from "../../store/api-actions";
 
 import {movieType} from "../../types";
@@ -19,15 +20,12 @@ const TabsWrapped = withTabs(Tabs);
 const SIMILAR_MOVIES_COUNT = 4;
 
 const Movie = (props) => {
-  const {movies, movie, getMovie, currentMovieId} = props;
+  const {movie, getMovie, similarMovies} = props;
+  const params = useParams();
 
   React.useEffect(() => {
-    getMovie(currentMovieId);
-  }, [currentMovieId]);
-
-  const similarMovies = movies.filter((it) =>
-    it.genre === movie.genre && it.id !== movie.id
-  );
+    getMovie(params.id);
+  }, [params.id]);
 
   return (
     <React.Fragment>
@@ -143,8 +141,8 @@ const Movie = (props) => {
 };
 
 const mapStateToProps = ({APP_DATA}) => ({
-  movies: APP_DATA.movies,
   movie: APP_DATA.activeMovie,
+  similarMovies: getSimilarMovies({APP_DATA}),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -154,10 +152,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Movie.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
   movie: movieType,
   getMovie: PropTypes.func.isRequired,
-  currentMovieId: PropTypes.number.isRequired,
+  similarMovies: PropTypes.arrayOf(movieType),
 };
 
 export {Movie};

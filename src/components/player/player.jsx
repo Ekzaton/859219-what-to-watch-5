@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {connect} from "react-redux";
 import moment from "moment";
+
+import {fetchMovie} from "../../store/api-actions";
 
 import {movieType} from "../../types";
 
 const Player = (props) => {
   const {
-    movies,
-    currentMovieId,
+    movie,
     progressRef,
     videoRef,
     isPlaying,
@@ -17,9 +18,14 @@ const Player = (props) => {
     timeRemaining,
     handleFullScreenButton,
     handlePlayButton,
-    handleMouseDown
+    handleMouseDown,
+    getMovie
   } = props;
-  const movie = movies.find((it) => it.id === currentMovieId);
+  const params = useParams();
+
+  React.useEffect(() => {
+    getMovie(params.id);
+  }, [params.id]);
 
   return (
     <div className="player">
@@ -27,7 +33,6 @@ const Player = (props) => {
         className="player__video"
         ref={videoRef}
         src={movie.video}
-        poster={movie.cardImage}
       />
 
       {(isPlaying) ||
@@ -94,12 +99,17 @@ const Player = (props) => {
 };
 
 const mapStateToProps = ({APP_DATA}) => ({
-  movies: APP_DATA.movies,
+  movie: APP_DATA.activeMovie,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getMovie(id) {
+    dispatch(fetchMovie(id));
+  }
 });
 
 Player.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
-  currentMovieId: PropTypes.number.isRequired,
+  movie: movieType,
   progressRef: PropTypes.shape({current: PropTypes.instanceOf(Element)}).isRequired,
   videoRef: PropTypes.shape({current: PropTypes.instanceOf(Element)}).isRequired,
   isPlaying: PropTypes.bool.isRequired,
@@ -108,7 +118,8 @@ Player.propTypes = {
   handleFullScreenButton: PropTypes.func.isRequired,
   handlePlayButton: PropTypes.func.isRequired,
   handleMouseDown: PropTypes.func.isRequired,
+  getMovie: PropTypes.func.isRequired,
 };
 
 export {Player};
-export default connect(mapStateToProps, null)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

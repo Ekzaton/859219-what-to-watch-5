@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {connect} from "react-redux";
+
+import {fetchMovie} from "../../store/api-actions";
 
 import {movieType} from "../../types";
 
@@ -12,8 +14,12 @@ import ReviewForm from "../review-form/review-form";
 const ReviewFormWrapped = withReviewForm(ReviewForm);
 
 const Review = (props) => {
-  const {movies, currentMovieId} = props;
-  const movie = movies.find((it) => it.id === currentMovieId);
+  const {movie, getMovie} = props;
+  const params = useParams();
+
+  React.useEffect(() => {
+    getMovie(params.id);
+  }, [params.id]);
 
   return (
     <section className="movie-card movie-card--full">
@@ -67,13 +73,19 @@ const Review = (props) => {
 };
 
 const mapStateToProps = ({APP_DATA}) => ({
-  movies: APP_DATA.movies,
+  movie: APP_DATA.activeMovie,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getMovie(id) {
+    dispatch(fetchMovie(id));
+  }
 });
 
 Review.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
-  currentMovieId: PropTypes.number.isRequired,
+  movie: movieType,
+  getMovie: PropTypes.func.isRequired,
 };
 
 export {Review};
-export default connect(mapStateToProps, null)(Review);
+export default connect(mapStateToProps, mapDispatchToProps)(Review);
