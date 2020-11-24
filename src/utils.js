@@ -26,6 +26,10 @@ export const formatReviewDate = (date) => {
   );
 };
 
+export const getArray = (count) => {
+  return new Array(count).fill(``);
+};
+
 export const getRatingLevel = (score) => {
   if (score > 0 && score < 3) {
     return RatingLevel.BAD;

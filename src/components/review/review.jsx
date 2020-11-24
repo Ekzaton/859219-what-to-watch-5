@@ -65,7 +65,7 @@ const Review = (props) => {
       </div>
 
       <div className="add-review">
-        <ReviewFormWrapped/>
+        <ReviewFormWrapped id={movie.id}/>
       </div>
 
     </section>

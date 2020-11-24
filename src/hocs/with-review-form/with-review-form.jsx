@@ -10,13 +10,8 @@ const withReviewForm = (Component) => {
         textValue: ``,
       };
 
-      this.handleSubmit = this.handleSubmit.bind(this);
       this.handleRatingChange = this.handleRatingChange.bind(this);
       this.handleTextChange = this.handleTextChange.bind(this);
-    }
-
-    handleSubmit(evt) {
-      evt.preventDefault();
     }
 
     handleRatingChange(evt) {
@@ -30,9 +25,9 @@ const withReviewForm = (Component) => {
     render() {
       return (
         <Component
+          {...this.props}
           ratingValue={this.state.ratingValue}
           textValue={this.state.textValue}
-          onSubmit={this.handleSubmit}
           onRatingChange={this.handleRatingChange}
           onTextChange={this.handleTextChange}
         />
