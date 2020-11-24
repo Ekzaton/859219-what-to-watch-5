@@ -11,14 +11,14 @@ const RATING_STARS_COUNT = 5;
 const ReviewForm = (props) => {
   const {id, ratingValue, textValue, onSubmit, onRatingChange, onTextChange} = props;
 
-  const handleSubmitClick = (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
 
     onSubmit(id, {rating: ratingValue, comment: textValue});
   };
 
   return (
-    <form action="#" className="add-review__form">
+    <form className="add-review__form" onSubmit={handleSubmit}>
       <div className="rating">
         <div className="rating__stars">
           {getArray(RATING_STARS_COUNT).map((it, i) => (
@@ -51,11 +51,7 @@ const ReviewForm = (props) => {
           onChange={onTextChange}
         />
         <div className="add-review__submit">
-          <button
-            className="add-review__btn"
-            type="submit"
-            onSubmit={handleSubmitClick}
-          >
+          <button className="add-review__btn" type="submit">
             Post
           </button>
         </div>
