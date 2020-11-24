@@ -6,6 +6,7 @@ import moment from "moment";
 
 import {fetchMovie} from "../../store/api-actions";
 
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 const Player = (props) => {
@@ -36,7 +37,7 @@ const Player = (props) => {
       />
 
       {(isPlaying) ||
-        <Link to={`/films/${movie.id}`}>
+        <Link to={`${AppRoute.FILMS}${movie.id}`}>
           <button type="button" className="player__exit">Exit</button>
         </Link>
       }

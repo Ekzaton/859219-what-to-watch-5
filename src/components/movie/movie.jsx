@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {getSimilarMovies} from "../../store/reducers/selectors";
 import {fetchMovie} from "../../store/api-actions";
 
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
@@ -44,7 +45,7 @@ const Movie = (props) => {
 
           <header className="page-header movie-card__head">
             <div className="logo">
-              <Link to="/" className="logo__link">
+              <Link to={AppRoute.ROOT} className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
@@ -66,7 +67,7 @@ const Movie = (props) => {
 
               <div className="movie-card__buttons">
                 <Link
-                  to={`/player/${movie.id}`}
+                  to={`${AppRoute.PLAYER}${movie.id}`}
                   className="btn btn--play movie-card__button"
                 >
                   <svg viewBox="0 0 19 19" width="19" height="19">
@@ -79,7 +80,7 @@ const Movie = (props) => {
                   isFavorite={movie.isFavorite}
                 />
                 <Link
-                  to={`/films/${movie.id}/review`}
+                  to={`${AppRoute.FILMS}${movie.id}${AppRoute.REVIEW}`}
                   className="btn movie-card__button"
                 >
                   Add review
@@ -119,7 +120,7 @@ const Movie = (props) => {
 
         <footer className="page-footer">
           <div className="logo">
-            <Link to="/" className="logo__link logo__link--light">
+            <Link to={AppRoute.ROOT} className="logo__link logo__link--light">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>

@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 
 import {getMoviesByGenre, showMoreMovies} from "../../store/reducers/selectors";
 
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
@@ -63,7 +64,7 @@ const Main = (props) => {
 
               <div className="movie-card__buttons">
                 <Link
-                  to={`/player/${promoMovie.id}`}
+                  to={`${AppRoute.PLAYER}${promoMovie.id}`}
                   className="btn btn--play movie-card__button"
                 >
                   <svg viewBox="0 0 19 19" width="19" height="19">

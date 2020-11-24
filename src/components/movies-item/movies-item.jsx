@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import Preview from "../preview/preview";
@@ -15,11 +16,14 @@ const MoviesItem = (props) => {
       onMouseEnter={() => onMovieEnter(movie.id)}
       onMouseLeave={() => onMovieLeave()}
     >
-      <Link to={`/films/${movie.id}`} className="small-movie-card__image">
-        <Preview movie={movie} isPlaying={isPlaying}/>
+      <Link to={`${AppRoute.FILMS}${movie.id}`} className="small-movie-card__image">
+        <Preview
+          movie={movie}
+          isPlaying={isPlaying}
+        />
       </Link>
       <h3 className="small-movie-card__title">
-        <Link to={`/films/${movie.id}`} className="small-movie-card__link">
+        <Link to={`${AppRoute.FILMS}${movie.id}`} className="small-movie-card__link">
           {movie.title}
         </Link>
       </h3>

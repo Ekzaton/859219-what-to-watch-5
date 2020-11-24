@@ -1,3 +1,23 @@
+export const APIRoute = {
+  FILMS: `/films/`,
+  FAVORITE: `/favorite/`,
+  PROMO: `/films/promo/`,
+  COMMENTS: `/comments/`,
+  LOGIN: `/login/`
+};
+
+export const AppRoute = {
+  ROOT: `/`,
+  SIGN_IN: `/sign-in/`,
+  MY_LIST: `/my-list/`,
+  REVIEW: `/review/`,
+  REVIEW_ID: `/films/:id/review/`,
+  PLAYER: `/player/`,
+  PLAYER_ID: `/player/:id/`,
+  FILMS: `/films/`,
+  FILMS_ID: `/films/:id/`
+};
+
 export const Tab = {
   OVERVIEW: `overview`,
   DETAILS: `details`,

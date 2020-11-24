@@ -3,6 +3,8 @@ import {Router as BrowserRouter, Switch, Route} from "react-router-dom";
 
 import history from "../../history";
 
+import {AppRoute} from "../../const";
+
 import withPlayer from "../../hocs/with-player/with-player";
 
 import Main from "../main/main";
@@ -19,12 +21,12 @@ const App = () => {
   return (
     <BrowserRouter history={history}>
       <Switch>
-        <Route exact path="/" component={Main}/>
-        <Route exact path="/sign-in" component={SignIn}/>
-        <PrivateRoute exact path="/my-list" render={() => (<MyList/>)}/>
-        <Route exact path="/films/:id" component={Movie}/>
-        <PrivateRoute exact path="/films/:id/review" render={() => (<Review/>)}/>
-        <Route exact path="/player/:id" component={PlayerWrapped}/>
+        <Route exact path={AppRoute.ROOT} component={Main}/>
+        <Route exact path={AppRoute.SIGN_IN} component={SignIn}/>
+        <PrivateRoute exact path={AppRoute.MY_LIST} render={() => (<MyList/>)}/>
+        <Route exact path={AppRoute.FILMS_ID} component={Movie}/>
+        <PrivateRoute exact path={AppRoute.REVIEW_ID} render={() => (<Review/>)}/>
+        <Route exact path={AppRoute.FILMS_ID} component={PlayerWrapped}/>
       </Switch>
     </BrowserRouter>
   );

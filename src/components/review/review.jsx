@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 
 import {fetchMovie} from "../../store/api-actions";
 
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import withReviewForm from "../../hocs/with-review-form/with-review-form";
@@ -33,7 +34,7 @@ const Review = (props) => {
 
         <header className="page-header">
           <div className="logo">
-            <Link to="/" className="logo__link">
+            <Link to={AppRoute.ROOT} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
@@ -43,7 +44,7 @@ const Review = (props) => {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <Link to={`/films/${movie.id}`} className="breadcrumbs__link">
+                <Link to={`${AppRoute.FILMS}${movie.id}`} className="breadcrumbs__link">
                   {movie.title}
                 </Link>
               </li>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 
-import {AuthorizationStatus} from "../../const";
+import {AppRoute, AuthorizationStatus} from "../../const";
 
 const User = (props) => {
   const {status} = props;
@@ -13,12 +13,12 @@ const User = (props) => {
     <React.Fragment>
       {isAuthorized
         ? <div className="user-block__avatar">
-          <Link to="/my-list">
+          <Link to={AppRoute.MY_LIST}>
             <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
           </Link>
         </div>
         : <div className="user-block__link">
-          <Link to="/sign-in" className="user-block__link">Sign in</Link>
+          <Link to={AppRoute.SIGN_IN} className="user-block__link">Sign in</Link>
         </div>
       }
     </React.Fragment>
