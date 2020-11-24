@@ -14,6 +14,7 @@ import withTabs from "../../hocs/with-tabs/with-tabs";
 import MoviesList from "../movies-list/movies-list";
 import MyListButton from "../my-list-button/my-list-button";
 import Tabs from "../tabs/tabs";
+import User from "../user/user";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
 const TabsWrapped = withTabs(Tabs);
@@ -51,9 +52,7 @@ const Movie = (props) => {
             </div>
 
             <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-              </div>
+              <User/>
             </div>
           </header>
 

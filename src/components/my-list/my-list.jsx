@@ -10,6 +10,7 @@ import {movieType} from "../../types";
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
 
 import MoviesList from "../movies-list/movies-list";
+import User from "../user/user";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
 
@@ -34,9 +35,7 @@ const MyList = (props) => {
         <h1 className="page-title user-page__title">My list</h1>
 
         <div className="user-block">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-          </div>
+          <User/>
         </div>
       </header>
 

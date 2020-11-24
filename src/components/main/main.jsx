@@ -13,6 +13,7 @@ import GenresList from "../genres-list/genres-list";
 import MoviesList from "../movies-list/movies-list";
 import MyListButton from "../my-list-button/my-list-button";
 import ShowMore from "../show-more/show-more";
+import User from "../user/user";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
 
@@ -38,9 +39,7 @@ const Main = (props) => {
           </div>
 
           <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-            </div>
+            <User/>
           </div>
         </header>
 

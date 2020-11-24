@@ -10,6 +10,7 @@ import {movieType} from "../../types";
 import withReviewForm from "../../hocs/with-review-form/with-review-form";
 
 import ReviewForm from "../review-form/review-form";
+import User from "../user/user";
 
 const ReviewFormWrapped = withReviewForm(ReviewForm);
 
@@ -53,9 +54,7 @@ const Review = (props) => {
           </nav>
 
           <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-            </div>
+            <User/>
           </div>
         </header>
 
