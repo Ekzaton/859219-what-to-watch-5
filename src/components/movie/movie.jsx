@@ -12,6 +12,7 @@ import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
 import withTabs from "../../hocs/with-tabs/with-tabs";
 
 import MoviesList from "../movies-list/movies-list";
+import MyListButton from "../my-list-button/my-list-button";
 import Tabs from "../tabs/tabs";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
@@ -74,15 +75,10 @@ const Movie = (props) => {
                   </svg>
                   <span>Play</span>
                 </Link>
-                <Link
-                  to="/my-list"
-                  className="btn btn--list movie-card__button"
-                >
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </Link>
+                <MyListButton
+                  id={movie.id}
+                  isFavorite={movie.isFavorite}
+                />
                 <Link
                   to={`/films/${movie.id}/review`}
                   className="btn movie-card__button"
