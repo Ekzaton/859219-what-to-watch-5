@@ -7,6 +7,7 @@ import {AuthorizationStatus} from "../../const";
 
 const PrivateRoute = (props) => {
   const {path, exact, render, status} = props;
+  const isAuthorized = (status === AuthorizationStatus.AUTH);
 
   return (
     <Route
@@ -14,7 +15,7 @@ const PrivateRoute = (props) => {
       exact={exact}
       render={(routeProps) => {
         return (
-          status === AuthorizationStatus.AUTH
+          isAuthorized
             ? render(routeProps)
             : <Redirect to={`/sign-in`}/>
         );
