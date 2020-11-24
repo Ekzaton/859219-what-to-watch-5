@@ -53,3 +53,9 @@ export const sendReview = (id, {rating, comment}) => (dispatch, _getState, api) 
   api.post(`/comments/${id}`, {rating, comment})
     .then(() => dispatch(redirectToRoute(`/films/${id}`)))
 );
+
+export const changeFavorite = (id, status) => (dispatch, _getState, api) => (
+  api.post(`/favorite/${id}/${status ? 0 : 1}`)
+    .then(() => dispatch(fetchPromoMovie()))
+    .then(() => dispatch(fetchMovie(id)))
+);
