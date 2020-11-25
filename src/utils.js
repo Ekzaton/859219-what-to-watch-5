@@ -2,9 +2,9 @@ import React from "react";
 
 import {RatingLevel, Tab} from "./const";
 
-import MoviePageDetailsTab from "./components/movie-page-details-tab/movie-page-details-tab";
-import MoviePageOverviewTab from "./components/movie-page-overview-tab/movie-page-overview-tab";
-import MoviePageReviewsTab from "./components/movie-page-reviews-tab/movie-page-reviews-tab";
+import MovieDetailsTab from "./components/movie-details-tab/movie-details-tab";
+import MovieOverviewTab from "./components/movie-overview-tab/movie-overview-tab";
+import MovieReviewsTab from "./components/movie-reviews-tab/movie-reviews-tab";
 
 export const capitalize = (title) => {
   return title[0].toUpperCase() + title.slice(1);
@@ -49,11 +49,11 @@ export const getRatingLevel = (score) => {
 export const renderActiveTab = (activeTab, movie) => {
   switch (activeTab) {
     case Tab.OVERVIEW:
-      return <MoviePageDetailsTab movie={movie}/>;
+      return <MovieDetailsTab movie={movie}/>;
     case Tab.DETAILS:
-      return <MoviePageOverviewTab movie={movie}/>;
+      return <MovieOverviewTab movie={movie}/>;
     case Tab.REVIEWS:
-      return <MoviePageReviewsTab movie={movie}/>;
+      return <MovieReviewsTab movie={movie}/>;
   }
 
   return null;

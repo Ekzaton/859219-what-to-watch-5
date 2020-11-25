@@ -10,15 +10,15 @@ import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
-import withMoviePageTabToggler from "../../hocs/with-movie-page-tab-toggler/with-movie-page-tab-toggler";
+import withMovieTabToggler from "../../hocs/with-movie-tab-toggler/with-movie-tab-toggler";
 
 import MoviesList from "../movies-list/movies-list";
 import MyListButton from "../my-list-button/my-list-button";
-import MoviePageTabToggler from "../movie-page-tab-toggler/movie-page-tab-toggler";
+import MovieTabToggler from "../movie-tab-toggler/movie-tab-toggler";
 import User from "../user/user";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
-const MoviePageTabTogglerWrapped = withMoviePageTabToggler(MoviePageTabToggler);
+const MovieTabTogglerWrapped = withMovieTabToggler(MovieTabToggler);
 
 const SIMILAR_MOVIES_COUNT = 4;
 
@@ -101,7 +101,7 @@ const MoviePage = (props) => {
               />
             </div>
 
-            <MoviePageTabTogglerWrapped
+            <MovieTabTogglerWrapped
               movie={movie}
             />
           </div>

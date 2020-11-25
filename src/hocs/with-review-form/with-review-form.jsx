@@ -1,7 +1,7 @@
 import React from "react";
 
-const withReviewPageForm = (Component) => {
-  class ReviewPageForm extends React.PureComponent {
+const withReviewForm = (Component) => {
+  class ReviewForm extends React.PureComponent {
     constructor() {
       super();
 
@@ -35,7 +35,7 @@ const withReviewPageForm = (Component) => {
     }
   }
 
-  return ReviewPageForm;
+  return ReviewForm;
 };
 
-export default withReviewPageForm;
+export default withReviewForm;

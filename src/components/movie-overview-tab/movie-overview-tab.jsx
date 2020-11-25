@@ -3,7 +3,7 @@ import React from "react";
 import {movieType} from "../../types";
 import {getRatingLevel} from "../../utils";
 
-const MoviePageOverviewTab = (props) => {
+const MovieOverviewTab = (props) => {
   const {movie} = props;
 
   return (
@@ -37,8 +37,8 @@ const MoviePageOverviewTab = (props) => {
   );
 };
 
-MoviePageOverviewTab.propTypes = {
+MovieOverviewTab.propTypes = {
   movie: movieType,
 };
 
-export default MoviePageOverviewTab;
+export default MovieOverviewTab;

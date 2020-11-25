@@ -3,7 +3,7 @@ import React from "react";
 import {movieType} from "../../types";
 import {formatMovieDuration} from "../../utils";
 
-const MoviePageDetailsTab = (props) => {
+const MovieDetailsTab = (props) => {
   const {movie} = props;
 
   return (
@@ -57,8 +57,8 @@ const MoviePageDetailsTab = (props) => {
   );
 };
 
-MoviePageDetailsTab.propTypes = {
+MovieDetailsTab.propTypes = {
   movie: movieType,
 };
 
-export default MoviePageDetailsTab;
+export default MovieDetailsTab;

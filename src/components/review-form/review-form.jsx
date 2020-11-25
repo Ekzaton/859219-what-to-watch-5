@@ -8,7 +8,7 @@ import {getArray} from "../../utils";
 
 const RATING_STARS_COUNT = 5;
 
-const ReviewPageForm = (props) => {
+const ReviewForm = (props) => {
   const {id, ratingValue, textValue, onSubmit, onRatingChange, onTextChange} = props;
 
   const handleSubmit = (evt) => {
@@ -67,7 +67,7 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-ReviewPageForm.propTypes = {
+ReviewForm.propTypes = {
   id: PropTypes.number.isRequired,
   ratingValue: PropTypes.number.isRequired,
   textValue: PropTypes.string.isRequired,
@@ -76,5 +76,5 @@ ReviewPageForm.propTypes = {
   onTextChange: PropTypes.func.isRequired,
 };
 
-export {ReviewPageForm};
-export default connect(null, mapDispatchToProps)(ReviewPageForm);
+export {ReviewForm};
+export default connect(null, mapDispatchToProps)(ReviewForm);

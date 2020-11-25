@@ -8,12 +8,12 @@ import {fetchMovie} from "../../store/api-actions";
 import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
-import withReviewForm from "../../hocs/with-review-page-form/with-review-page-form";
+import withReviewForm from "../../hocs/with-review-form/with-review-form";
 
-import ReviewPageForm from "../review-page-form/review-page-form";
+import ReviewForm from "../review-form/review-form";
 import User from "../user/user";
 
-const ReviewPageFormWrapped = withReviewForm(ReviewPageForm);
+const ReviewFormWrapped = withReviewForm(ReviewForm);
 
 const ReviewPage = (props) => {
   const {movie, getMovie} = props;
@@ -65,7 +65,7 @@ const ReviewPage = (props) => {
       </div>
 
       <div className="add-review">
-        <ReviewPageFormWrapped id={movie.id}/>
+        <ReviewFormWrapped id={movie.id}/>
       </div>
 
     </section>

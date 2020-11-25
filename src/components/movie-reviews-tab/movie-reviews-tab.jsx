@@ -7,7 +7,7 @@ import {fetchMovieReviews} from "../../store/api-actions";
 import {movieType, reviewType} from "../../types";
 import {formatReviewDate} from "../../utils";
 
-const MoviePageReviewsTab = (props) => {
+const MovieReviewsTab = (props) => {
   const {movie, movieReviews, getMovieReviews} = props;
 
   React.useEffect(() => {
@@ -72,11 +72,11 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-MoviePageReviewsTab.propTypes = {
+MovieReviewsTab.propTypes = {
   movie: movieType,
   movieReviews: PropTypes.arrayOf(reviewType),
   getMovieReviews: PropTypes.func.isRequired,
 };
 
-export {MoviePageReviewsTab};
-export default connect(mapStateToProps, mapDispatchToProps)(MoviePageReviewsTab);
+export {MovieReviewsTab};
+export default connect(mapStateToProps, mapDispatchToProps)(MovieReviewsTab);

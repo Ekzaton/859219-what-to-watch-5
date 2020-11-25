@@ -2,8 +2,8 @@ import React from "react";
 
 import {Tab} from "../../const";
 
-const withMoviePageTabToggler = (Component) => {
-  class MoviePageTabToggler extends React.PureComponent {
+const withMovieTabToggler = (Component) => {
+  class MovieTabToggler extends React.PureComponent {
     constructor(props) {
       super(props);
 
@@ -29,7 +29,7 @@ const withMoviePageTabToggler = (Component) => {
     }
   }
 
-  return MoviePageTabToggler;
+  return MovieTabToggler;
 };
 
-export default withMoviePageTabToggler;
+export default withMovieTabToggler;
