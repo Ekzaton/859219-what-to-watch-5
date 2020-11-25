@@ -26,7 +26,7 @@ const App = () => {
         <PrivateRoute exact path={AppRoute.MY_LIST} render={() => (<MyList/>)}/>
         <Route exact path={AppRoute.FILMS_ID} component={Movie}/>
         <PrivateRoute exact path={AppRoute.REVIEW_ID} render={() => (<Review/>)}/>
-        <Route exact path={AppRoute.FILMS_ID} component={PlayerWrapped}/>
+        <Route exact path={AppRoute.PLAYER_ID} component={PlayerWrapped}/>
       </Switch>
     </BrowserRouter>
   );
