@@ -1,25 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-
-import {getMoviesByGenre, showMoreMovies} from "../../store/reducers/selectors";
 
 import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
-import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
-
-import GenresList from "../genres-list/genres-list";
-import MoviesList from "../movies-list/movies-list";
+import MoviesCatalog from "../movies-catalog/movies-catalog";
 import MyListButton from "../my-list-button/my-list-button";
-import ShowMoreButton from "../show-more-button/show-more-button";
 import User from "../user/user";
 
-const MoviesListWrapped = withMoviesList(MoviesList);
-
 const MainPage = (props) => {
-  const {moviesByGenre, promoMovie, shownMovies} = props;
+  const {promoMovie} = props;
 
   return (
     <React.Fragment>
@@ -83,22 +74,7 @@ const MainPage = (props) => {
       </section>
 
       <div className="page-content">
-        <section className="catalog">
-          <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-          <GenresList/>
-
-          <MoviesListWrapped
-            movies={moviesByGenre}
-            shownMovies={shownMovies}
-          />
-
-          {shownMovies < moviesByGenre.length &&
-            <ShowMoreButton
-              shownMovies={shownMovies}
-            />
-          }
-        </section>
+        <MoviesCatalog/>
 
         <footer className="page-footer">
           <div className="logo">
@@ -118,18 +94,14 @@ const MainPage = (props) => {
   );
 };
 
-const mapStateToProps = ({APP_DATA, APP_STATE}) => {
+const mapStateToProps = ({APP_DATA}) => {
   return {
-    moviesByGenre: getMoviesByGenre({APP_DATA, APP_STATE}),
     promoMovie: APP_DATA.promoMovie,
-    shownMovies: showMoreMovies({APP_DATA, APP_STATE}),
   };
 };
 
 MainPage.propTypes = {
-  moviesByGenre: PropTypes.arrayOf(movieType),
   promoMovie: movieType,
-  shownMovies: PropTypes.number.isRequired,
 };
 
 export {MainPage};
