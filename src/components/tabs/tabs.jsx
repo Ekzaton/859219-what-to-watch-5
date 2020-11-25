@@ -3,24 +3,7 @@ import PropTypes from "prop-types";
 
 import {Tab} from "../../const";
 import {movieType} from "../../types";
-import {capitalize} from "../../utils";
-
-import MovieDetails from "../movie-details/movie-details";
-import MovieOverview from "../movie-overview/movie-overview";
-import MovieReviews from "../movie-reviews/movie-reviews";
-
-const renderActiveTab = (activeTab, movie) => {
-  switch (activeTab) {
-    case Tab.OVERVIEW:
-      return <MovieOverview movie={movie}/>;
-    case Tab.DETAILS:
-      return <MovieDetails movie={movie}/>;
-    case Tab.REVIEWS:
-      return <MovieReviews movie={movie}/>;
-  }
-
-  return null;
-};
+import {capitalize, renderActiveTab} from "../../utils";
 
 const Tabs = (props) => {
   const {movie, activeTab, handleTabClick} = props;

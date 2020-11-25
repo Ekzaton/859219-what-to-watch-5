@@ -5,13 +5,16 @@ import {connect} from "react-redux";
 
 import {getMoviesByGenre, showMoreMovies} from "../../store/reducers/selectors";
 
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
 
 import GenresList from "../genres-list/genres-list";
 import MoviesList from "../movies-list/movies-list";
+import MyListButton from "../my-list-button/my-list-button";
 import ShowMore from "../show-more/show-more";
+import User from "../user/user";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
 
@@ -37,9 +40,7 @@ const Main = (props) => {
           </div>
 
           <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-            </div>
+            <User/>
           </div>
         </header>
 
@@ -63,7 +64,7 @@ const Main = (props) => {
 
               <div className="movie-card__buttons">
                 <Link
-                  to={`/player/${promoMovie.id}`}
+                  to={`${AppRoute.PLAYER}${promoMovie.id}`}
                   className="btn btn--play movie-card__button"
                 >
                   <svg viewBox="0 0 19 19" width="19" height="19">
@@ -71,16 +72,10 @@ const Main = (props) => {
                   </svg>
                   <span>Play</span>
                 </Link>
-                <Link
-                  to="/my-list"
-                  className="btn btn--list movie-card__button"
-                  type="button"
-                >
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </Link>
+                <MyListButton
+                  id={promoMovie.id}
+                  isFavorite={promoMovie.isFavorite}
+                />
               </div>
             </div>
           </div>

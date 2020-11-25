@@ -1,19 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {connect} from "react-redux";
 
+import {fetchMovie} from "../../store/api-actions";
+
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import withReviewForm from "../../hocs/with-review-form/with-review-form";
 
 import ReviewForm from "../review-form/review-form";
+import User from "../user/user";
 
 const ReviewFormWrapped = withReviewForm(ReviewForm);
 
 const Review = (props) => {
-  const {movies, currentMovieId} = props;
-  const movie = movies.find((it) => it.id === currentMovieId);
+  const {movie, getMovie} = props;
+  const params = useParams();
+
+  React.useEffect(() => {
+    getMovie(params.id);
+  }, [params.id]);
 
   return (
     <section className="movie-card movie-card--full">
@@ -26,7 +34,7 @@ const Review = (props) => {
 
         <header className="page-header">
           <div className="logo">
-            <Link to="/" className="logo__link">
+            <Link to={AppRoute.ROOT} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
@@ -36,7 +44,7 @@ const Review = (props) => {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <Link to={`/films/${movie.id}`} className="breadcrumbs__link">
+                <Link to={`${AppRoute.FILMS}${movie.id}`} className="breadcrumbs__link">
                   {movie.title}
                 </Link>
               </li>
@@ -47,9 +55,7 @@ const Review = (props) => {
           </nav>
 
           <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-            </div>
+            <User/>
           </div>
         </header>
 
@@ -59,7 +65,7 @@ const Review = (props) => {
       </div>
 
       <div className="add-review">
-        <ReviewFormWrapped/>
+        <ReviewFormWrapped id={movie.id}/>
       </div>
 
     </section>
@@ -67,13 +73,19 @@ const Review = (props) => {
 };
 
 const mapStateToProps = ({APP_DATA}) => ({
-  movies: APP_DATA.movies,
+  movie: APP_DATA.activeMovie,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getMovie(id) {
+    dispatch(fetchMovie(id));
+  }
 });
 
 Review.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
-  currentMovieId: PropTypes.number.isRequired,
+  movie: movieType,
+  getMovie: PropTypes.func.isRequired,
 };
 
 export {Review};
-export default connect(mapStateToProps, null)(Review);
+export default connect(mapStateToProps, mapDispatchToProps)(Review);

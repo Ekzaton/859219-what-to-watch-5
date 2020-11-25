@@ -1,26 +1,10 @@
 import React from "react";
 
 import {movieType} from "../../types";
-import {RatingLevel} from "../../const";
+import {getRatingLevel} from "../../utils";
 
 const MovieOverview = (props) => {
   const {movie} = props;
-
-  const getRatingLevel = (score) => {
-    if (score > 0 && score < 3) {
-      return RatingLevel.BAD;
-    } else if (score >= 3 && score < 5) {
-      return RatingLevel.NORMAL;
-    } else if (score >= 5 && score < 8) {
-      return RatingLevel.GOOD;
-    } else if (score >= 8 && score < 10) {
-      return RatingLevel.VERY_GOOD;
-    } else if (score === 10) {
-      return RatingLevel.AWESOME;
-    } else {
-      return RatingLevel.UNRATED;
-    }
-  };
 
   return (
     <React.Fragment>

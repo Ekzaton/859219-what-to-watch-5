@@ -2,23 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
+import {getGenres} from "../../store/reducers/selectors";
 import {getMoviesByGenre} from "../../store/actions";
 
-import {ALL_GENRES} from "../../const";
-
-import {movieType} from "../../types";
-
 const GenresList = (props) => {
-  const {activeGenre, movies, onGenreClick} = props;
-  const genres = [ALL_GENRES, ...new Set(movies.map((movie) => movie.genre))];
+  const {genres, activeGenre, onGenreClick} = props;
+  const activeClass = `catalog__genres-item--active`;
 
   return (
     <ul className="catalog__genres-list">
       {genres.map((genre, i) => (
         <li
           key={`genre-${i}`}
-          className={`catalog__genres-item
-            ${genre === activeGenre ? `catalog__genres-item--active` : ``}`}
+          className={`catalog__genres-item ${genre === activeGenre ? activeClass : ``}`}
         >
           <a
             href="#"
@@ -39,8 +35,8 @@ const GenresList = (props) => {
 
 const mapStateToProps = ({APP_DATA, APP_STATE}) => {
   return {
+    genres: getGenres({APP_DATA}),
     activeGenre: APP_STATE.activeGenre,
-    movies: APP_DATA.movies,
   };
 };
 
@@ -51,8 +47,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 GenresList.propTypes = {
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired),
   activeGenre: PropTypes.string.isRequired,
-  movies: PropTypes.arrayOf(movieType),
   onGenreClick: PropTypes.func.isRequired,
 };
 

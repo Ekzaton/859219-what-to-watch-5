@@ -5,11 +5,13 @@ import {connect} from "react-redux";
 
 import {fetchFavoriteMovies} from "../../store/api-actions";
 
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
 
 import MoviesList from "../movies-list/movies-list";
+import User from "../user/user";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
 
@@ -24,7 +26,7 @@ const MyList = (props) => {
     <div className="user-page">
       <header className="page-header user-page__head">
         <div className="logo">
-          <Link to="/" className="logo__link">
+          <Link to={AppRoute.ROOT} className="logo__link">
             <span className="logo__letter logo__letter--1">W</span>
             <span className="logo__letter logo__letter--2">T</span>
             <span className="logo__letter logo__letter--3">W</span>
@@ -34,9 +36,7 @@ const MyList = (props) => {
         <h1 className="page-title user-page__title">My list</h1>
 
         <div className="user-block">
-          <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-          </div>
+          <User/>
         </div>
       </header>
 
@@ -51,7 +51,7 @@ const MyList = (props) => {
 
       <footer className="page-footer">
         <div className="logo">
-          <Link to="/" className="logo__link logo__link--light">
+          <Link to={AppRoute.ROOT} className="logo__link logo__link--light">
             <span className="logo__letter logo__letter--1">W</span>
             <span className="logo__letter logo__letter--2">T</span>
             <span className="logo__letter logo__letter--3">W</span>

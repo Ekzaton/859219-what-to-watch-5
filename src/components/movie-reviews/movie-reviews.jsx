@@ -8,20 +8,22 @@ import {movieType, reviewType} from "../../types";
 import {formatReviewDate} from "../../utils";
 
 const MovieReviews = (props) => {
-  const {movie, reviews, getMovieReviews} = props;
+  const {movie, movieReviews, getMovieReviews} = props;
 
   React.useEffect(() => {
     getMovieReviews(movie.id);
   }, [movie.id]);
 
-  let leftColumn = [];
-  let rightColumn = [];
-  reviews.forEach((it, i) => (i % 2 === 0) ? leftColumn.push(it) : rightColumn.push(it));
+  let leftReviewsColumn = [];
+  let rightReviewsColumn = [];
+  movieReviews.forEach((it, i) =>
+    i % 2 === 0 ? leftReviewsColumn.push(it) : rightReviewsColumn.push(it)
+  );
 
   return (
     <div className="movie-card__reviews movie-card__row">
       <div className="movie-card__reviews-col">
-        {leftColumn.map((review, i) =>
+        {leftReviewsColumn.map((review, i) =>
           <div key={`review-${i}`} className="review">
             <blockquote className="review__quote">
               <p className="review__text">{review.text}</p>
@@ -39,7 +41,7 @@ const MovieReviews = (props) => {
         )}
       </div>
       <div className="movie-card__reviews-col">
-        {rightColumn.map((review, i) =>
+        {rightReviewsColumn.map((review, i) =>
           <div key={`review-${i}`} className="review">
             <blockquote className="review__quote">
               <p className="review__text">{review.text}</p>
@@ -61,7 +63,7 @@ const MovieReviews = (props) => {
 };
 
 const mapStateToProps = ({APP_DATA}) => ({
-  reviews: APP_DATA.reviews,
+  movieReviews: APP_DATA.movieReviews,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -72,7 +74,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 MovieReviews.propTypes = {
   movie: movieType,
-  reviews: PropTypes.arrayOf(reviewType),
+  movieReviews: PropTypes.arrayOf(reviewType),
   getMovieReviews: PropTypes.func.isRequired,
 };
 

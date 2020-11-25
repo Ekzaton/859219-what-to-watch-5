@@ -1,15 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {connect} from "react-redux";
 
+import {getSimilarMovies} from "../../store/reducers/selectors";
+import {fetchMovie} from "../../store/api-actions";
+
+import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
 import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
 import withTabs from "../../hocs/with-tabs/with-tabs";
 
 import MoviesList from "../movies-list/movies-list";
+import MyListButton from "../my-list-button/my-list-button";
 import Tabs from "../tabs/tabs";
+import User from "../user/user";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
 const TabsWrapped = withTabs(Tabs);
@@ -17,9 +23,12 @@ const TabsWrapped = withTabs(Tabs);
 const SIMILAR_MOVIES_COUNT = 4;
 
 const Movie = (props) => {
-  const {movies, currentMovieId} = props;
-  const movie = movies.find((it) => it.id === currentMovieId);
-  const similarMovies = movies.filter((it) => it.genre === movie.genre && it.id !== movie.id);
+  const {movie, getMovie, similarMovies} = props;
+  const params = useParams();
+
+  React.useEffect(() => {
+    getMovie(params.id);
+  }, [params.id]);
 
   return (
     <React.Fragment>
@@ -36,7 +45,7 @@ const Movie = (props) => {
 
           <header className="page-header movie-card__head">
             <div className="logo">
-              <Link to="/" className="logo__link">
+              <Link to={AppRoute.ROOT} className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
@@ -44,9 +53,7 @@ const Movie = (props) => {
             </div>
 
             <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-              </div>
+              <User/>
             </div>
           </header>
 
@@ -60,7 +67,7 @@ const Movie = (props) => {
 
               <div className="movie-card__buttons">
                 <Link
-                  to={`/player/${movie.id}`}
+                  to={`${AppRoute.PLAYER}${movie.id}`}
                   className="btn btn--play movie-card__button"
                 >
                   <svg viewBox="0 0 19 19" width="19" height="19">
@@ -68,17 +75,12 @@ const Movie = (props) => {
                   </svg>
                   <span>Play</span>
                 </Link>
+                <MyListButton
+                  id={movie.id}
+                  isFavorite={movie.isFavorite}
+                />
                 <Link
-                  to="/my-list"
-                  className="btn btn--list movie-card__button"
-                >
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </Link>
-                <Link
-                  to={`/films/${movie.id}/review`}
+                  to={`${AppRoute.FILMS}${movie.id}${AppRoute.REVIEW}`}
                   className="btn movie-card__button"
                 >
                   Add review
@@ -118,7 +120,7 @@ const Movie = (props) => {
 
         <footer className="page-footer">
           <div className="logo">
-            <Link to="/" className="logo__link logo__link--light">
+            <Link to={AppRoute.ROOT} className="logo__link logo__link--light">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
@@ -135,13 +137,21 @@ const Movie = (props) => {
 };
 
 const mapStateToProps = ({APP_DATA}) => ({
-  movies: APP_DATA.movies,
+  movie: APP_DATA.activeMovie,
+  similarMovies: getSimilarMovies({APP_DATA}),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getMovie(id) {
+    dispatch(fetchMovie(id));
+  }
 });
 
 Movie.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
-  currentMovieId: PropTypes.number.isRequired,
+  movie: movieType,
+  getMovie: PropTypes.func.isRequired,
+  similarMovies: PropTypes.arrayOf(movieType),
 };
 
 export {Movie};
-export default connect(mapStateToProps, null)(Movie);
+export default connect(mapStateToProps, mapDispatchToProps)(Movie);

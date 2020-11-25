@@ -4,6 +4,7 @@ export const ActionType = {
   GET_ALL_MOVIES: `GET_ALL_MOVIES`,
   GET_FAVORITE_MOVIES: `GET_FAVORITE_MOVIES`,
   GET_PROMO_MOVIE: `GET_PROMO_MOVIE`,
+  GET_MOVIE: `GET_MOVIE`,
   GET_MOVIE_REVIEWS: `GET_MOVIE_REVIEWS`,
   REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
@@ -34,9 +35,14 @@ export const getPromoMovie = (promoMovie) => ({
   payload: promoMovie,
 });
 
-export const getMovieReviews = (reviews) => ({
+export const getMovie = (activeMovie) => ({
+  type: ActionType.GET_MOVIE,
+  payload: activeMovie,
+});
+
+export const getMovieReviews = (moviewReviews) => ({
   type: ActionType.GET_MOVIE_REVIEWS,
-  payload: reviews,
+  payload: moviewReviews,
 });
 
 export const requireAuthorization = (status) => ({
