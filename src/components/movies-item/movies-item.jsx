@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import {AppRoute} from "../../const";
 import {movieType} from "../../types";
 
-import Preview from "../preview/preview";
+import MoviesItemPreview from "../movies-item-preview/movies-item-preview";
 
 const MoviesItem = (props) => {
   const {movie, onMovieEnter, onMovieLeave, isPlaying} = props;
@@ -17,7 +17,7 @@ const MoviesItem = (props) => {
       onMouseLeave={() => onMovieLeave()}
     >
       <Link to={`${AppRoute.FILMS}${movie.id}`} className="small-movie-card__image">
-        <Preview
+        <MoviesItemPreview
           movie={movie}
           isPlaying={isPlaying}
         />
