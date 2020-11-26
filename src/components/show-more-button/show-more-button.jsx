@@ -12,9 +12,7 @@ const ShowMoreButton = (props) => {
       <button
         className="catalog__button"
         type="button"
-        onClick={() => {
-          onShowMoreClick(shownMovies);
-        }}
+        onClick={() => onShowMoreClick(shownMovies)}
       >
         Show more
       </button>
