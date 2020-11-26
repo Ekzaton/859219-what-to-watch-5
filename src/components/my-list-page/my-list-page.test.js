@@ -11,7 +11,7 @@ import mockMovies from "../../mocks/movies";
 import MyListPage from "./my-list-page";
 
 describe(`MyListPage snapshot testing`, () => {
-  it(`(renders store-connected component correctly`, () => {
+  it(`renders store-connected component correctly`, () => {
     const mockStore = configureStore([]);
 
     const store = mockStore({
