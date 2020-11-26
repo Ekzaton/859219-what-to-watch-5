@@ -4,19 +4,18 @@ import {Route, BrowserRouter} from "react-router-dom";
 
 import mockMovies from "../../mocks/movies";
 
-import withMoviesList from "../../hocs/with-movies-list/with-movies-list";
-
 import MoviesList from "./movies-list";
-
-const MoviesListWrapped = withMoviesList(MoviesList);
 
 describe(`MoviesList snapshot testing`, () => {
   const moviesListComponent = renderer.create(
       <BrowserRouter>
         <Route>
-          <MoviesListWrapped
+          <MoviesList
             movies={mockMovies}
             shownMovies={8}
+            onMovieEnter={() => {}}
+            onMovieLeave={() => {}}
+            activeMovieId={1}
           />
         </Route>
       </BrowserRouter>
