@@ -32,7 +32,7 @@ describe(`MovieTabToggler snapshot testing`, () => {
       </Provider>
   );
 
-  it(`renders component correctly`, () => {
+  it(`renders store-connected component correctly`, () => {
     expect(movieTabTogglerComponent.toJSON()).toMatchSnapshot();
   });
 });

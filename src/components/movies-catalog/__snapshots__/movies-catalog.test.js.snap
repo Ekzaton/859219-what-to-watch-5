@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MoviesCatalog snapshot testing renders component correctly 1`] = `
+exports[`MoviesCatalog snapshot testing renders store-connected component correctly 1`] = `
 <section
   className="catalog"
 >

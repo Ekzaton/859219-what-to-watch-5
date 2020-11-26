@@ -30,7 +30,7 @@ describe(`MovieReviewsTab snapshot testing`, () => {
       </Provider>
   );
 
-  it(`renders component correctly`, () => {
+  it(`renders store-connected component correctly`, () => {
     expect(movieReviewsTabComponent.toJSON()).toMatchSnapshot();
   });
 });

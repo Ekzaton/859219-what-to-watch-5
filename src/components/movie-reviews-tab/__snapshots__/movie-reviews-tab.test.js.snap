@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieReviewsTab snapshot testing renders component correctly 1`] = `
+exports[`MovieReviewsTab snapshot testing renders store-connected component correctly 1`] = `
 <div
   className="movie-card__reviews movie-card__row"
 >

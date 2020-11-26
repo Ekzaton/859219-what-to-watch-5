@@ -32,7 +32,7 @@ describe(`MoviesCatalog snapshot testing`, () => {
       </Provider>
   );
 
-  it(`renders component correctly`, () => {
+  it(`renders store-connected component correctly`, () => {
     expect(moviesCatalogComponent.toJSON()).toMatchSnapshot();
   });
 });
