@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User snapshot testing (with Auth) renders store-connected component correctly 1`] = `
+<div
+  className="user-block__avatar"
+>
+  <a
+    href="/my-list/"
+    onClick={[Function]}
+  >
+    <img
+      alt="User avatar"
+      height="63"
+      src="/img/avatar.jpg"
+      width="63"
+    />
+  </a>
+</div>
+`;
+
+exports[`User snapshot testing (without Auth) renders store-connected component correctly 1`] = `
+<div
+  className="user-block__link"
+>
+  <a
+    className="user-block__link"
+    href="/sign-in/"
+    onClick={[Function]}
+  >
+    Sign in
+  </a>
+</div>
+`;
