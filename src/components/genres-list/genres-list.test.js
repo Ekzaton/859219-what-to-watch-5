@@ -12,26 +12,22 @@ describe(`GenresList component`, () => {
   let store = null;
   let genresListComponent = null;
 
-  beforeEach(() => {
-    store = mockStore({
-      APP_DATA: {
-        movies: mockMovies,
-      },
-      APP_STATE: {
-        activeGenre: `Action`,
-      }
-    });
-
-    store.dispatch = jest.fn();
-
-    genresListComponent = renderer.create(
-        <Provider store={store}>
-          <GenresList
-            onGenreClick={() => {}}
-          />
-        </Provider>
-    );
+  store = mockStore({
+    APP_DATA: {
+      movies: mockMovies,
+    },
+    APP_STATE: {
+      activeGenre: `Action`,
+    }
   });
+
+  genresListComponent = renderer.create(
+      <Provider store={store}>
+        <GenresList
+          onGenreClick={() => {}}
+        />
+      </Provider>
+  );
 
   it(`Renders store-connected component correctly`, () => {
     expect(genresListComponent.toJSON()).toMatchSnapshot();
