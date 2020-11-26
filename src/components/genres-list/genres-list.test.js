@@ -7,7 +7,7 @@ import mockMovies from "../../mocks/movies";
 
 import GenresList from "./genres-list";
 
-describe(`GenresList component`, () => {
+describe(`GenresList snapshot testing`, () => {
   const mockStore = configureStore([]);
 
   const store = mockStore({
@@ -27,7 +27,7 @@ describe(`GenresList component`, () => {
       </Provider>
   );
 
-  it(`Renders store-connected component correctly`, () => {
+  it(`renders store-connected component correctly`, () => {
     expect(genresListComponent.toJSON()).toMatchSnapshot();
   });
 });

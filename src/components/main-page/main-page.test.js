@@ -9,7 +9,7 @@ import mockPromo from "../../mocks/promo";
 
 import MainPage from "./main-page";
 
-describe(`MainPage component`, () => {
+describe(`MainPage snapshot testing`, () => {
   const mockStore = configureStore([]);
 
   const store = mockStore({
@@ -37,7 +37,7 @@ describe(`MainPage component`, () => {
       </Provider>
   );
 
-  it(`Renders store-connected component correctly`, () => {
+  it(`renders store-connected component correctly`, () => {
     expect(mainPageComponent.toJSON()).toMatchSnapshot();
   });
 });
