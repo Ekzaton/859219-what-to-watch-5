@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesCatalog snapshot testing renders component correctly 1`] = `
+<section
+  className="catalog"
+>
+  <h2
+    className="catalog__title visually-hidden"
+  >
+    Catalog
+  </h2>
+  <ul
+    className="catalog__genres-list"
+  >
+    <li
+      className="catalog__genres-item "
+    >
+      <a
+        className="catalog__genres-link"
+        href="#"
+        onClick={[Function]}
+      >
+        All genres
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item catalog__genres-item--active"
+    >
+      <a
+        className="catalog__genres-link"
+        href="#"
+        onClick={[Function]}
+      >
+        Action
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item "
+    >
+      <a
+        className="catalog__genres-link"
+        href="#"
+        onClick={[Function]}
+      >
+        Crime
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item "
+    >
+      <a
+        className="catalog__genres-link"
+        href="#"
+        onClick={[Function]}
+      >
+        Drama
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item "
+    >
+      <a
+        className="catalog__genres-link"
+        href="#"
+        onClick={[Function]}
+      >
+        Adventure
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item "
+    >
+      <a
+        className="catalog__genres-link"
+        href="#"
+        onClick={[Function]}
+      >
+        Comedy
+      </a>
+    </li>
+  </ul>
+  <div
+    className="catalog__movies-list"
+  >
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <a
+        className="small-movie-card__image"
+        href="/films/1"
+        onClick={[Function]}
+      >
+        <video
+          height="175"
+          muted={true}
+          poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/bronson.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width="280"
+        />
+      </a>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="/films/1"
+          onClick={[Function]}
+        >
+          Bronson
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <a
+        className="small-movie-card__image"
+        href="/films/3"
+        onClick={[Function]}
+      >
+        <video
+          height="175"
+          muted={true}
+          poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/midnight-special.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width="280"
+        />
+      </a>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="/films/3"
+          onClick={[Function]}
+        >
+          Midnight Special
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <a
+        className="small-movie-card__image"
+        href="/films/4"
+        onClick={[Function]}
+      >
+        <video
+          height="175"
+          muted={true}
+          poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/matrix.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width="280"
+        />
+      </a>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="/films/4"
+          onClick={[Function]}
+        >
+          Matrix
+        </a>
+      </h3>
+    </article>
+  </div>
+</section>
+`;
