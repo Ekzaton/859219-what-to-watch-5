@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MyListButton snapshot testing renders store-connected component correctly (with Authorization) 1`] = `
+exports[`MyListButton snapshot testing (with Auth) renders store-connected component correctly 1`] = `
 <button
   className="btn btn--list movie-card__button"
   onClick={[Function]}
@@ -21,4 +21,4 @@ exports[`MyListButton snapshot testing renders store-connected component correct
 </button>
 `;
 
-exports[`MyListButton snapshot testing renders store-connected component correctly (without Authorization) 1`] = `null`;
+exports[`MyListButton snapshot testing (without Auth) renders store-connected component correctly 1`] = `null`;
