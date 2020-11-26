@@ -9,10 +9,8 @@ import GenresList from "./genres-list";
 
 describe(`GenresList component`, () => {
   const mockStore = configureStore([]);
-  let store = null;
-  let genresListComponent = null;
 
-  store = mockStore({
+  const store = mockStore({
     APP_DATA: {
       movies: mockMovies,
     },
@@ -21,7 +19,7 @@ describe(`GenresList component`, () => {
     }
   });
 
-  genresListComponent = renderer.create(
+  const genresListComponent = renderer.create(
       <Provider store={store}>
         <GenresList
           onGenreClick={() => {}}
