@@ -7,7 +7,6 @@ import mockPromo from "../../mocks/promo";
 import MoviesItem from "./movies-item";
 
 describe(`MoviesItem snapshot testing`, () => {
-
   const movieItemComponent = renderer.create(
       <BrowserRouter>
         <Route>
