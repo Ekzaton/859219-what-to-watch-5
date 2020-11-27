@@ -11,16 +11,13 @@ import mockMovies from "../../mocks/movies";
 import MyListPage from "./my-list-page";
 
 describe(`MyListPage snapshot testing`, () => {
-  it(`renders store-connected component correctly`, () => {
+  it(`renders component correctly`, () => {
     const mockStore = configureStore([]);
 
     const store = mockStore({
       APP_DATA: {
         favoriteMovies: mockMovies,
-      },
-      APP_USER: {
-        status: AuthorizationStatus.AUTH,
-      },
+      }
     });
 
     const myListPageComponent = renderer.create(
