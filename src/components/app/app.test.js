@@ -20,7 +20,6 @@ describe(`App snapshot testing`, () => {
     },
     APP_STATE: {
       activeGenre: ALL_GENRES,
-      promoMovie: mockPromo,
     },
     APP_USER: {
       status: AuthorizationStatus.NO_AUTH,

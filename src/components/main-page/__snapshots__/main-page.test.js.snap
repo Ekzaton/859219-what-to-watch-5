@@ -139,7 +139,7 @@ Array [
         className="catalog__genres-list"
       >
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item catalog__genres-item--active"
         >
           <a
             className="catalog__genres-link"
@@ -161,7 +161,7 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item catalog__genres-item--active"
+          className="catalog__genres-item "
         >
           <a
             className="catalog__genres-link"
@@ -215,6 +215,36 @@ Array [
         >
           <a
             className="small-movie-card__image"
+            href="/films/1"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/bronson.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              width="280"
+            />
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/1"
+              onClick={[Function]}
+            >
+              Bronson
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            className="small-movie-card__image"
             href="/films/2"
             onClick={[Function]}
           >
@@ -235,6 +265,66 @@ Array [
               onClick={[Function]}
             >
               Pulp Fiction
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            className="small-movie-card__image"
+            href="/films/3"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/midnight-special.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              width="280"
+            />
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/3"
+              onClick={[Function]}
+            >
+              Midnight Special
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            className="small-movie-card__image"
+            href="/films/4"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/matrix.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              width="280"
+            />
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/4"
+              onClick={[Function]}
+            >
+              Matrix
             </a>
           </h3>
         </article>
@@ -295,6 +385,126 @@ Array [
               onClick={[Function]}
             >
               Gangs of new york
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            className="small-movie-card__image"
+            href="/films/7"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/A_Star_Is_Born.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              width="280"
+            />
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/7"
+              onClick={[Function]}
+            >
+              A Star Is Born
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            className="small-movie-card__image"
+            href="/films/8"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/beach.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              width="280"
+            />
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/8"
+              onClick={[Function]}
+            >
+              Beach
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            className="small-movie-card__image"
+            href="/films/9"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/aviator.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              width="280"
+            />
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/9"
+              onClick={[Function]}
+            >
+              Aviator
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            className="small-movie-card__image"
+            href="/films/10"
+            onClick={[Function]}
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/johnny-english.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              width="280"
+            />
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/10"
+              onClick={[Function]}
+            >
+              Johnny English
             </a>
           </h3>
         </article>
