@@ -45,6 +45,12 @@ const withPlayerPage = (Component) => {
       };
     }
 
+    componentWillUnmount() {
+      this.handleFullScreenButton = null;
+      this.handlePlayButton = null;
+      this.handleMouseDown = null;
+    }
+
     handleFullScreenButton() {
       if (document.fullscreenElement) {
         document.exitFullscreen();
