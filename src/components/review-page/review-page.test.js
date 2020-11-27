@@ -11,7 +11,7 @@ import mockPromo from "../../mocks/promo";
 import ReviewPage from "./review-page";
 
 describe(`ReviewPage snapshot testing`, () => {
-  it(`renders store-connected component correctly`, () => {
+  it(`renders component correctly`, () => {
     const mockStore = configureStore([]);
 
     const store = mockStore({
