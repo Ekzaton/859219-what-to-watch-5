@@ -15,7 +15,7 @@ import ShowMoreButton from "../show-more-button/show-more-button";
 const MoviesListWrapped = withMoviesList(MoviesList);
 
 const MoviesCatalog = (props) => {
-  const {moviesByGenre, shownMovies} = props;
+  const {movies, shownMovies} = props;
 
   return (
     <section className="catalog">
@@ -24,11 +24,11 @@ const MoviesCatalog = (props) => {
       <GenresList/>
 
       <MoviesListWrapped
-        movies={moviesByGenre}
+        movies={movies}
         shownMovies={shownMovies}
       />
 
-      {shownMovies < moviesByGenre.length &&
+      {shownMovies < movies.length &&
         <ShowMoreButton
           shownMovies={shownMovies}
         />
@@ -39,13 +39,13 @@ const MoviesCatalog = (props) => {
 
 const mapStateToProps = ({APP_DATA, APP_STATE}) => {
   return {
-    moviesByGenre: getMoviesByGenre({APP_DATA, APP_STATE}),
+    movies: getMoviesByGenre({APP_DATA, APP_STATE}),
     shownMovies: showMoreMovies({APP_DATA, APP_STATE}),
   };
 };
 
 MoviesCatalog.propTypes = {
-  moviesByGenre: PropTypes.arrayOf(movieType),
+  movies: PropTypes.arrayOf(movieType),
   shownMovies: PropTypes.number.isRequired,
 };
 
