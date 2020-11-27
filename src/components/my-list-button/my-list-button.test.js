@@ -8,7 +8,7 @@ import {AuthorizationStatus} from "../../const";
 import MyListButton from "./my-list-button";
 
 describe(`MyListButton snapshot testing`, () => {
-  it(`(without Auth) renders store-connected component correctly`, () => {
+  it(`renders component correctly (without Auth)`, () => {
     const mockStore = configureStore([]);
 
     const store = mockStore({
@@ -29,7 +29,7 @@ describe(`MyListButton snapshot testing`, () => {
     expect(myListButtonComponent.toJSON()).toMatchSnapshot();
   });
 
-  it(`(with Auth) renders store-connected component correctly`, () => {
+  it(`renders component correctly (with Auth)`, () => {
     const mockStore = configureStore([]);
 
     const store = mockStore({
