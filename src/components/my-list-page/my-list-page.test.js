@@ -4,8 +4,6 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {Route, BrowserRouter} from "react-router-dom";
 
-import {AuthorizationStatus} from "../../const";
-
 import mockMovies from "../../mocks/movies";
 
 import MyListPage from "./my-list-page";

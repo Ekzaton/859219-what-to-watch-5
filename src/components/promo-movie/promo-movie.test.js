@@ -11,7 +11,7 @@ import mockPromo from "../../mocks/promo";
 import PromoMovie from "./promo-movie";
 
 describe(`PromoMovie snapshot testing`, () => {
-  it(`(withot Auth) renders store-connected component correctly`, () => {
+  it(`renders component correctly`, () => {
     const mockStore = configureStore([]);
 
     const store = mockStore({
@@ -20,31 +20,6 @@ describe(`PromoMovie snapshot testing`, () => {
       },
       APP_USER: {
         status: AuthorizationStatus.NO_AUTH,
-      },
-    });
-
-    const promoMovieComponent = renderer.create(
-        <Provider store={store}>
-          <BrowserRouter>
-            <Route>
-              <PromoMovie/>
-            </Route>
-          </BrowserRouter>
-        </Provider>
-    );
-
-    expect(promoMovieComponent.toJSON()).toMatchSnapshot();
-  });
-
-  it(`(with Auth) renders store-connected component correctly`, () => {
-    const mockStore = configureStore([]);
-
-    const store = mockStore({
-      APP_DATA: {
-        promoMovie: mockPromo,
-      },
-      APP_USER: {
-        status: AuthorizationStatus.AUTH,
       },
     });
 
