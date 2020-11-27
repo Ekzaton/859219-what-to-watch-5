@@ -5,7 +5,6 @@ import {extend} from "../../../utils";
 
 const initialState = {
   activeGenre: ALL_GENRES,
-  moviesByGenre: [],
   shownMovies: 0,
 };
 
