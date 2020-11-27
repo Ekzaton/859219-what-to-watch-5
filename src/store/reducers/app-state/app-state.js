@@ -10,7 +10,7 @@ const initialState = {
 
 export const appState = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.GET_MOVIES_BY_GENRE:
+    case ActionType.GET_ACTIVE_GENRE:
       return extend(state, {
         activeGenre: action.payload,
       });

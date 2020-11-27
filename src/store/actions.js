@@ -1,5 +1,5 @@
 export const ActionType = {
-  GET_MOVIES_BY_GENRE: `GET_MOVIES_BY_GENRE`,
+  GET_ACTIVE_GENRE: `GET_ACTIVE_GENRE`,
   SHOW_MORE_MOVIES: `SHOW_MORE_MOVIES`,
   GET_ALL_MOVIES: `GET_ALL_MOVIES`,
   GET_FAVORITE_MOVIES: `GET_FAVORITE_MOVIES`,
@@ -10,8 +10,8 @@ export const ActionType = {
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
 };
 
-export const getMoviesByGenre = (activeGenre) => ({
-  type: ActionType.GET_MOVIES_BY_GENRE,
+export const getActiveGenre = (activeGenre) => ({
+  type: ActionType.GET_ACTIVE_GENRE,
   payload: activeGenre,
 });
 

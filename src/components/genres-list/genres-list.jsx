@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
 import {getGenres} from "../../store/reducers/selectors";
-import {getMoviesByGenre} from "../../store/actions";
+import {getActiveGenre} from "../../store/actions";
 
 const GenresList = (props) => {
   const {genres, activeGenre, onGenreClick} = props;
@@ -42,7 +42,7 @@ const mapStateToProps = ({APP_DATA, APP_STATE}) => {
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(activeGenre) {
-    dispatch(getMoviesByGenre(activeGenre));
+    dispatch(getActiveGenre(activeGenre));
   }
 });
 
