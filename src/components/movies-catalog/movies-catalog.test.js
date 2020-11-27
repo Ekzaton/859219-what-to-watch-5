@@ -4,6 +4,8 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {Route, BrowserRouter} from "react-router-dom";
 
+import {ALL_GENRES} from "../../const";
+
 import mockMovies from "../../mocks/movies";
 
 import MoviesCatalog from "./movies-catalog";
@@ -16,9 +18,7 @@ describe(`MoviesCatalog snapshot testing`, () => {
       movies: mockMovies,
     },
     APP_STATE: {
-      activeGenre: `Action`,
-      moviesByGenre: mockMovies,
-      shownMovies: 0,
+      activeGenre: ALL_GENRES,
     }
   });
 
@@ -32,7 +32,7 @@ describe(`MoviesCatalog snapshot testing`, () => {
       </Provider>
   );
 
-  it(`renders store-connected component correctly`, () => {
+  it(`renders component correctly`, () => {
     expect(moviesCatalogComponent.toJSON()).toMatchSnapshot();
   });
 });
