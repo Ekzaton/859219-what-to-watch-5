@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlayerPage snapshot testing renders store-connected component correctly 1`] = `
+exports[`PlayerPage snapshot testing renders component correctly 1`] = `
 <div
   className="player"
 >

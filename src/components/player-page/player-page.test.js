@@ -9,7 +9,7 @@ import mockPromo from "../../mocks/promo";
 import PlayerPage from "./player-page";
 
 describe(`PlayerPage snapshot testing`, () => {
-  it(`renders store-connected component correctly`, () => {
+  it(`renders component correctly`, () => {
     const ref = React.createRef();
     const mockStore = configureStore([]);
 
