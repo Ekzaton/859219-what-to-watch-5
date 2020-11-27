@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`User snapshot testing (with Auth) renders store-connected component correctly 1`] = `
+exports[`User snapshot testing renders component correctly (with Auth) 1`] = `
 <div
   className="user-block__avatar"
 >
@@ -18,7 +18,7 @@ exports[`User snapshot testing (with Auth) renders store-connected component cor
 </div>
 `;
 
-exports[`User snapshot testing (without Auth) renders store-connected component correctly 1`] = `
+exports[`User snapshot testing renders component correctly (without Auth) 1`] = `
 <div
   className="user-block__link"
 >

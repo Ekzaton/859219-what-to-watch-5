@@ -9,7 +9,7 @@ import {AuthorizationStatus} from "../../const";
 import User from "./user";
 
 describe(`User snapshot testing`, () => {
-  it(`(without Auth) renders store-connected component correctly`, () => {
+  it(`renders component correctly (without Auth)`, () => {
     const mockStore = configureStore([]);
 
     const store = mockStore({
@@ -31,7 +31,7 @@ describe(`User snapshot testing`, () => {
     expect(userComponent.toJSON()).toMatchSnapshot();
   });
 
-  it(`(with Auth) renders store-connected component correctly`, () => {
+  it(`renders component correctly (with Auth)`, () => {
     const mockStore = configureStore([]);
 
     const store = mockStore({
