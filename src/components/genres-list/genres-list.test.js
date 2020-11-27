@@ -3,6 +3,8 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 
+import {ALL_GENRES} from "../../const";
+
 import mockMovies from "../../mocks/movies";
 
 import GenresList from "./genres-list";
@@ -15,7 +17,7 @@ describe(`GenresList snapshot testing`, () => {
       movies: mockMovies,
     },
     APP_STATE: {
-      activeGenre: `Action`,
+      activeGenre: ALL_GENRES,
     }
   });
 
@@ -27,7 +29,7 @@ describe(`GenresList snapshot testing`, () => {
       </Provider>
   );
 
-  it(`renders store-connected component correctly`, () => {
+  it(`renders component correctly`, () => {
     expect(genresListComponent.toJSON()).toMatchSnapshot();
   });
 });

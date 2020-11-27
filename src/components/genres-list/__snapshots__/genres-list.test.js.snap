@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GenresList snapshot testing renders store-connected component correctly 1`] = `
+exports[`GenresList snapshot testing renders component correctly 1`] = `
 <ul
   className="catalog__genres-list"
 >
   <li
-    className="catalog__genres-item "
+    className="catalog__genres-item catalog__genres-item--active"
   >
     <a
       className="catalog__genres-link"
@@ -16,7 +16,7 @@ exports[`GenresList snapshot testing renders store-connected component correctly
     </a>
   </li>
   <li
-    className="catalog__genres-item catalog__genres-item--active"
+    className="catalog__genres-item "
   >
     <a
       className="catalog__genres-link"

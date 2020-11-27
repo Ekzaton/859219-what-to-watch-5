@@ -37,7 +37,7 @@ describe(`MainPage snapshot testing`, () => {
       </Provider>
   );
 
-  it(`renders store-connected component correctly`, () => {
+  it(`renders component correctly`, () => {
     expect(mainPageComponent.toJSON()).toMatchSnapshot();
   });
 });
