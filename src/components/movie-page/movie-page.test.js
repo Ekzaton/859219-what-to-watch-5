@@ -4,6 +4,8 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {Route, BrowserRouter} from "react-router-dom";
 
+import {AuthorizationStatus} from "../../const";
+
 import mockMovies from "../../mocks/movies";
 import mockPromo from "../../mocks/promo";
 
@@ -18,7 +20,7 @@ describe(`MoviePage snapshot testing`, () => {
       activeMovie: mockPromo,
     },
     APP_USER: {
-      status: `NO_AUTH`,
+      status: AuthorizationStatus.NO_AUTH,
     }
   });
 
@@ -32,7 +34,7 @@ describe(`MoviePage snapshot testing`, () => {
       </Provider>
   );
 
-  it(`renders store-connected component correctly`, () => {
+  it(`renders component correctly`, () => {
     expect(moviePageComponent.toJSON()).toMatchSnapshot();
   });
 });
