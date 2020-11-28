@@ -29,7 +29,7 @@ const MovieOverviewTab = (props) => {
         </p>
         <p className="movie-card__starring">
           <strong>
-            Starring: {movie.starring.slice(0, 4).join(`, `) + ` and other`}
+            Starring: {movie.starring.join(`, `)}
           </strong>
         </p>
       </div>
