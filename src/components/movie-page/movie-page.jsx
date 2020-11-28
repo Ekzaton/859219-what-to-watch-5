@@ -114,7 +114,7 @@ const MoviePage = (props) => {
 
           <MoviesListWrapped
             movies={similarMovies}
-            shownMovies={SIMILAR_MOVIES_COUNT}
+            shownMoviesCount={SIMILAR_MOVIES_COUNT}
           />
         </section>
 

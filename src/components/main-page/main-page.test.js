@@ -4,7 +4,7 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {Route, BrowserRouter} from "react-router-dom";
 
-import {AuthorizationStatus, ALL_GENRES} from "../../const";
+import {AuthorizationStatus, DEFAULT_GENRE, DEFAULT_MOVIES_COUNT} from "../../const";
 
 import mockMovies from "../../mocks/movies";
 import mockPromo from "../../mocks/promo";
@@ -20,7 +20,8 @@ describe(`MainPage snapshot testing`, () => {
       promoMovie: mockPromo,
     },
     APP_STATE: {
-      activeGenre: ALL_GENRES,
+      activeGenre: DEFAULT_GENRE,
+      shownMoviesCount: DEFAULT_MOVIES_COUNT,
     },
     APP_USER: {
       status: AuthorizationStatus.NO_AUTH,

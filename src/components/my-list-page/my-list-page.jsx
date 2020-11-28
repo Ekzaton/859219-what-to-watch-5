@@ -46,7 +46,7 @@ const MyListPage = (props) => {
 
         <MoviesListWrapped
           movies={favoriteMovies}
-          shownMovies={favoriteMovies.length}
+          shownMoviesCount={favoriteMovies.length}
         />
       </section>
 

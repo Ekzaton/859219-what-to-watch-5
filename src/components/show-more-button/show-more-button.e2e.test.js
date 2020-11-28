@@ -12,7 +12,6 @@ describe(`ShowMoreButton e2e testing`, () => {
 
     const showMoreButtonComponent = shallow(
         <ShowMoreButton
-          shownMovies={8}
           onShowMoreClick={onShowMoreClick}
         />
     );

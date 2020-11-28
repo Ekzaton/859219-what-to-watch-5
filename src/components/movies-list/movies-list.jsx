@@ -6,11 +6,11 @@ import {movieType} from "../../types";
 import MoviesItem from "../movies-item/movies-item";
 
 const MoviesList = (props) => {
-  const {movies, shownMovies, onMovieEnter, onMovieLeave, activeMovieId} = props;
+  const {movies, shownMoviesCount, onMovieEnter, onMovieLeave, activeMovieId} = props;
 
   return (
     <div className="catalog__movies-list">
-      {movies.map((movie, i) => i < shownMovies &&
+      {movies.map((movie, i) => i < shownMoviesCount &&
         <MoviesItem
           key={`movie-${i}`}
           movie={movie}
@@ -25,7 +25,7 @@ const MoviesList = (props) => {
 
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(movieType),
-  shownMovies: PropTypes.number.isRequired,
+  shownMoviesCount: PropTypes.number.isRequired,
   onMovieEnter: PropTypes.func.isRequired,
   onMovieLeave: PropTypes.func.isRequired,
   activeMovieId: PropTypes.number.isRequired,

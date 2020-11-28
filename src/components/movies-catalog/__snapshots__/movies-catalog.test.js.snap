@@ -322,66 +322,17 @@ exports[`MoviesCatalog snapshot testing renders component correctly 1`] = `
         </a>
       </h3>
     </article>
-    <article
-      className="small-movie-card catalog__movies-card"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
+  </div>
+  <div
+    className="catalog__more"
+  >
+    <button
+      className="catalog__button"
+      onClick={[Function]}
+      type="button"
     >
-      <a
-        className="small-movie-card__image"
-        href="/films/9"
-        onClick={[Function]}
-      >
-        <video
-          height="175"
-          muted={true}
-          poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/aviator.jpg"
-          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-          width="280"
-        />
-      </a>
-      <h3
-        className="small-movie-card__title"
-      >
-        <a
-          className="small-movie-card__link"
-          href="/films/9"
-          onClick={[Function]}
-        >
-          Aviator
-        </a>
-      </h3>
-    </article>
-    <article
-      className="small-movie-card catalog__movies-card"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <a
-        className="small-movie-card__image"
-        href="/films/10"
-        onClick={[Function]}
-      >
-        <video
-          height="175"
-          muted={true}
-          poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/johnny-english.jpg"
-          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-          width="280"
-        />
-      </a>
-      <h3
-        className="small-movie-card__title"
-      >
-        <a
-          className="small-movie-card__link"
-          href="/films/10"
-          onClick={[Function]}
-        >
-          Johnny English
-        </a>
-      </h3>
-    </article>
+      Show more
+    </button>
   </div>
 </section>
 `;

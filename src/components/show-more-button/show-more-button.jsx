@@ -4,15 +4,17 @@ import {connect} from "react-redux";
 
 import {showMoreMovies} from "../../store/actions";
 
+import {DEFAULT_MOVIES_COUNT} from "../../const";
+
 const ShowMoreButton = (props) => {
-  const {shownMovies, onShowMoreClick} = props;
+  const {onShowMoreClick} = props;
 
   return (
     <div className="catalog__more">
       <button
         className="catalog__button"
         type="button"
-        onClick={() => onShowMoreClick(shownMovies)}
+        onClick={onShowMoreClick}
       >
         Show more
       </button>
@@ -21,13 +23,12 @@ const ShowMoreButton = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onShowMoreClick(shownMovies) {
-    dispatch(showMoreMovies(shownMovies));
+  onShowMoreClick() {
+    dispatch(showMoreMovies(DEFAULT_MOVIES_COUNT));
   }
 });
 
 ShowMoreButton.propTypes = {
-  shownMovies: PropTypes.number.isRequired,
   onShowMoreClick: PropTypes.func.isRequired,
 };
 

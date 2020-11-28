@@ -15,9 +15,9 @@ export const getActiveGenre = (activeGenre) => ({
   payload: activeGenre,
 });
 
-export const showMoreMovies = (shownMovies) => ({
+export const showMoreMovies = (addedMoviesCount) => ({
   type: ActionType.SHOW_MORE_MOVIES,
-  payload: shownMovies,
+  payload: addedMoviesCount,
 });
 
 export const getAllMovies = (movies) => ({

@@ -1,13 +1,13 @@
 import {ActionType} from "../../actions";
 
-import {ALL_GENRES} from "../../../const";
+import {DEFAULT_GENRE, DEFAULT_MOVIES_COUNT} from "../../../const";
 import {extend} from "../../../utils";
 
 import {appState} from "./app-state";
 
 const mockInitialState = {
-  activeGenre: ALL_GENRES,
-  shownMovies: 0,
+  activeGenre: DEFAULT_GENRE,
+  shownMoviesCount: DEFAULT_MOVIES_COUNT,
 };
 
 describe(`appState reducer testing (without payload)`, () => {
@@ -17,21 +17,22 @@ describe(`appState reducer testing (without payload)`, () => {
 });
 
 describe(`appState reducer testing (with payload)`, () => {
-  it(`returns active genre`, () => {
+  it(`returns active genre and deafault movies count`, () => {
     expect(appState(mockInitialState, {
       type: ActionType.GET_ACTIVE_GENRE,
-      payload: ALL_GENRES,
+      payload: DEFAULT_GENRE,
     })).toEqual(extend(mockInitialState, {
-      activeGenre: ALL_GENRES,
+      activeGenre: DEFAULT_GENRE,
+      shownMoviesCount: mockInitialState.shownMoviesCount,
     }));
   });
 
   it(`returns shown movies count`, () => {
     expect(appState(mockInitialState, {
       type: ActionType.SHOW_MORE_MOVIES,
-      payload: 8,
+      payload: DEFAULT_MOVIES_COUNT,
     })).toEqual(extend(mockInitialState, {
-      shownMovies: 8,
+      shownMoviesCount: mockInitialState.shownMoviesCount + DEFAULT_MOVIES_COUNT,
     }));
   });
 });

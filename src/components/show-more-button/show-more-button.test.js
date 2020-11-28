@@ -7,7 +7,6 @@ describe(`ShowMoreButton snapshot testing`, () => {
   it(`renders component correctly`, () => {
     const showMoreButtonComponent = renderer.create(
         <ShowMoreButton
-          shownMovies={8}
           onShowMoreClick={() => {}}
         />
     );

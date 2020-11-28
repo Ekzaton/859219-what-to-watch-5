@@ -4,7 +4,7 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {Route, BrowserRouter} from "react-router-dom";
 
-import {ALL_GENRES} from "../../const";
+import {DEFAULT_GENRE, DEFAULT_MOVIES_COUNT} from "../../const";
 
 import mockMovies from "../../mocks/movies";
 
@@ -18,7 +18,8 @@ describe(`MoviesCatalog snapshot testing`, () => {
       movies: mockMovies,
     },
     APP_STATE: {
-      activeGenre: ALL_GENRES,
+      activeGenre: DEFAULT_GENRE,
+      shownMoviesCount: DEFAULT_MOVIES_COUNT,
     }
   });
 

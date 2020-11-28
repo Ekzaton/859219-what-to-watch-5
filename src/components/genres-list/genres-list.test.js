@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 
-import {ALL_GENRES} from "../../const";
+import {DEFAULT_GENRE} from "../../const";
 
 import mockMovies from "../../mocks/movies";
 
@@ -17,7 +17,7 @@ describe(`GenresList snapshot testing`, () => {
       movies: mockMovies,
     },
     APP_STATE: {
-      activeGenre: ALL_GENRES,
+      activeGenre: DEFAULT_GENRE,
     }
   });
 
