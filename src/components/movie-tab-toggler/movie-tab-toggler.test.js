@@ -16,7 +16,7 @@ describe(`MovieTabToggler snapshot testing`, () => {
         <MovieTabToggler
           movie={mockPromo}
           activeTab={Tab.OVERVIEW}
-          handleTabClick={() => {}}
+          onTabClick={() => {}}
         />
     );
 
@@ -29,7 +29,7 @@ describe(`MovieTabToggler snapshot testing`, () => {
         <MovieTabToggler
           movie={mockPromo}
           activeTab={Tab.DETAILS}
-          handleTabClick={() => {}}
+          onTabClick={() => {}}
         />
     );
 
@@ -50,7 +50,7 @@ describe(`MovieTabToggler snapshot testing`, () => {
           <MovieTabToggler
             movie={mockPromo}
             activeTab={Tab.REVIEWS}
-            handleTabClick={() => {}}
+            onTabClick={() => {}}
           />
         </Provider>
     );

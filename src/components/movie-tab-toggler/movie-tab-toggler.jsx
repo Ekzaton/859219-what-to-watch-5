@@ -6,7 +6,7 @@ import {movieType} from "../../types";
 import {capitalize, renderActiveTab} from "../../utils";
 
 const MovieTabToggler = (props) => {
-  const {movie, activeTab, handleTabClick} = props;
+  const {movie, activeTab, onTabClick} = props;
   const tabs = Object.values(Tab);
   const activeClass = `movie-nav__item--active`;
 
@@ -24,7 +24,7 @@ const MovieTabToggler = (props) => {
                 onClick={(evt) => {
                   evt.preventDefault();
 
-                  handleTabClick(tab);
+                  onTabClick(tab);
                 }}
               >
                 {capitalize(tab)}
@@ -41,7 +41,7 @@ const MovieTabToggler = (props) => {
 MovieTabToggler.propTypes = {
   movie: movieType,
   activeTab: PropTypes.oneOf(Object.values(Tab)).isRequired,
-  handleTabClick: PropTypes.func.isRequired,
+  onTabClick: PropTypes.func.isRequired,
 };
 
 export default MovieTabToggler;

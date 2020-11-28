@@ -12,13 +12,13 @@ describe(`MovieTabToggler e2e testing`, () => {
   configure({adapter: new Adapter()});
 
   it(`execute callback on tab click`, () => {
-    const handleTabClick = jest.fn();
+    const onTabClick = jest.fn();
 
     const movieTabTogglerComponent = shallow(
         <MovieTabToggler
           movie={mockPromo}
           activeTab={Tab.OVERVIEW}
-          handleTabClick={handleTabClick}
+          onTabClick={onTabClick}
         />
     );
 
@@ -30,6 +30,6 @@ describe(`MovieTabToggler e2e testing`, () => {
     navLink2.simulate(`click`, {preventDefault() {}});
     navLink3.simulate(`click`, {preventDefault() {}});
 
-    expect(handleTabClick).toHaveBeenCalledTimes(3);
+    expect(onTabClick).toHaveBeenCalledTimes(3);
   });
 });
