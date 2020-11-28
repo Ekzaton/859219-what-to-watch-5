@@ -13,7 +13,7 @@ export const movieType = PropTypes.shape({
   ratingScore: PropTypes.number.isRequired,
   ratingCount: PropTypes.number.isRequired,
   director: PropTypes.string.isRequired,
-  starring: PropTypes.array.isRequired,
+  starring: PropTypes.arrayOf(PropTypes.string).isRequired,
   runTime: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
