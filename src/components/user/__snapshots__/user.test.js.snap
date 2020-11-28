@@ -5,7 +5,7 @@ exports[`User snapshot testing renders component correctly (with Auth) 1`] = `
   className="user-block__avatar"
 >
   <a
-    href="/my-list/"
+    href="/mylist/"
     onClick={[Function]}
   >
     <img
@@ -24,7 +24,7 @@ exports[`User snapshot testing renders component correctly (without Auth) 1`] = 
 >
   <a
     className="user-block__link"
-    href="/sign-in/"
+    href="/login/"
     onClick={[Function]}
   >
     Sign in

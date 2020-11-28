@@ -8,8 +8,8 @@ export const APIRoute = {
 
 export const AppRoute = {
   ROOT: `/`,
-  SIGN_IN: `/sign-in/`,
-  MY_LIST: `/my-list/`,
+  SIGN_IN: `/login/`,
+  MY_LIST: `/mylist/`,
   REVIEW: `/review/`,
   REVIEW_ID: `/films/:id/review/`,
   PLAYER: `/player/`,
