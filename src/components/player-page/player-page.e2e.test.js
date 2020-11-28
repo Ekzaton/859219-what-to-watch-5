@@ -12,7 +12,7 @@ describe(`PlayerPage e2e testing`, () => {
 
   it(`execute callback on fullscreen button click`, () => {
     const ref = React.createRef();
-    const handleFullScreenButton = jest.fn();
+    const onFullScreenButtonClick = jest.fn();
 
     const playerPageComponent = mount(
         <BrowserRouter>
@@ -24,9 +24,9 @@ describe(`PlayerPage e2e testing`, () => {
               isPlaying={true}
               progressBar={33}
               timeRemaining={1200}
-              handleFullScreenButton={handleFullScreenButton}
-              handlePlayButton={() => {}}
-              handleMouseDown={() => {}}
+              onFullScreenButtonClick={onFullScreenButtonClick}
+              onPlayButtonClick={() => {}}
+              onMouseDown={() => {}}
               getMovie={() => {}}
             />
           </Route>
@@ -35,12 +35,12 @@ describe(`PlayerPage e2e testing`, () => {
 
     const playerFullScreen = playerPageComponent.find(`.player__full-screen`);
     playerFullScreen.simulate(`click`);
-    expect(handleFullScreenButton).toHaveBeenCalledTimes(1);
+    expect(onFullScreenButtonClick).toHaveBeenCalledTimes(1);
   });
 
   it(`execute callback on play button click`, () => {
     const ref = React.createRef();
-    const handlePlayButton = jest.fn();
+    const onPlayButtonClick = jest.fn();
 
     const playerPageComponent = mount(
         <BrowserRouter>
@@ -52,9 +52,9 @@ describe(`PlayerPage e2e testing`, () => {
               isPlaying={true}
               progressBar={33}
               timeRemaining={1200}
-              handleFullScreenButton={() => {}}
-              handlePlayButton={handlePlayButton}
-              handleMouseDown={() => {}}
+              onFullScreenButtonClick={() => {}}
+              onPlayButtonClick={onPlayButtonClick}
+              onMouseDown={() => {}}
               getMovie={() => {}}
             />
           </Route>
@@ -63,6 +63,6 @@ describe(`PlayerPage e2e testing`, () => {
 
     const playerPlay = playerPageComponent.find(`.player__play`);
     playerPlay.simulate(`click`);
-    expect(handlePlayButton).toHaveBeenCalledTimes(1);
+    expect(onPlayButtonClick).toHaveBeenCalledTimes(1);
   });
 });

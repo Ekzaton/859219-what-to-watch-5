@@ -17,9 +17,9 @@ const PlayerPage = (props) => {
     isPlaying,
     progressBar,
     timeRemaining,
-    handleFullScreenButton,
-    handlePlayButton,
-    handleMouseDown,
+    onFullScreenButtonClick,
+    onPlayButtonClick,
+    onMouseDown,
     getMovie
   } = props;
   const params = useParams();
@@ -55,7 +55,7 @@ const PlayerPage = (props) => {
               <div
                 className="player__toggler"
                 style={{left: progressBar + `%`}}
-                onMouseDown={handleMouseDown}
+                onMouseDown={onMouseDown}
               >
                 Toggler
               </div>
@@ -70,7 +70,7 @@ const PlayerPage = (props) => {
           <button
             type="button"
             className="player__play"
-            onClick={handlePlayButton}
+            onClick={onPlayButtonClick}
           >
             <svg viewBox="0 0 19 19" width="19" height="19">
               {isPlaying
@@ -86,7 +86,7 @@ const PlayerPage = (props) => {
           <button
             type="button"
             className="player__full-screen"
-            onClick={handleFullScreenButton}
+            onClick={onFullScreenButtonClick}
           >
             <svg viewBox="0 0 27 27" width="27" height="27">
               <use xlinkHref="#full-screen"></use>
@@ -116,9 +116,9 @@ PlayerPage.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   progressBar: PropTypes.number.isRequired,
   timeRemaining: PropTypes.number.isRequired,
-  handleFullScreenButton: PropTypes.func.isRequired,
-  handlePlayButton: PropTypes.func.isRequired,
-  handleMouseDown: PropTypes.func.isRequired,
+  onFullScreenButtonClick: PropTypes.func.isRequired,
+  onPlayButtonClick: PropTypes.func.isRequired,
+  onMouseDown: PropTypes.func.isRequired,
   getMovie: PropTypes.func.isRequired,
 };
 

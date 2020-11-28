@@ -14,9 +14,9 @@ const withPlayerPage = (Component) => {
         timeRemaining: 0,
       };
 
-      this.handleFullScreenButton = this.handleFullScreenButton.bind(this);
-      this.handlePlayButton = this.handlePlayButton.bind(this);
-      this.handleMouseDown = this.handleMouseDown.bind(this);
+      this._handleFullScreenButtonClick = this._handleFullScreenButtonClick.bind(this);
+      this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
+      this._handleMouseDown = this._handleMouseDown.bind(this);
     }
 
     componentDidMount() {
@@ -51,7 +51,7 @@ const withPlayerPage = (Component) => {
       this.handleMouseDown = null;
     }
 
-    handleFullScreenButton() {
+    _handleFullScreenButtonClick() {
       if (document.fullscreenElement) {
         document.exitFullscreen();
       } else {
@@ -59,7 +59,7 @@ const withPlayerPage = (Component) => {
       }
     }
 
-    handlePlayButton() {
+    _handlePlayButtonClick() {
       const video = this._videoRef.current;
 
       if (this.state.isPlaying) {
@@ -71,7 +71,7 @@ const withPlayerPage = (Component) => {
       }
     }
 
-    handleMouseDown(evt) {
+    _handleMouseDown(evt) {
       const video = this._videoRef.current;
       const progress = this._progressRef.current.offsetWidth;
       let target = evt.target;
@@ -111,9 +111,9 @@ const withPlayerPage = (Component) => {
           isPlaying={this.state.isPlaying}
           progressBar={this.state.progressBar}
           timeRemaining={this.state.timeRemaining}
-          handleFullScreenButton={this.handleFullScreenButton}
-          handlePlayButton={this.handlePlayButton}
-          handleMouseDown={this.handleMouseDown}
+          onFullScreenButtonClick={this._handleFullScreenButtonClick}
+          onPlayButtonClick={this._handlePlayButtonClick}
+          onMouseDown={this._handleMouseDown}
         />
       );
     }
