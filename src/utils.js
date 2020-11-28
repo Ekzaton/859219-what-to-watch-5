@@ -49,9 +49,9 @@ export const getRatingLevel = (score) => {
 export const renderActiveTab = (activeTab, movie) => {
   switch (activeTab) {
     case Tab.OVERVIEW:
-      return <MovieDetailsTab movie={movie}/>;
-    case Tab.DETAILS:
       return <MovieOverviewTab movie={movie}/>;
+    case Tab.DETAILS:
+      return <MovieDetailsTab movie={movie}/>;
     case Tab.REVIEWS:
       return <MovieReviewsTab movie={movie}/>;
   }
