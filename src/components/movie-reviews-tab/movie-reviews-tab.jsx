@@ -9,6 +9,7 @@ import {formatReviewDate} from "../../utils";
 
 const MovieReviewsTab = (props) => {
   const {movie, movieReviews, getMovieReviews} = props;
+  const noReviews = (movieReviews.length === 0);
 
   React.useEffect(() => {
     getMovieReviews(movie.id);
@@ -21,44 +22,51 @@ const MovieReviewsTab = (props) => {
   );
 
   return (
-    <div className="movie-card__reviews movie-card__row">
-      <div className="movie-card__reviews-col">
-        {leftReviewsColumn.map((review, i) =>
-          <div key={`review-${i}`} className="review">
-            <blockquote className="review__quote">
-              <p className="review__text">{review.text}</p>
+    <React.Fragment>
+      {noReviews
+        ? <div className="movie-card__reviews movie-card__row">
+          There are no reviews yet. You can write one.
+        </div>
+        : <div className="movie-card__reviews movie-card__row">
+          <div className="movie-card__reviews-col">
+            {leftReviewsColumn.map((review, i) =>
+              <div key={`review-${i}`} className="review">
+                <blockquote className="review__quote">
+                  <p className="review__text">{review.text}</p>
 
-              <footer className="review__details">
-                <cite className="review__author">{review.author}</cite>
-                <time className="review__date" dateTime="2016-12-24">
-                  {formatReviewDate(review.date)}
-                </time>
-              </footer>
-            </blockquote>
+                  <footer className="review__details">
+                    <cite className="review__author">{review.author}</cite>
+                    <time className="review__date" dateTime="2016-12-24">
+                      {formatReviewDate(review.date)}
+                    </time>
+                  </footer>
+                </blockquote>
 
-            <div className="review__rating">{review.rating}</div>
+                <div className="review__rating">{review.rating}</div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      <div className="movie-card__reviews-col">
-        {rightReviewsColumn.map((review, i) =>
-          <div key={`review-${i}`} className="review">
-            <blockquote className="review__quote">
-              <p className="review__text">{review.text}</p>
+          <div className="movie-card__reviews-col">
+            {rightReviewsColumn.map((review, i) =>
+              <div key={`review-${i}`} className="review">
+                <blockquote className="review__quote">
+                  <p className="review__text">{review.text}</p>
 
-              <footer className="review__details">
-                <cite className="review__author">{review.author}</cite>
-                <time className="review__date" dateTime="2016-12-24">
-                  {formatReviewDate(review.date)}
-                </time>
-              </footer>
-            </blockquote>
+                  <footer className="review__details">
+                    <cite className="review__author">{review.author}</cite>
+                    <time className="review__date" dateTime="2016-12-24">
+                      {formatReviewDate(review.date)}
+                    </time>
+                  </footer>
+                </blockquote>
 
-            <div className="review__rating">{review.rating}</div>
+                <div className="review__rating">{review.rating}</div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      }
+    </React.Fragment>
   );
 };
 
