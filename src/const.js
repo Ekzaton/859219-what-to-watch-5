@@ -38,4 +38,6 @@ export const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
 };
 
-export const ALL_GENRES = `All genres`;
+export const DEFAULT_GENRE = `All genres`;
+
+export const DEFAULT_MOVIES_COUNT = 8;

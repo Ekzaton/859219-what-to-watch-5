@@ -54,8 +54,8 @@ export const sendReview = (id, {rating, comment}) => (dispatch, _getState, api) 
     .then(() => dispatch(redirectToRoute(`${AppRoute.FILMS}${id}`)))
 );
 
-export const changeFavorite = (id, status) => (dispatch, _getState, api) => (
-  api.post(`${APIRoute.FAVORITE}${id}/${status ? 0 : 1}`)
+export const changeFavorite = (id, isFavorite) => (dispatch, _getState, api) => (
+  api.post(`${APIRoute.FAVORITE}${id}/${isFavorite ? 0 : 1}`)
     .then(() => dispatch(fetchPromoMovie()))
     .then(() => dispatch(fetchMovie(id)))
 );

@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieTabToggler snapshot testing renders component correctly (Details tab) 1`] = `
+<div
+  className="movie-card__desc"
+>
+  <nav
+    className="movie-nav movie-card__nav"
+  >
+    <ul
+      className="movie-nav__list"
+    >
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        className="movie-nav__item movie-nav__item--active"
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Details
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="movie-rating"
+  >
+    <div
+      className="movie-rating__score"
+    >
+      3.6
+    </div>
+    <p
+      className="movie-rating__meta"
+    >
+      <span
+        className="movie-rating__level"
+      >
+        Normal
+      </span>
+      <span
+        className="movie-rating__count"
+      >
+        109661
+      </span>
+    </p>
+  </div>
+  <div
+    className="movie-card__text"
+  >
+    <p>
+      A young man who was sentenced to seven years in prison for robbing a post office ends up spending three decades in solitary confinement. During this time, his own personality is supplanted by his alter-ego, Charles Bronson.
+    </p>
+    <p
+      className="movie-card__director"
+    >
+      <strong>
+        Director: 
+        Nicolas Winding Refn
+      </strong>
+    </p>
+    <p
+      className="movie-card__starring"
+    >
+      <strong>
+        Starring: 
+        Tom Hardy, Kelly Adams, Luing Andrews and other
+      </strong>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`MovieTabToggler snapshot testing renders component correctly (Overview tab) 1`] = `
+<div
+  className="movie-card__desc"
+>
+  <nav
+    className="movie-nav movie-card__nav"
+  >
+    <ul
+      className="movie-nav__list"
+    >
+      <li
+        className="movie-nav__item movie-nav__item--active"
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Details
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="movie-card__text movie-card__row"
+  >
+    <div
+      className="movie-card__text-col"
+    >
+      <p
+        className="movie-card__details-item"
+      >
+        <strong
+          className="movie-card__details-name"
+        >
+          Director
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          Nicolas Winding Refn
+        </span>
+      </p>
+      <p
+        className="movie-card__details-item"
+      >
+        <strong
+          className="movie-card__details-name"
+        >
+          Starring
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          Tom Hardy
+          , 
+          <br />
+          Kelly Adams
+          , 
+          <br />
+          Luing Andrews
+        </span>
+      </p>
+    </div>
+    <div
+      className="movie-card__text-col"
+    >
+      <p
+        className="movie-card__details-item"
+      >
+        <strong
+          className="movie-card__details-name"
+        >
+          Run Time
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          1h 32m
+        </span>
+      </p>
+      <p
+        className="movie-card__details-item"
+      >
+        <strong
+          className="movie-card__details-name"
+        >
+          Genre
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          Action
+        </span>
+      </p>
+      <p
+        className="movie-card__details-item"
+      >
+        <strong
+          className="movie-card__details-name"
+        >
+          Released
+        </strong>
+        <span
+          className="movie-card__details-value"
+        >
+          2008
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MovieTabToggler snapshot testing renders component correctly (Reviews tab) 1`] = `
+<div
+  className="movie-card__desc"
+>
+  <nav
+    className="movie-nav movie-card__nav"
+  >
+    <ul
+      className="movie-nav__list"
+    >
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Details
+        </a>
+      </li>
+      <li
+        className="movie-nav__item movie-nav__item--active"
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+          onClick={[Function]}
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="movie-card__reviews movie-card__row"
+  >
+    <div
+      className="movie-card__reviews-col"
+    >
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            I love this movie. This film is a milestone in cinematography. Great Immersive camera-work. This film is an experience and i has already seen it 4 times and I only see more quality of the film.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Christina
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2016-12-24"
+            >
+              October 9, 2020
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          3.3
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            This movie was a tease. The premise was interesting, but they never divulge enough details to make it worthwhile. It ended with far too many questions unanswered.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              John
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2016-12-24"
+            >
+              November 24, 2020
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          3
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            This movie is just plain bad. There must be some big payola going round this awards season. Badly written, average acting at best, all the characters are unrelatable and inlikeable. 2 hours of my life wasted.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Sophie
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2016-12-24"
+            >
+              November 4, 2020
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          9.6
+        </div>
+      </div>
+    </div>
+    <div
+      className="movie-card__reviews-col"
+    >
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            A movie that will take you to another world full of emotions.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Jack
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2016-12-24"
+            >
+              November 3, 2020
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          8.6
+        </div>
+      </div>
+      <div
+        className="review"
+      >
+        <blockquote
+          className="review__quote"
+        >
+          <p
+            className="review__text"
+          >
+            Poised to be an instant classic, almost everything about this film is phenomenal - the acting, the cinematography, the discography, etc.
+          </p>
+          <footer
+            className="review__details"
+          >
+            <cite
+              className="review__author"
+            >
+              Isaac
+            </cite>
+            <time
+              className="review__date"
+              dateTime="2016-12-24"
+            >
+              October 29, 2020
+            </time>
+          </footer>
+        </blockquote>
+        <div
+          className="review__rating"
+        >
+          4.6
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
