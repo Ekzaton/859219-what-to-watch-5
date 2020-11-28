@@ -1,7 +1,7 @@
 import React from "react";
 
 const withMoviesList = (Component) => {
-  class WithMoviesList extends React.PureComponent {
+  class MoviesList extends React.PureComponent {
     constructor(props) {
       super(props);
 
@@ -33,7 +33,7 @@ const withMoviesList = (Component) => {
     }
   }
 
-  return WithMoviesList;
+  return MoviesList;
 };
 
 export default withMoviesList;
