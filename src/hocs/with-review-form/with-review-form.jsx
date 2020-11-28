@@ -10,15 +10,15 @@ const withReviewForm = (Component) => {
         textValue: ``,
       };
 
-      this.handleRatingChange = this.handleRatingChange.bind(this);
-      this.handleTextChange = this.handleTextChange.bind(this);
+      this._handleRatingChange = this._handleRatingChange.bind(this);
+      this._handleTextChange = this._handleTextChange.bind(this);
     }
 
-    handleRatingChange(evt) {
+    _handleRatingChange(evt) {
       this.setState({ratingValue: Number(evt.target.value)});
     }
 
-    handleTextChange(evt) {
+    _handleTextChange(evt) {
       this.setState({textValue: evt.target.value});
     }
 
@@ -28,8 +28,8 @@ const withReviewForm = (Component) => {
           {...this.props}
           ratingValue={this.state.ratingValue}
           textValue={this.state.textValue}
-          onRatingChange={this.handleRatingChange}
-          onTextChange={this.handleTextChange}
+          onRatingChange={this._handleRatingChange}
+          onTextChange={this._handleTextChange}
         />
       );
     }
