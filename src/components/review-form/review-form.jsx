@@ -75,8 +75,11 @@ const ReviewForm = (props) => {
 
       </div>
 
-      {isDataSending && <p>Sending data. Please wait...</p>}
-      {isSendingError && <p>Sending error! Please try again later...</p>}
+      {
+        (isDataSending && <p>Sending data. Please wait...</p>)
+          ||
+        (isSendingError && <p>Sending error! Please try again later...</p>)
+      }
 
     </form>
   );
