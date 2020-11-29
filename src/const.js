@@ -43,6 +43,15 @@ export const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
 };
 
+export const SignIn = {
+  EMAIL: `email`,
+  PASSWORD: `password`,
+};
+
 export const DEFAULT_GENRE = `All genres`;
 
 export const DEFAULT_MOVIES_COUNT = 8;
+
+export const REG_EXP_EMAIL = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/;
+
+export const REG_EXP_PASSWORD = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;

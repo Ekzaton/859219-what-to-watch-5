@@ -5,19 +5,52 @@ import {connect} from "react-redux";
 
 import {login} from "../../store/api-actions";
 
-import {AppRoute} from "../../const";
+import {AppRoute, SignIn, REG_EXP_EMAIL, REG_EXP_PASSWORD} from "../../const";
+import {extend} from '../../utils';
 
 const SignInPage = (props) => {
-  const {onSubmit} = props;
-  const emailRef = React.createRef();
-  const passwordRef = React.createRef();
+  const [validEmail, setValidEmail] = React.useState(true);
+  const [validPassword, setValidPassword] = React.useState(true);
+  const [validForm, setValidForm] = React.useState(false);
+  const [inputs, setInputs] = React.useState({
+    email: ``,
+    password: ``,
+  });
+  const {email, password} = inputs;
+  const errorClass = ` sign-in__field--error`;
+
+  const handleInputChange = (evt) => {
+    const name = evt.target.name;
+    const value = evt.target.value;
+
+    setInputs(extend(inputs, {
+      [name]: value
+    }));
+
+    validateInput(name, value);
+  };
+
+  const validateInput = (name, value) => {
+    switch (name) {
+      case SignIn.EMAIL:
+        setValidEmail(REG_EXP_EMAIL.test(value));
+        break;
+      case SignIn.PASSWORD:
+        setValidPassword(REG_EXP_PASSWORD.test(value));
+        break;
+    }
+
+    setValidForm(validEmail && validPassword);
+  };
 
   const handleSubmit = (evt) => {
+    const {onSubmit} = props;
+
     evt.preventDefault();
 
     onSubmit({
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
+      email,
+      password,
     });
   };
 
@@ -37,15 +70,21 @@ const SignInPage = (props) => {
 
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form" onSubmit={handleSubmit}>
+          <div className="sign-in__message">
+            {!validEmail && <p>Please enter a valid email address</p>}
+            {!validPassword && <p>Please enter a valid password</p>}
+          </div>
           <div className="sign-in__fields">
-            <div className="sign-in__field">
+            <div className={`sign-in__field${!validEmail ? errorClass : ``}`}>
               <input
-                ref={emailRef}
                 className="sign-in__input"
                 type="email"
                 placeholder="Email address"
-                name="user-email"
+                name="email"
                 id="user-email"
+                onChange={handleInputChange}
+                autoComplete="false"
+                required
               />
               <label
                 className="sign-in__label visually-hidden"
@@ -54,14 +93,16 @@ const SignInPage = (props) => {
                 Email address
               </label>
             </div>
-            <div className="sign-in__field">
+            <div className={`sign-in__field${!validPassword ? errorClass : ``}`}>
               <input
-                ref={passwordRef}
                 className="sign-in__input"
                 type="password"
                 placeholder="Password"
-                name="user-password"
+                name="password"
                 id="user-password"
+                onChange={handleInputChange}
+                autoComplete="false"
+                required
               />
               <label
                 className="sign-in__label visually-hidden"
@@ -72,7 +113,13 @@ const SignInPage = (props) => {
             </div>
           </div>
           <div className="sign-in__submit">
-            <button className="sign-in__btn" type="submit">Sign in</button>
+            <button
+              className="sign-in__btn"
+              type="submit"
+              disabled={!validForm}
+            >
+              Sign in
+            </button>
           </div>
         </form>
       </div>
