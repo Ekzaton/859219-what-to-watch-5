@@ -15,9 +15,12 @@ describe(`ReviewForm e2e testing`, () => {
           id={1}
           ratingValue={3}
           textValue={`Good movie`}
+          isValid
           onSubmit={handleSubmit}
           onRatingChange={() => {}}
           onTextChange={() => {}}
+          isDataSending
+          isSendingError
         />
     );
 
@@ -34,9 +37,12 @@ describe(`ReviewForm e2e testing`, () => {
           id={1}
           ratingValue={3}
           textValue={`Good movie`}
+          isValid
           onSubmit={() => {}}
           onRatingChange={onRatingChange}
           onTextChange={() => {}}
+          isDataSending
+          isSendingError
         />
     );
 
@@ -53,9 +59,12 @@ describe(`ReviewForm e2e testing`, () => {
           id={1}
           ratingValue={3}
           textValue={`Good movie`}
+          isValid
           onSubmit={() => {}}
           onRatingChange={() => {}}
           onTextChange={onTextChange}
+          isDataSending
+          isSendingError
         />
     );
 

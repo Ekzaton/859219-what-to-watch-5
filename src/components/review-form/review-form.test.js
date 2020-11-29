@@ -10,9 +10,12 @@ describe(`ReviewForm snapshot testing`, () => {
           id={1}
           ratingValue={3}
           textValue={`Good movie`}
+          isValid
           onSubmit={() => {}}
           onRatingChange={() => {}}
           onTextChange={() => {}}
+          isDataSending
+          isSendingError
         />
     );
 

@@ -14,6 +14,7 @@ exports[`ReviewForm snapshot testing renders component correctly 1`] = `
       <input
         checked={false}
         className="rating__input"
+        disabled={true}
         id="star-1"
         name="rating"
         onChange={[Function]}
@@ -29,6 +30,7 @@ exports[`ReviewForm snapshot testing renders component correctly 1`] = `
       <input
         checked={false}
         className="rating__input"
+        disabled={true}
         id="star-2"
         name="rating"
         onChange={[Function]}
@@ -44,6 +46,7 @@ exports[`ReviewForm snapshot testing renders component correctly 1`] = `
       <input
         checked={true}
         className="rating__input"
+        disabled={true}
         id="star-3"
         name="rating"
         onChange={[Function]}
@@ -59,6 +62,7 @@ exports[`ReviewForm snapshot testing renders component correctly 1`] = `
       <input
         checked={false}
         className="rating__input"
+        disabled={true}
         id="star-4"
         name="rating"
         onChange={[Function]}
@@ -74,6 +78,7 @@ exports[`ReviewForm snapshot testing renders component correctly 1`] = `
       <input
         checked={false}
         className="rating__input"
+        disabled={true}
         id="star-5"
         name="rating"
         onChange={[Function]}
@@ -93,11 +98,12 @@ exports[`ReviewForm snapshot testing renders component correctly 1`] = `
   >
     <textarea
       className="add-review__textarea"
+      disabled={true}
       id="review-text"
-      maxLength="400"
       name="review-text"
       onChange={[Function]}
       placeholder="Review text"
+      required={true}
       value="Good movie"
     />
     <div
@@ -105,11 +111,18 @@ exports[`ReviewForm snapshot testing renders component correctly 1`] = `
     >
       <button
         className="add-review__btn"
+        disabled={true}
         type="submit"
       >
         Post
       </button>
     </div>
   </div>
+  <p>
+    Sending data. Please wait...
+  </p>
+  <p>
+    Sending error! Please try again later...
+  </p>
 </form>
 `;
