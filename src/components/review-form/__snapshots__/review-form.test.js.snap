@@ -121,8 +121,5 @@ exports[`ReviewForm snapshot testing renders component correctly 1`] = `
   <p>
     Sending data. Please wait...
   </p>
-  <p>
-    Sending error! Please try again later...
-  </p>
 </form>
 `;
