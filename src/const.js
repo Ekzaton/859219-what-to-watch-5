@@ -33,6 +33,11 @@ export const RatingLevel = {
   UNRATED: `Unrated`
 };
 
+export const Review = {
+  MIN_LENGTH: 50,
+  MAX_LENGTH: 400,
+};
+
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
