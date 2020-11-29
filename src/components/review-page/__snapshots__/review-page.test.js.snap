@@ -227,6 +227,9 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
           </button>
         </div>
       </div>
+      <p>
+        50-400 characters
+      </p>
     </form>
   </div>
 </section>

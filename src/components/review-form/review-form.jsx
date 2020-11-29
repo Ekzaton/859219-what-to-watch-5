@@ -76,6 +76,8 @@ const ReviewForm = (props) => {
       </div>
 
       {
+        (!isValid && <p>50-400 characters</p>)
+          ||
         (isDataSending && <p>Sending data. Please wait...</p>)
           ||
         (isSendingError && <p>Sending error! Please try again later...</p>)
