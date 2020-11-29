@@ -9,9 +9,9 @@ import {AppRoute, SignIn, REG_EXP_EMAIL, REG_EXP_PASSWORD} from "../../const";
 import {extend} from '../../utils';
 
 const SignInPage = (props) => {
-  const [validEmail, setValidEmail] = React.useState(true);
-  const [validPassword, setValidPassword] = React.useState(true);
-  const [validForm, setValidForm] = React.useState(false);
+  const [isValidEmail, setIsValidEmail] = React.useState(true);
+  const [isValidPassword, setIsValidPassword] = React.useState(true);
+  const [isValidForm, setIsValidForm] = React.useState(false);
   const [inputs, setInputs] = React.useState({
     email: ``,
     password: ``,
@@ -33,14 +33,14 @@ const SignInPage = (props) => {
   const validateInput = (name, value) => {
     switch (name) {
       case SignIn.EMAIL:
-        setValidEmail(REG_EXP_EMAIL.test(value));
+        setIsValidEmail(REG_EXP_EMAIL.test(value));
         break;
       case SignIn.PASSWORD:
-        setValidPassword(REG_EXP_PASSWORD.test(value));
+        setIsValidPassword(REG_EXP_PASSWORD.test(value));
         break;
     }
 
-    setValidForm(validEmail && validPassword);
+    setIsValidForm(isValidEmail && isValidPassword);
   };
 
   const handleSubmit = (evt) => {
@@ -71,11 +71,11 @@ const SignInPage = (props) => {
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form" onSubmit={handleSubmit}>
           <div className="sign-in__message">
-            {!validEmail && <p>Please enter a valid email address</p>}
-            {!validPassword && <p>Please enter a valid password</p>}
+            {!isValidEmail && <p>Please enter a valid email address</p>}
+            {!isValidPassword && <p>Please enter a valid password</p>}
           </div>
           <div className="sign-in__fields">
-            <div className={`sign-in__field${!validEmail ? errorClass : ``}`}>
+            <div className={`sign-in__field${!isValidEmail ? errorClass : ``}`}>
               <input
                 className="sign-in__input"
                 type="email"
@@ -93,7 +93,7 @@ const SignInPage = (props) => {
                 Email address
               </label>
             </div>
-            <div className={`sign-in__field${!validPassword ? errorClass : ``}`}>
+            <div className={`sign-in__field${!isValidPassword ? errorClass : ``}`}>
               <input
                 className="sign-in__input"
                 type="password"
@@ -116,7 +116,7 @@ const SignInPage = (props) => {
             <button
               className="sign-in__btn"
               type="submit"
-              disabled={!validForm}
+              disabled={!isValidForm}
             >
               Sign in
             </button>
