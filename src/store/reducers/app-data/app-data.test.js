@@ -14,6 +14,8 @@ const mockInitialState = {
   promoMovie: {},
   activeMovie: {},
   movieReviews: [],
+  isDataSending: false,
+  isSendingError: false,
 };
 
 describe(`appData reducer testing (without payload)`, () => {

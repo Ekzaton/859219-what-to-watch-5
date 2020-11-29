@@ -8,6 +8,8 @@ const initialState = {
   promoMovie: {},
   activeMovie: {},
   movieReviews: [],
+  isDataSending: false,
+  isSendingError: false,
 };
 
 export const appData = (state = initialState, action) => {
@@ -32,6 +34,14 @@ export const appData = (state = initialState, action) => {
     case ActionType.GET_MOVIE_REVIEWS:
       return extend(state, {
         movieReviews: action.payload,
+      });
+    case ActionType.SET_DATA_SENDING:
+      return extend(state, {
+        isDataSending: action.payload,
+      });
+    case ActionType.SET_SENDING_ERROR:
+      return extend(state, {
+        isSendingError: action.payload,
       });
   }
 
