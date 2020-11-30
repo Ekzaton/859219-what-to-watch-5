@@ -62,7 +62,7 @@ Array [
           >
             <a
               className="user-block__link"
-              href="/sign-in/"
+              href="/login/"
               onClick={[Function]}
             >
               Sign in
@@ -115,13 +115,6 @@ Array [
               <span>
                 Play
               </span>
-            </a>
-            <a
-              className="btn movie-card__button"
-              href="/films/1/review/"
-              onClick={[Function]}
-            >
-              Add review
             </a>
           </div>
         </div>
@@ -188,92 +181,50 @@ Array [
             </ul>
           </nav>
           <div
-            className="movie-card__text movie-card__row"
+            className="movie-rating"
           >
             <div
-              className="movie-card__text-col"
+              className="movie-rating__score"
             >
-              <p
-                className="movie-card__details-item"
-              >
-                <strong
-                  className="movie-card__details-name"
-                >
-                  Director
-                </strong>
-                <span
-                  className="movie-card__details-value"
-                >
-                  Nicolas Winding Refn
-                </span>
-              </p>
-              <p
-                className="movie-card__details-item"
-              >
-                <strong
-                  className="movie-card__details-name"
-                >
-                  Starring
-                </strong>
-                <span
-                  className="movie-card__details-value"
-                >
-                  Tom Hardy
-                  , 
-                  <br />
-                  Kelly Adams
-                  , 
-                  <br />
-                  Luing Andrews
-                </span>
-              </p>
+              3.6
             </div>
-            <div
-              className="movie-card__text-col"
+            <p
+              className="movie-rating__meta"
             >
-              <p
-                className="movie-card__details-item"
+              <span
+                className="movie-rating__level"
               >
-                <strong
-                  className="movie-card__details-name"
-                >
-                  Run Time
-                </strong>
-                <span
-                  className="movie-card__details-value"
-                >
-                  1h 32m
-                </span>
-              </p>
-              <p
-                className="movie-card__details-item"
+                Normal
+              </span>
+              <span
+                className="movie-rating__count"
               >
-                <strong
-                  className="movie-card__details-name"
-                >
-                  Genre
-                </strong>
-                <span
-                  className="movie-card__details-value"
-                >
-                  Action
-                </span>
-              </p>
-              <p
-                className="movie-card__details-item"
-              >
-                <strong
-                  className="movie-card__details-name"
-                >
-                  Released
-                </strong>
-                <span
-                  className="movie-card__details-value"
-                >
-                  2008
-                </span>
-              </p>
-            </div>
+                109661
+              </span>
+            </p>
+          </div>
+          <div
+            className="movie-card__text"
+          >
+            <p>
+              A young man who was sentenced to seven years in prison for robbing a post office ends up spending three decades in solitary confinement. During this time, his own personality is supplanted by his alter-ego, Charles Bronson.
+            </p>
+            <p
+              className="movie-card__director"
+            >
+              <strong>
+                Director: 
+                Nicolas Winding Refn
+              </strong>
+            </p>
+            <p
+              className="movie-card__starring"
+            >
+              <strong>
+                Starring: 
+                Tom Hardy, Kelly Adams, Luing Andrews
+              </strong>
+            </p>
           </div>
         </div>
       </div>

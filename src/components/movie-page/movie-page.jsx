@@ -15,6 +15,7 @@ import withMovieTabToggler from "../../hocs/with-movie-tab-toggler/with-movie-ta
 import MoviesList from "../movies-list/movies-list";
 import MyListButton from "../my-list-button/my-list-button";
 import MovieTabToggler from "../movie-tab-toggler/movie-tab-toggler";
+import ReviewButton from "../review-button/review-button";
 import User from "../user/user";
 
 const MoviesListWrapped = withMoviesList(MoviesList);
@@ -79,12 +80,9 @@ const MoviePage = (props) => {
                   id={movie.id}
                   isFavorite={movie.isFavorite}
                 />
-                <Link
-                  to={`${AppRoute.FILMS}${movie.id}${AppRoute.REVIEW}`}
-                  className="btn movie-card__button"
-                >
-                  Add review
-                </Link>
+                <ReviewButton
+                  id={movie.id}
+                />
               </div>
             </div>
           </div>

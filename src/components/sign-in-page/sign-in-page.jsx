@@ -5,101 +5,141 @@ import {connect} from "react-redux";
 
 import {login} from "../../store/api-actions";
 
-import {AppRoute} from "../../const";
+import {AppRoute, SignIn, REG_EXP_EMAIL, REG_EXP_PASSWORD} from "../../const";
+import {extend} from '../../utils';
 
-class SignInPage extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const SignInPage = (props) => {
+  const [isValidEmail, setIsValidEmail] = React.useState(true);
+  const [isValidPassword, setIsValidPassword] = React.useState(true);
+  const [isValidForm, setIsValidForm] = React.useState(false);
+  const [inputs, setInputs] = React.useState({
+    email: ``,
+    password: ``,
+  });
+  const {email, password} = inputs;
+  const errorClass = ` sign-in__field--error`;
 
-    this.emailRef = React.createRef();
-    this.passwordRef = React.createRef();
+  const handleInputChange = (evt) => {
+    const name = evt.target.name;
+    const value = evt.target.value;
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    setInputs(extend(inputs, {
+      [name]: value
+    }));
 
-  handleSubmit(evt) {
+    validateInput(name, value);
+  };
+
+  const validateInput = (name, value) => {
+    switch (name) {
+      case SignIn.EMAIL:
+        setIsValidEmail(REG_EXP_EMAIL.test(value));
+        break;
+      case SignIn.PASSWORD:
+        setIsValidPassword(REG_EXP_PASSWORD.test(value));
+        break;
+    }
+
+    setIsValidForm(isValidEmail && isValidPassword);
+  };
+
+  const handleSubmit = (evt) => {
+    const {onSubmit} = props;
+
     evt.preventDefault();
 
-    this.props.onSubmit({
-      email: this.emailRef.current.value,
-      password: this.passwordRef.current.value,
+    onSubmit({
+      email,
+      password,
     });
-  }
+  };
 
-  render() {
-    return (
-      <div className="user-page">
-        <header className="page-header user-page__head">
-          <div className="logo">
-            <Link to={AppRoute.ROOT} className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </Link>
-          </div>
-
-          <h1 className="page-title user-page__title">Sign in</h1>
-        </header>
-
-        <div className="sign-in user-page__content">
-          <form action="#" className="sign-in__form" onSubmit={this.handleSubmit}>
-            <div className="sign-in__fields">
-              <div className="sign-in__field">
-                <input
-                  ref={this.emailRef}
-                  className="sign-in__input"
-                  type="email"
-                  placeholder="Email address"
-                  name="user-email"
-                  id="user-email"
-                />
-                <label
-                  className="sign-in__label visually-hidden"
-                  htmlFor="user-email"
-                >
-                  Email address
-                </label>
-              </div>
-              <div className="sign-in__field">
-                <input
-                  ref={this.passwordRef}
-                  className="sign-in__input"
-                  type="password"
-                  placeholder="Password"
-                  name="user-password"
-                  id="user-password"
-                />
-                <label
-                  className="sign-in__label visually-hidden"
-                  htmlFor="user-password"
-                >
-                  Password
-                </label>
-              </div>
-            </div>
-            <div className="sign-in__submit">
-              <button className="sign-in__btn" type="submit">Sign in</button>
-            </div>
-          </form>
+  return (
+    <div className="user-page">
+      <header className="page-header user-page__head">
+        <div className="logo">
+          <Link to={AppRoute.ROOT} className="logo__link">
+            <span className="logo__letter logo__letter--1">W</span>
+            <span className="logo__letter logo__letter--2">T</span>
+            <span className="logo__letter logo__letter--3">W</span>
+          </Link>
         </div>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <Link to={AppRoute.ROOT} className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </Link>
-          </div>
+        <h1 className="page-title user-page__title">Sign in</h1>
+      </header>
 
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
+      <div className="sign-in user-page__content">
+        <form action="#" className="sign-in__form" onSubmit={handleSubmit}>
+          <div className="sign-in__message">
+            {!isValidEmail && <p>Please enter a valid email address</p>}
+            {!isValidPassword && <p>Please enter a valid password</p>}
           </div>
-        </footer>
+          <div className="sign-in__fields">
+            <div className={`sign-in__field${!isValidEmail ? errorClass : ``}`}>
+              <input
+                className="sign-in__input"
+                type="email"
+                placeholder="Email address"
+                name="email"
+                id="user-email"
+                onChange={handleInputChange}
+                autoComplete="false"
+                required
+              />
+              <label
+                className="sign-in__label visually-hidden"
+                htmlFor="user-email"
+              >
+                Email address
+              </label>
+            </div>
+            <div className={`sign-in__field${!isValidPassword ? errorClass : ``}`}>
+              <input
+                className="sign-in__input"
+                type="password"
+                placeholder="Password"
+                name="password"
+                id="user-password"
+                onChange={handleInputChange}
+                autoComplete="false"
+                required
+              />
+              <label
+                className="sign-in__label visually-hidden"
+                htmlFor="user-password"
+              >
+                Password
+              </label>
+            </div>
+          </div>
+          <div className="sign-in__submit">
+            <button
+              className="sign-in__btn"
+              type="submit"
+              disabled={!isValidForm}
+            >
+              Sign in
+            </button>
+          </div>
+        </form>
       </div>
-    );
-  }
-}
+
+      <footer className="page-footer">
+        <div className="logo">
+          <Link to={AppRoute.ROOT} className="logo__link logo__link--light">
+            <span className="logo__letter logo__letter--1">W</span>
+            <span className="logo__letter logo__letter--2">T</span>
+            <span className="logo__letter logo__letter--3">W</span>
+          </Link>
+        </div>
+
+        <div className="copyright">
+          <p>© 2019 What to watch Ltd.</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(authData) {

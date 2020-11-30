@@ -8,6 +8,8 @@ export const ActionType = {
   GET_MOVIE_REVIEWS: `GET_MOVIE_REVIEWS`,
   REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
+  SET_DATA_SENDING: `SET_DATA_SENDING`,
+  SET_SENDING_ERROR: `SET_SENDING_ERROR`,
 };
 
 export const getActiveGenre = (activeGenre) => ({
@@ -53,4 +55,14 @@ export const requireAuthorization = (status) => ({
 export const redirectToRoute = (url) => ({
   type: ActionType.REDIRECT_TO_ROUTE,
   payload: url,
+});
+
+export const setDataSending = (bool) => ({
+  type: ActionType.SET_DATA_SENDING,
+  payload: bool,
+});
+
+export const setSendingError = (bool) => ({
+  type: ActionType.SET_SENDING_ERROR,
+  payload: bool,
 });

@@ -17,6 +17,8 @@ describe(`ReviewPage snapshot testing`, () => {
     const store = mockStore({
       APP_DATA: {
         activeMovie: mockPromo,
+        isDataSending: false,
+        isSendingError: false,
       },
       APP_USER: {
         status: AuthorizationStatus.AUTH,

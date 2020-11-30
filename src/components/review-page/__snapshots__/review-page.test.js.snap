@@ -83,7 +83,7 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
           className="user-block__avatar"
         >
           <a
-            href="/my-list/"
+            href="/mylist/"
             onClick={[Function]}
           >
             <img
@@ -123,6 +123,7 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
           <input
             checked={true}
             className="rating__input"
+            disabled={false}
             id="star-1"
             name="rating"
             onChange={[Function]}
@@ -138,6 +139,7 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
           <input
             checked={false}
             className="rating__input"
+            disabled={false}
             id="star-2"
             name="rating"
             onChange={[Function]}
@@ -153,6 +155,7 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
           <input
             checked={false}
             className="rating__input"
+            disabled={false}
             id="star-3"
             name="rating"
             onChange={[Function]}
@@ -168,6 +171,7 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
           <input
             checked={false}
             className="rating__input"
+            disabled={false}
             id="star-4"
             name="rating"
             onChange={[Function]}
@@ -183,6 +187,7 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
           <input
             checked={false}
             className="rating__input"
+            disabled={false}
             id="star-5"
             name="rating"
             onChange={[Function]}
@@ -202,11 +207,12 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
       >
         <textarea
           className="add-review__textarea"
+          disabled={false}
           id="review-text"
-          maxLength="400"
           name="review-text"
           onChange={[Function]}
           placeholder="Review text"
+          required={true}
           value=""
         />
         <div
@@ -214,12 +220,16 @@ exports[`ReviewPage snapshot testing renders component correctly 1`] = `
         >
           <button
             className="add-review__btn"
+            disabled={true}
             type="submit"
           >
             Post
           </button>
         </div>
       </div>
+      <p>
+        50-400 characters
+      </p>
     </form>
   </div>
 </section>

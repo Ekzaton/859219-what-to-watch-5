@@ -11,10 +11,10 @@ const withMovieTabToggler = (Component) => {
         activeTab: Tab.OVERVIEW,
       };
 
-      this.handleTabClick = this.handleTabClick.bind(this);
+      this._handleTabClick = this._handleTabClick.bind(this);
     }
 
-    handleTabClick(tab) {
+    _handleTabClick(tab) {
       this.setState({activeTab: tab});
     }
 
@@ -23,7 +23,7 @@ const withMovieTabToggler = (Component) => {
         <Component
           {...this.props}
           activeTab={this.state.activeTab}
-          handleTabClick={this.handleTabClick}
+          onTabClick={this._handleTabClick}
         />
       );
     }

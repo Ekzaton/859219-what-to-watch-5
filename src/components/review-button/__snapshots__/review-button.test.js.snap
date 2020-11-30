@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewButton snapshot testing renders component correctly (with Auth) 1`] = `
+<a
+  className="btn movie-card__button"
+  href="/films/5/review/"
+  onClick={[Function]}
+>
+  Add review
+</a>
+`;
+
+exports[`ReviewButton snapshot testing renders component correctly (without Auth) 1`] = `null`;

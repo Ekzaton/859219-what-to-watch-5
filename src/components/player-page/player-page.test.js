@@ -29,9 +29,9 @@ describe(`PlayerPage snapshot testing`, () => {
                 isPlaying={true}
                 progressBar={33}
                 timeRemaining={1200}
-                handleFullScreenButton={() => {}}
-                handlePlayButton={() => {}}
-                handleMouseDown={() => {}}
+                onFullScreenButtonClick={() => {}}
+                onPlayButtonClick={() => {}}
+                onMouseDown={() => {}}
               />
             </Route>
           </BrowserRouter>

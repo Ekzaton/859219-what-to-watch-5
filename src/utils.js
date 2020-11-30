@@ -1,6 +1,6 @@
 import React from "react";
 
-import {RatingLevel, Tab} from "./const";
+import {RatingLevel, Review, Tab} from "./const";
 
 import MovieDetailsTab from "./components/movie-details-tab/movie-details-tab";
 import MovieOverviewTab from "./components/movie-overview-tab/movie-overview-tab";
@@ -49,12 +49,16 @@ export const getRatingLevel = (score) => {
 export const renderActiveTab = (activeTab, movie) => {
   switch (activeTab) {
     case Tab.OVERVIEW:
-      return <MovieDetailsTab movie={movie}/>;
-    case Tab.DETAILS:
       return <MovieOverviewTab movie={movie}/>;
+    case Tab.DETAILS:
+      return <MovieDetailsTab movie={movie}/>;
     case Tab.REVIEWS:
       return <MovieReviewsTab movie={movie}/>;
   }
 
   return null;
+};
+
+export const validateText = (text) => {
+  return text.length >= Review.MIN_LENGTH && text.length <= Review.MAX_LENGTH;
 };

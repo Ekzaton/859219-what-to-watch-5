@@ -3,13 +3,24 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
 import {sendReview} from "../../store/api-actions";
+import {setDataSending} from "../../store/actions";
 
 import {getArray} from "../../utils";
 
 const RATING_STARS_COUNT = 5;
 
 const ReviewForm = (props) => {
-  const {id, ratingValue, textValue, onSubmit, onRatingChange, onTextChange} = props;
+  const {
+    id,
+    ratingValue,
+    textValue,
+    isValid,
+    onSubmit,
+    onRatingChange,
+    onTextChange,
+    isDataSending,
+    isSendingError
+  } = props;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -31,6 +42,7 @@ const ReviewForm = (props) => {
                 value={i + 1}
                 onChange={onRatingChange}
                 checked={ratingValue === i + 1}
+                disabled={isDataSending}
               />
               <label className="rating__label" htmlFor={`star-${i + 1}`}>
                 {`Rating ${i + 1}`}
@@ -46,23 +58,43 @@ const ReviewForm = (props) => {
           name="review-text"
           id="review-text"
           placeholder="Review text"
-          maxLength="400"
           value={textValue}
           onChange={onTextChange}
+          required
+          disabled={isDataSending}
         />
         <div className="add-review__submit">
-          <button className="add-review__btn" type="submit">
+          <button
+            className="add-review__btn"
+            type="submit"
+            disabled={!isValid || isDataSending}
+          >
             Post
           </button>
         </div>
 
       </div>
+
+      {
+        (!isValid && <p>50-400 characters</p>)
+          ||
+        (isDataSending && <p>Sending data. Please wait...</p>)
+          ||
+        (isSendingError && <p>Sending error! Please try again later...</p>)
+      }
+
     </form>
   );
 };
 
+const mapStateToProps = ({APP_DATA}) => ({
+  isDataSending: APP_DATA.isDataSending,
+  isSendingError: APP_DATA.isSendingError,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(id, {rating, comment}) {
+    dispatch(setDataSending(true));
     dispatch(sendReview(id, {rating, comment}));
   }
 });
@@ -71,10 +103,13 @@ ReviewForm.propTypes = {
   id: PropTypes.number.isRequired,
   ratingValue: PropTypes.number.isRequired,
   textValue: PropTypes.string.isRequired,
+  isValid: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onRatingChange: PropTypes.func.isRequired,
   onTextChange: PropTypes.func.isRequired,
+  isDataSending: PropTypes.bool.isRequired,
+  isSendingError: PropTypes.bool.isRequired,
 };
 
 export {ReviewForm};
-export default connect(null, mapDispatchToProps)(ReviewForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);

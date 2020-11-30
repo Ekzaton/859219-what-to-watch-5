@@ -9,15 +9,15 @@ const withMoviesList = (Component) => {
         activeMovieId: -1,
       };
 
-      this.handleMovieActivation = this.handleMovieActivation.bind(this);
-      this.handleMovieDeactivation = this.handleMovieDeactivation.bind(this);
+      this._handleMovieActivation = this._handleMovieActivation.bind(this);
+      this._handleMovieDeactivation = this._handleMovieDeactivation.bind(this);
     }
 
-    handleMovieActivation(id) {
+    _handleMovieActivation(id) {
       this.setState({activeMovieId: id});
     }
 
-    handleMovieDeactivation() {
+    _handleMovieDeactivation() {
       this.setState({activeMovieId: -1});
     }
 
@@ -25,8 +25,8 @@ const withMoviesList = (Component) => {
       return (
         <Component
           {...this.props}
-          onMovieEnter={this.handleMovieActivation}
-          onMovieLeave={this.handleMovieDeactivation}
+          onMovieEnter={this._handleMovieActivation}
+          onMovieLeave={this._handleMovieDeactivation}
           activeMovieId={this.state.activeMovieId}
         />
       );
