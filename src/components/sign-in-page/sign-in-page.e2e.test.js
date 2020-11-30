@@ -9,15 +9,12 @@ describe(`SignInPage e2e testing`, () => {
   configure({adapter: new Adapter()});
 
   it(`execute callback on submit`, () => {
-    const ref = React.createRef();
     const handleSubmit = jest.fn();
 
     const signInPageComponent = mount(
         <BrowserRouter>
           <Route>
             <SignInPage
-              emailRef={ref}
-              passwordRef={ref}
               onSubmit={handleSubmit}
             />
           </Route>
