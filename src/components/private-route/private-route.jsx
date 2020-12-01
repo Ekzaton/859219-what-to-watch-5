@@ -24,10 +24,6 @@ const PrivateRoute = (props) => {
   );
 };
 
-const mapStateToProps = ({APP_USER}) => ({
-  status: APP_USER.status,
-});
-
 PrivateRoute.propTypes = {
   path: PropTypes.string.isRequired,
   exact: PropTypes.bool.isRequired,
@@ -35,5 +31,9 @@ PrivateRoute.propTypes = {
   status: PropTypes.string.isRequired,
 };
 
+const mapStateToProps = ({APP_USER}) => ({
+  status: APP_USER.status,
+});
+
 export {PrivateRoute};
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps, null)(PrivateRoute);

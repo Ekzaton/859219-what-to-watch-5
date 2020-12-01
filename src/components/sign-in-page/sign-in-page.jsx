@@ -141,15 +141,15 @@ const SignInPage = (props) => {
   );
 };
 
+SignInPage.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(authData) {
     dispatch(login(authData));
   }
 });
-
-SignInPage.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
 
 export {SignInPage};
 export default connect(null, mapDispatchToProps)(SignInPage);

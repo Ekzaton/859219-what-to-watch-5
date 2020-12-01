@@ -87,18 +87,6 @@ const ReviewForm = (props) => {
   );
 };
 
-const mapStateToProps = ({APP_DATA}) => ({
-  isDataSending: APP_DATA.isDataSending,
-  isSendingError: APP_DATA.isSendingError,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onSubmit(id, {rating, comment}) {
-    dispatch(setDataSending(true));
-    dispatch(sendReview(id, {rating, comment}));
-  }
-});
-
 ReviewForm.propTypes = {
   id: PropTypes.number.isRequired,
   ratingValue: PropTypes.number.isRequired,
@@ -110,6 +98,18 @@ ReviewForm.propTypes = {
   isDataSending: PropTypes.bool.isRequired,
   isSendingError: PropTypes.bool.isRequired,
 };
+
+const mapStateToProps = ({APP_DATA}) => ({
+  isDataSending: APP_DATA.isDataSending,
+  isSendingError: APP_DATA.isSendingError,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit(id, {rating, comment}) {
+    dispatch(setDataSending(true));
+    dispatch(sendReview(id, {rating, comment}));
+  }
+});
 
 export {ReviewForm};
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);

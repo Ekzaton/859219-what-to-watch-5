@@ -73,14 +73,14 @@ const PromoMovie = (props) => {
   );
 };
 
+PromoMovie.propTypes = {
+  promoMovie: movieType,
+};
+
 const mapStateToProps = ({APP_DATA}) => {
   return {
     promoMovie: APP_DATA.promoMovie,
   };
-};
-
-PromoMovie.propTypes = {
-  promoMovie: movieType,
 };
 
 export {PromoMovie};

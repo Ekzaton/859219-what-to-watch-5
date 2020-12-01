@@ -37,6 +37,13 @@ const MyListButton = (props) => {
   );
 };
 
+MyListButton.propTypes = {
+  id: PropTypes.number.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  onButtonClick: PropTypes.func.isRequired,
+  status: PropTypes.string.isRequired,
+};
+
 const mapStateToProps = ({APP_USER}) => ({
   status: APP_USER.status,
 });
@@ -46,13 +53,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeFavorite(id, isFavorite));
   }
 });
-
-MyListButton.propTypes = {
-  id: PropTypes.number.isRequired,
-  isFavorite: PropTypes.bool.isRequired,
-  onButtonClick: PropTypes.func.isRequired,
-  status: PropTypes.string.isRequired,
-};
 
 export {MyListButton};
 export default connect(mapStateToProps, mapDispatchToProps)(MyListButton);

@@ -23,14 +23,14 @@ const ReviewButton = (props) => {
   );
 };
 
-const mapStateToProps = ({APP_USER}) => ({
-  status: APP_USER.status,
-});
-
 ReviewButton.propTypes = {
   id: PropTypes.number.isRequired,
   status: PropTypes.string.isRequired,
 };
+
+const mapStateToProps = ({APP_USER}) => ({
+  status: APP_USER.status,
+});
 
 export {ReviewButton};
 export default connect(mapStateToProps, null)(ReviewButton);
