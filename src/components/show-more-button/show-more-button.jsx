@@ -22,15 +22,15 @@ const ShowMoreButton = (props) => {
   );
 };
 
+ShowMoreButton.propTypes = {
+  onShowMoreClick: PropTypes.func.isRequired,
+};
+
 const mapDispatchToProps = (dispatch) => ({
   onShowMoreClick() {
     dispatch(showMoreMovies(DEFAULT_MOVIES_COUNT));
   }
 });
-
-ShowMoreButton.propTypes = {
-  onShowMoreClick: PropTypes.func.isRequired,
-};
 
 export {ShowMoreButton};
 export default connect(null, mapDispatchToProps)(ShowMoreButton);

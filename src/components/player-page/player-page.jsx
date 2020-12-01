@@ -99,16 +99,6 @@ const PlayerPage = (props) => {
   );
 };
 
-const mapStateToProps = ({APP_DATA}) => ({
-  movie: APP_DATA.activeMovie,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  getMovie(id) {
-    dispatch(fetchMovie(id));
-  }
-});
-
 PlayerPage.propTypes = {
   movie: movieType,
   progressRef: PropTypes.shape({current: PropTypes.instanceOf(Element)}).isRequired,
@@ -121,6 +111,16 @@ PlayerPage.propTypes = {
   onMouseDown: PropTypes.func.isRequired,
   getMovie: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = ({APP_DATA}) => ({
+  movie: APP_DATA.activeMovie,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getMovie(id) {
+    dispatch(fetchMovie(id));
+  }
+});
 
 export {PlayerPage};
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerPage);

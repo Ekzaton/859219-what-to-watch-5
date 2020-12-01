@@ -67,6 +67,11 @@ const MyListPage = (props) => {
   );
 };
 
+MyListPage.propTypes = {
+  favoriteMovies: PropTypes.arrayOf(movieType),
+  getFavoriteMovies: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = ({APP_DATA}) => ({
   favoriteMovies: APP_DATA.favoriteMovies,
 });
@@ -76,11 +81,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchFavoriteMovies());
   }
 });
-
-MyListPage.propTypes = {
-  favoriteMovies: PropTypes.arrayOf(movieType),
-  getFavoriteMovies: PropTypes.func.isRequired,
-};
 
 export {MyListPage};
 export default connect(mapStateToProps, mapDispatchToProps)(MyListPage);

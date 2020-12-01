@@ -33,6 +33,12 @@ const GenresList = (props) => {
   );
 };
 
+GenresList.propTypes = {
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired),
+  activeGenre: PropTypes.string.isRequired,
+  onGenreClick: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = ({APP_DATA, APP_STATE}) => {
   return {
     genres: getGenres({APP_DATA}),
@@ -45,12 +51,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(getActiveGenre(activeGenre));
   }
 });
-
-GenresList.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.string.isRequired),
-  activeGenre: PropTypes.string.isRequired,
-  onGenreClick: PropTypes.func.isRequired,
-};
 
 export {GenresList};
 export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

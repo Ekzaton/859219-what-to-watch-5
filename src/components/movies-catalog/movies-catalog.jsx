@@ -35,16 +35,16 @@ const MoviesCatalog = (props) => {
   );
 };
 
+MoviesCatalog.propTypes = {
+  movies: PropTypes.arrayOf(movieType),
+  shownMoviesCount: PropTypes.number.isRequired,
+};
+
 const mapStateToProps = ({APP_DATA, APP_STATE}) => {
   return {
     movies: getMoviesByGenre({APP_DATA, APP_STATE}),
     shownMoviesCount: APP_STATE.shownMoviesCount,
   };
-};
-
-MoviesCatalog.propTypes = {
-  movies: PropTypes.arrayOf(movieType),
-  shownMoviesCount: PropTypes.number.isRequired,
 };
 
 export {MoviesCatalog};

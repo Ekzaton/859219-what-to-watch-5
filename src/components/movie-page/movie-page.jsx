@@ -134,6 +134,12 @@ const MoviePage = (props) => {
   );
 };
 
+MoviePage.propTypes = {
+  movie: movieType,
+  getMovie: PropTypes.func.isRequired,
+  similarMovies: PropTypes.arrayOf(movieType),
+};
+
 const mapStateToProps = ({APP_DATA}) => ({
   movie: APP_DATA.activeMovie,
   similarMovies: getSimilarMovies({APP_DATA}),
@@ -144,12 +150,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchMovie(id));
   }
 });
-
-MoviePage.propTypes = {
-  movie: movieType,
-  getMovie: PropTypes.func.isRequired,
-  similarMovies: PropTypes.arrayOf(movieType),
-};
 
 export {MoviePage};
 export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
